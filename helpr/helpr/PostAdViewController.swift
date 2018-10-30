@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  PostAdViewController.swift
 //  helpr
 //
 //  Created by ryan.konynenbelt on 2018-10-18.
@@ -8,13 +8,19 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class PostAdViewController: UIViewController {
 
+    @IBOutlet weak var bCancel: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
     }
 
-
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+            dismiss(animated: true, completion: nil)
+    }
 }
 

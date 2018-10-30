@@ -7,11 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4576E8B42188CA0000471AB4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576E8B32188CA0000471AB4 /* SignInViewController.swift */; };
+		4576E8B62188D57F00471AB4 /* LetUsKnowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576E8B52188D57F00471AB4 /* LetUsKnowViewController.swift */; };
+		4576E8B82188D84100471AB4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576E8B72188D84100471AB4 /* SignUpViewController.swift */; };
+		4576E8BA2188EE6500471AB4 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576E8B92188EE6500471AB4 /* HomeTableViewController.swift */; };
+		4576E8BC2188EEAB00471AB4 /* JobsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576E8BB2188EEAB00471AB4 /* JobsTableViewController.swift */; };
+		4576E8BE2188EEBD00471AB4 /* MyPostsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576E8BD2188EEBD00471AB4 /* MyPostsTableViewController.swift */; };
+		4576E8C02188F22200471AB4 /* MyTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576E8BF2188F22200471AB4 /* MyTabBarViewController.swift */; };
+		4576E8C22189003700471AB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4576E8C12189003600471AB4 /* Assets.xcassets */; };
+		4576E8C421890A7C00471AB4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576E8C321890A7C00471AB4 /* Post.swift */; };
 		F783AB0221791E5B0010F034 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783AB0121791E5B0010F034 /* AppDelegate.swift */; };
-		F783AB0421791E5B0010F034 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783AB0321791E5B0010F034 /* FirstViewController.swift */; };
-		F783AB0621791E5B0010F034 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783AB0521791E5B0010F034 /* SecondViewController.swift */; };
+		F783AB0421791E5B0010F034 /* PostAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783AB0321791E5B0010F034 /* PostAdViewController.swift */; };
+		F783AB0621791E5B0010F034 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783AB0521791E5B0010F034 /* AccountViewController.swift */; };
 		F783AB0921791E5B0010F034 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F783AB0721791E5B0010F034 /* Main.storyboard */; };
-		F783AB0B21791E5C0010F034 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F783AB0A21791E5C0010F034 /* Assets.xcassets */; };
 		F783AB0E21791E5C0010F034 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F783AB0C21791E5C0010F034 /* LaunchScreen.storyboard */; };
 		F783AB1921791E5C0010F034 /* helprTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783AB1821791E5C0010F034 /* helprTests.swift */; };
 		F783AB2421791E5C0010F034 /* helprUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783AB2321791E5C0010F034 /* helprUITests.swift */; };
@@ -35,12 +43,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4576E8B32188CA0000471AB4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		4576E8B52188D57F00471AB4 /* LetUsKnowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetUsKnowViewController.swift; sourceTree = "<group>"; };
+		4576E8B72188D84100471AB4 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		4576E8B92188EE6500471AB4 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		4576E8BB2188EEAB00471AB4 /* JobsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewController.swift; sourceTree = "<group>"; };
+		4576E8BD2188EEBD00471AB4 /* MyPostsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsTableViewController.swift; sourceTree = "<group>"; };
+		4576E8BF2188F22200471AB4 /* MyTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarViewController.swift; sourceTree = "<group>"; };
+		4576E8C12189003600471AB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4576E8C321890A7C00471AB4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F783AAFE21791E5B0010F034 /* helpr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = helpr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F783AB0121791E5B0010F034 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F783AB0321791E5B0010F034 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		F783AB0521791E5B0010F034 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		F783AB0321791E5B0010F034 /* PostAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAdViewController.swift; sourceTree = "<group>"; };
+		F783AB0521791E5B0010F034 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		F783AB0821791E5B0010F034 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F783AB0A21791E5C0010F034 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F783AB0D21791E5C0010F034 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F783AB0F21791E5C0010F034 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F783AB1421791E5C0010F034 /* helprTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = helprTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,13 +115,21 @@
 		F783AB0021791E5B0010F034 /* helpr */ = {
 			isa = PBXGroup;
 			children = (
+				4576E8C12189003600471AB4 /* Assets.xcassets */,
 				F783AB0121791E5B0010F034 /* AppDelegate.swift */,
-				F783AB0321791E5B0010F034 /* FirstViewController.swift */,
-				F783AB0521791E5B0010F034 /* SecondViewController.swift */,
+				4576E8B92188EE6500471AB4 /* HomeTableViewController.swift */,
+				4576E8BB2188EEAB00471AB4 /* JobsTableViewController.swift */,
+				4576E8BD2188EEBD00471AB4 /* MyPostsTableViewController.swift */,
+				F783AB0321791E5B0010F034 /* PostAdViewController.swift */,
+				F783AB0521791E5B0010F034 /* AccountViewController.swift */,
+				4576E8B52188D57F00471AB4 /* LetUsKnowViewController.swift */,
+				4576E8B32188CA0000471AB4 /* SignInViewController.swift */,
+				4576E8B72188D84100471AB4 /* SignUpViewController.swift */,
 				F783AB0721791E5B0010F034 /* Main.storyboard */,
-				F783AB0A21791E5C0010F034 /* Assets.xcassets */,
+				4576E8BF2188F22200471AB4 /* MyTabBarViewController.swift */,
 				F783AB0C21791E5C0010F034 /* LaunchScreen.storyboard */,
 				F783AB0F21791E5C0010F034 /* Info.plist */,
+				4576E8C321890A7C00471AB4 /* Post.swift */,
 			);
 			path = helpr;
 			sourceTree = "<group>";
@@ -233,7 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F783AB0E21791E5C0010F034 /* LaunchScreen.storyboard in Resources */,
-				F783AB0B21791E5C0010F034 /* Assets.xcassets in Resources */,
+				4576E8C22189003700471AB4 /* Assets.xcassets in Resources */,
 				F783AB0921791E5B0010F034 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,9 +283,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F783AB0621791E5B0010F034 /* SecondViewController.swift in Sources */,
+				4576E8B82188D84100471AB4 /* SignUpViewController.swift in Sources */,
+				4576E8C421890A7C00471AB4 /* Post.swift in Sources */,
+				4576E8BC2188EEAB00471AB4 /* JobsTableViewController.swift in Sources */,
+				4576E8BE2188EEBD00471AB4 /* MyPostsTableViewController.swift in Sources */,
+				4576E8B62188D57F00471AB4 /* LetUsKnowViewController.swift in Sources */,
+				F783AB0621791E5B0010F034 /* AccountViewController.swift in Sources */,
 				F783AB0221791E5B0010F034 /* AppDelegate.swift in Sources */,
-				F783AB0421791E5B0010F034 /* FirstViewController.swift in Sources */,
+				4576E8BA2188EE6500471AB4 /* HomeTableViewController.swift in Sources */,
+				F783AB0421791E5B0010F034 /* PostAdViewController.swift in Sources */,
+				4576E8C02188F22200471AB4 /* MyTabBarViewController.swift in Sources */,
+				4576E8B42188CA0000471AB4 /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
