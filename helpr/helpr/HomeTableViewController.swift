@@ -15,7 +15,7 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
     
     var jobs = [Job]()
     var filteredJobs = [Job]()
-    var prevCell = HomeTableViewCell()
+    var isPurple = Bool()
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -24,7 +24,7 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
         
         loadSampleJobs()
         filteredJobs = jobs
-        prevCell = HomeTableViewCell()
+        isPurple = false
         
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
@@ -90,19 +90,19 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
         cell.jobDistance.text = String(job.distance) + " km"
         
         if (indexPath.row % 2 == 0) {
-            if (!prevCell.isPurple){
+            if (!isPurple){
                 cell.backgroundColor = UIColor(red: 0.819, green: 0.698, blue: 1, alpha: 1)
                 cell.jobCategory.textColor = UIColor.white
                 cell.jobTitle.textColor = UIColor.white
                 cell.jobDistance.textColor = UIColor.white
-                prevCell.isPurple = true
+                isPurple = true
             }
         } else {
             cell.backgroundColor = UIColor.white
             cell.jobCategory.textColor = UIColor(named: "RoyalPurple")
             cell.jobTitle.textColor = UIColor(named: "RoyalPurple")
             cell.jobDistance.textColor = UIColor(named: "RoyalPurple")
-            prevCell.isPurple = false
+            isPurple = false
         }
         
         return cell

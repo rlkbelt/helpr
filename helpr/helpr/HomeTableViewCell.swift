@@ -14,10 +14,6 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var jobCategory: UILabel!
     @IBOutlet weak var jobTitle: UILabel!
     @IBOutlet weak var jobDistance: UILabel!
-
-    //Mark: Properties
-    
-    var isPurple: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()

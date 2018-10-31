@@ -8,19 +8,107 @@
 
 import UIKit
 
-class PostAdViewController: UIViewController {
+class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    @IBOutlet weak var bCancel: UIBarButtonItem!
+    @IBOutlet weak var tvDescription: UITextView!
+    @IBOutlet weak var tfCategory: UITextField!
+    @IBOutlet weak var tfTitle: UITextField!
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var tfTags: UITextField!
+    @IBOutlet weak var photoView: UIImageView!
+    
+    var post: Post?
+    let categories = ["Unselected","Cleaning","Technology","Tutoring"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
+        //tfCategory.inputView = pickerView
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func categoryClick(_ sender: UITextField) {
+        pickerView.isHidden = false
+        tfCategory.resignFirstResponder()
+        return
+    }
+    @IBAction func categoryDoneEdit(_ sender: UITextField) {
+        pickerView.isHidden = true
+        sender.resignFirstResponder()
+        return
+    }
+    
+    @IBAction func cancelClick(_ sender: UIBarButtonItem) {
+        tabBarController?.selectedIndex = 0
         
     }
-
-    @IBAction func cancel(_ sender: UIBarButtonItem) {
-            dismiss(animated: true, completion: nil)
+    
+    @IBAction func save(_ sender: UIBarButtonItem) {
+        let category = tfCategory.text
+        let title = tfTitle.text ?? "Untitled Post"
+        let description = tvDescription.text ?? "No description provided"
+        let tags = tfTags.text ?? ""
+        let picture = photoView.image
+        
+        // Set the meal to be passed to MealTableViewController after the unwind segue.
+        if (category?.trimmingCharacters(in: .whitespaces) != "") && (title.trimmingCharacters(in: .whitespaces) != "") {
+            post = Post(category: category!, title: title, description: description, tags: tags, picture: picture)
+            tabBarController?.selectedIndex = 0
+        }
+        else {
+            let alert = UIAlertController(title: "Insufficient Info Provided", message: "Please provide at minimum a category and title for your post to help find suitable Helprs for your needs.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    @IBAction func fieldDoneEditing(_ sender: Any) {
+        (sender as AnyObject).resignFirstResponder()
+    }
+    //MARK: Delegate Methods
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categories.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categories[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        if (categories[row] != "Unselected") {
+        tfCategory.text = categories[row]
+        }
+        tfCategory.resignFirstResponder()
+        pickerView.isHidden = true;
+        return
+    }
+    
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+        var pickerLabel = view as! UILabel!
+        if view == nil {  //if no label there yet
+            pickerLabel = UILabel()
+            //color the label's background
+            let hue = CGFloat(row)/CGFloat(categories.count)
+            pickerLabel!.backgroundColor = UIColor(hue: hue, saturation: 1.0, brightness: 1.0, alpha: 1.0)
+        }
+        let titleData = categories[row]
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 26.0)!,NSAttributedString.Key.foregroundColor:UIColor(named: "RoyalPurple")])
+        pickerLabel!.attributedText = myTitle
+        pickerLabel!.textAlignment = .center
+        
+        return pickerLabel!
     }
 }
 

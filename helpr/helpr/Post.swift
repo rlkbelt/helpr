@@ -16,12 +16,17 @@ class Post {
     var category: String
     var title: String
     var description: String
-    var tag: String
-    var pictures = [UIImage?]()
+    var tags: String
+    var picture: UIImage?
     
     //MARK: Initialization
     
-    init?(category: String, title: String, description: String, tag: String, pictures: [UIImage]) {
+    init?(category: String, title: String, description: String, tags: String, picture: UIImage?) {
+        
+        // The title must not be empty
+        guard !category.isEmpty else {
+            return nil
+        }
         
         // The title must not be empty
         guard !title.isEmpty else {
@@ -32,8 +37,8 @@ class Post {
         self.category = category
         self.title = title
         self.description = description
-        self.tag = tag
-        self.pictures = pictures
+        self.tags = tags
+        self.picture = picture
         
     }
 }
