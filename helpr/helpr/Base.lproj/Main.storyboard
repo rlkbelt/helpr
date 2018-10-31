@@ -582,6 +582,12 @@
         <namedColor name="RoyalPurple">
             <color red="0.40000000596046448" green="0.10199999809265137" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="RoyalPurple">
+            <color red="0.40000000596046448" green="0.10199999809265137" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="RoyalPurple">
+            <color red="0.40000000596046448" green="0.10199999809265137" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
     <color key="tintColor" name="RoyalPurple"/>
 </document>
