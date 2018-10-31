@@ -13,7 +13,7 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
     
     //MARK: Properties
     
-    var jobs = [Job]()
+    static var jobs = [Job]()
     var filteredJobs = [Job]()
     var isPurple = Bool()
     
@@ -21,9 +21,10 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList(notification:)), name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
         
         loadSampleJobs()
-        filteredJobs = jobs
+        filteredJobs = HomeTableViewController.jobs
         isPurple = false
         
         searchController.searchResultsUpdater = self
@@ -35,15 +36,20 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
         definesPresentationContext = true
     }
     
+    @objc func loadList(notification: NSNotification){
+        //load data here
+        self.tableView.reloadData()
+    }
+    
     // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-            filteredJobs = jobs.filter { job in
+            filteredJobs = HomeTableViewController.jobs.filter { job in
                 return job.category.lowercased().contains(searchText.lowercased())
             }
             
         } else {
-            filteredJobs = jobs
+            filteredJobs = HomeTableViewController.jobs
         }
         tableView.reloadData()
     }
@@ -60,7 +66,7 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
         if isFiltering() {
             return filteredJobs.count
         }
-        return jobs.count
+        return HomeTableViewController.jobs.count
     }
 
     
@@ -77,7 +83,7 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
         if isFiltering() {
             job = filteredJobs[indexPath.row]
         } else {
-            job = jobs[indexPath.row]
+            job = HomeTableViewController.jobs[indexPath.row]
         }
         
         cell.layer.cornerRadius = 15
@@ -160,7 +166,7 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
             fatalError("Unable to instantiate job4")
         }
         
-        jobs += [job1,job2,job3,job4,job1,job2,job3,job4,job1]
+        HomeTableViewController.jobs += [job1,job2,job3,job4,job1,job2,job3,job4,job1]
     }
 
     
@@ -190,7 +196,7 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
             if isFiltering() {
                 selectedJob = filteredJobs[indexPath.row]
             } else {
-                selectedJob = jobs[indexPath.row]
+                selectedJob = HomeTableViewController.jobs[indexPath.row]
             }
             
             jobViewController.job = selectedJob

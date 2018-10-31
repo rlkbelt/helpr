@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -16,7 +17,10 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var tfTags: UITextField!
     @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var saveBtn: UIBarButtonItem!
     
+    
+    var job: Job?
     var post: Post?
     let categories = ["Unselected","Cleaning","Technology","Tutoring"]
     
@@ -44,22 +48,25 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         sender.resignFirstResponder()
         return
     }
-    
-    @IBAction func cancelClick(_ sender: UIBarButtonItem) {
+
+    @IBAction func exitPostAd(_ sender: UIBarButtonItem) {
         tabBarController?.selectedIndex = 0
-        
     }
-    
-    @IBAction func save(_ sender: UIBarButtonItem) {
+    @IBAction func finishAddingPost(_ sender: UIBarButtonItem) {
         let category = tfCategory.text
         let title = tfTitle.text ?? "Untitled Post"
         let description = tvDescription.text ?? "No description provided"
         let tags = tfTags.text ?? ""
         let picture = photoView.image
         
-        // Set the meal to be passed to MealTableViewController after the unwind segue.
+        // Set the job to be passed to HomeTableViewController after the unwind segue.
         if (category?.trimmingCharacters(in: .whitespaces) != "") && (title.trimmingCharacters(in: .whitespaces) != "") {
-            post = Post(category: category!, title: title, description: description, tags: tags, picture: picture)
+            job = Job(title: title, category: category!, description: description, pictures: [picture], tags: [], distance: 10, postalCode: "WH0CR5")
+            HomeTableViewController.jobs.append(job!)
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
+            
+            //post = Post(category: category!, title: title, description: description, tags: tags, picture: picture)
             tabBarController?.selectedIndex = 0
         }
         else {
@@ -68,6 +75,35 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        super .prepare(for: segue, sender: sender)
+        
+        guard let button = sender as? UIBarButtonItem, button === saveBtn else {
+            os_log("save button not pressed. Canceling", log: OSLog.default, type: .debug)
+            return
+        }
+        
+        let category = tfCategory.text
+        let title = tfTitle.text ?? "Untitled Post"
+        let description = tvDescription.text ?? "No description provided"
+        let tags = tfTags.text ?? ""
+        let picture = photoView.image
+        
+        // Set the job to be passed to HomeTableViewController after the unwind segue.
+        if (category?.trimmingCharacters(in: .whitespaces) != "") && (title.trimmingCharacters(in: .whitespaces) != "") {
+            job = Job(title: title, category: category!, description: description, pictures: [picture], tags: [], distance: 10, postalCode: "WH0CR5")
+            //post = Post(category: category!, title: title, description: description, tags: tags, picture: picture)
+            tabBarController?.selectedIndex = 0
+        }
+        else {
+            let alert = UIAlertController(title: "Insufficient Info Provided", message: "Please provide at minimum a category and title for your post to help find suitable Helprs for your needs.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func fieldDoneEditing(_ sender: Any) {
         (sender as AnyObject).resignFirstResponder()
     }
