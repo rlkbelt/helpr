@@ -76,34 +76,6 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        super .prepare(for: segue, sender: sender)
-        
-        guard let button = sender as? UIBarButtonItem, button === saveBtn else {
-            os_log("save button not pressed. Canceling", log: OSLog.default, type: .debug)
-            return
-        }
-        
-        let category = tfCategory.text
-        let title = tfTitle.text ?? "Untitled Post"
-        let description = tvDescription.text ?? "No description provided"
-        let tags = tfTags.text ?? ""
-        let picture = photoView.image
-        
-        // Set the job to be passed to HomeTableViewController after the unwind segue.
-        if (category?.trimmingCharacters(in: .whitespaces) != "") && (title.trimmingCharacters(in: .whitespaces) != "") {
-            job = Job(title: title, category: category!, description: description, pictures: [picture], tags: [], distance: 10, postalCode: "WH0CR5")
-            //post = Post(category: category!, title: title, description: description, tags: tags, picture: picture)
-            tabBarController?.selectedIndex = 0
-        }
-        else {
-            let alert = UIAlertController(title: "Insufficient Info Provided", message: "Please provide at minimum a category and title for your post to help find suitable Helprs for your needs.", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
     @IBAction func fieldDoneEditing(_ sender: Any) {
         (sender as AnyObject).resignFirstResponder()
     }
