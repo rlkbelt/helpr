@@ -26,9 +26,7 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         pickerView.delegate = self
         pickerView.dataSource = self
         
-        if (tfCategory.resignFirstResponder() == true) {
-            pickerView.isHidden = true
-        }
+        //tfCategory.inputView = pickerView
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,14 +51,22 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     @IBAction func save(_ sender: UIBarButtonItem) {
-        let category = tfCategory.text ?? ""
-        let title = tfTitle.text ?? ""
-        let description = tvDescription.text ?? ""
+        let category = tfCategory.text
+        let title = tfTitle.text ?? "Untitled Post"
+        let description = tvDescription.text ?? "No description provided"
         let tags = tfTags.text ?? ""
         let picture = photoView.image
         
         // Set the meal to be passed to MealTableViewController after the unwind segue.
-        post = Post(category: category, title: title, description: description, tags: tags, picture: picture)
+        if (category?.trimmingCharacters(in: .whitespaces) != "") && (title.trimmingCharacters(in: .whitespaces) != "") {
+            post = Post(category: category!, title: title, description: description, tags: tags, picture: picture)
+            tabBarController?.selectedIndex = 0
+        }
+        else {
+            let alert = UIAlertController(title: "Insufficient Info Provided", message: "Please provide at minimum a category and title for your post to help find suitable Helprs for your needs.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     @IBAction func fieldDoneEditing(_ sender: Any) {
         (sender as AnyObject).resignFirstResponder()
