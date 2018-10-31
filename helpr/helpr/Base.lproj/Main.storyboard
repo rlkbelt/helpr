@@ -68,40 +68,138 @@
             </objects>
             <point key="canvasLocation" x="-1030" y="743"/>
         </scene>
-        <!--Create a New Post-->
-        <scene sceneID="EuD-ud-JQi">
+        <!--Post Ad View Controller-->
+        <scene sceneID="vNz-JH-Ofi">
             <objects>
-                <viewController id="Ioq-Se-H1P" customClass="PostAdViewController" customModule="helpr" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8Qt-Mt-TUU">
+                <viewController id="yen-Qu-Dfn" customClass="PostAdViewController" customModule="helpr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8yf-u0-OOn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PM0-oV-eMI">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fIh-Lg-t84">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" name="RoyalPurple"/>
+                                </textAttributes>
                                 <items>
-                                    <navigationItem title="Create a New Post" id="jCg-nO-YI8">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Hpl-XM-J49">
+                                    <navigationItem title="Create a New Post" id="z0n-Ab-qLu">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6p8-kb-cdy">
                                             <connections>
-                                                <action selector="cancel:" destination="Ioq-Se-H1P" id="Ty5-Kt-z1r"/>
+                                                <action selector="cancelClick:" destination="yen-Qu-Dfn" id="idn-E5-xzH"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="rIX-LC-3D8">
+                                            <connections>
+                                                <action selector="save:" destination="yen-Qu-Dfn" id="hZZ-06-49P"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="No description entered" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c03-iC-w4H">
+                                <rect key="frame" x="31" y="326" width="270" height="133"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcw-nN-PPl">
+                                <rect key="frame" x="31" y="133" width="71" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="RoyalPurple"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxw-JL-TsG">
+                                <rect key="frame" x="31" y="297" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="RoyalPurple"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxr-nY-6ES">
+                                <rect key="frame" x="31" y="212" width="34" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="RoyalPurple"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pictures" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sh4-UH-cJO">
+                                <rect key="frame" x="31" y="559" width="63" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="RoyalPurple"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCW-wr-TBN">
+                                <rect key="frame" x="31" y="478" width="37" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="RoyalPurple"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="No tags selected" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RZy-qa-7t3">
+                                <rect key="frame" x="31" y="507" width="270" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="fieldDoneEditing:" destination="yen-Qu-Dfn" eventType="editingDidEndOnExit" id="Eky-Uf-1b7"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="No title entered" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qhk-A5-Rm5">
+                                <rect key="frame" x="31" y="241" width="270" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="fieldDoneEditing:" destination="yen-Qu-Dfn" eventType="touchUpOutside" id="XfH-eG-UJy"/>
+                                    <action selector="fieldDoneEditing:" destination="yen-Qu-Dfn" eventType="editingDidEndOnExit" id="hTu-em-Msf"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="No category entered" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MSz-5Y-cbX">
+                                <rect key="frame" x="31" y="162" width="270" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="categoryClick:" destination="yen-Qu-Dfn" eventType="editingDidBegin" id="09x-H8-oJR"/>
+                                    <action selector="categoryDoneEdit:" destination="yen-Qu-Dfn" eventType="editingDidEndOnExit" id="yjH-TM-M11"/>
+                                </connections>
+                            </textField>
+                            <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IIe-Xd-c5a">
+                                <rect key="frame" x="0.0" y="528" width="375" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rqa-E6-MXB">
+                                <rect key="frame" x="31" y="589" width="125" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="hDS-HR-F7S"/>
+                        <viewLayoutGuide key="safeArea" id="4wM-bA-AuS"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="post" id="dIZ-vV-pcH"/>
-                    <navigationItem key="navigationItem" title="Create a New Post" id="r4S-uW-etl"/>
+                    <tabBarItem key="tabBarItem" title="" image="post" id="0Eu-Xs-sIJ"/>
                     <connections>
-                        <outlet property="bCancel" destination="Hpl-XM-J49" id="DkY-Oh-zNq"/>
+                        <outlet property="photoView" destination="Rqa-E6-MXB" id="05G-rV-RIw"/>
+                        <outlet property="pickerView" destination="IIe-Xd-c5a" id="Aad-tO-dkf"/>
+                        <outlet property="tfCategory" destination="MSz-5Y-cbX" id="9ed-5q-bWc"/>
+                        <outlet property="tfTags" destination="RZy-qa-7t3" id="LzC-Ku-lYk"/>
+                        <outlet property="tfTitle" destination="Qhk-A5-Rm5" id="QTX-vM-UPk"/>
+                        <outlet property="tvDescription" destination="c03-iC-w4H" id="lcQ-6W-kbI"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3kV-xK-hIF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hfp-Dl-cWh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-191" y="743"/>
+            <point key="canvasLocation" x="-191.19999999999999" y="742.61083743842369"/>
         </scene>
         <!--My Posts-->
         <scene sceneID="RSY-1B-I24">
@@ -353,7 +451,7 @@
                     <connections>
                         <segue destination="CRG-QK-wGU" kind="relationship" relationship="viewControllers" id="v9B-TT-TkL"/>
                         <segue destination="Yes-Bf-das" kind="relationship" relationship="viewControllers" id="Fkf-oy-qv1"/>
-                        <segue destination="Ioq-Se-H1P" kind="relationship" relationship="viewControllers" id="4bD-p5-MQR"/>
+                        <segue destination="yen-Qu-Dfn" kind="relationship" relationship="viewControllers" id="49X-Id-G8N"/>
                         <segue destination="eTq-SA-Pnq" kind="relationship" relationship="viewControllers" id="fnV-hl-W4e"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                     </connections>
