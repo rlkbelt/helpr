@@ -24,6 +24,11 @@ class Post {
     init?(category: String, title: String, description: String, tags: String, picture: UIImage?) {
         
         // The title must not be empty
+        guard !category.isEmpty else {
+            return nil
+        }
+        
+        // The title must not be empty
         guard !title.isEmpty else {
             return nil
         }
