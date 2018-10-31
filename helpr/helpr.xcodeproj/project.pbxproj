@@ -16,6 +16,9 @@
 		4576E8C02188F22200471AB4 /* MyTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576E8BF2188F22200471AB4 /* MyTabBarViewController.swift */; };
 		4576E8C22189003700471AB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4576E8C12189003600471AB4 /* Assets.xcassets */; };
 		4576E8C421890A7C00471AB4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576E8C321890A7C00471AB4 /* Post.swift */; };
+		CA12A381218935E50063ED97 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA12A380218935E50063ED97 /* Job.swift */; };
+		CA12A38321893AFB0063ED97 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA12A38221893AFB0063ED97 /* HomeTableViewCell.swift */; };
+		CA12A385218962C50063ED97 /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA12A384218962C50063ED97 /* JobDetailsViewController.swift */; };
 		F783AB0221791E5B0010F034 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783AB0121791E5B0010F034 /* AppDelegate.swift */; };
 		F783AB0421791E5B0010F034 /* PostAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783AB0321791E5B0010F034 /* PostAdViewController.swift */; };
 		F783AB0621791E5B0010F034 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783AB0521791E5B0010F034 /* AccountViewController.swift */; };
@@ -52,6 +55,9 @@
 		4576E8BF2188F22200471AB4 /* MyTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarViewController.swift; sourceTree = "<group>"; };
 		4576E8C12189003600471AB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4576E8C321890A7C00471AB4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		CA12A380218935E50063ED97 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		CA12A38221893AFB0063ED97 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		CA12A384218962C50063ED97 /* JobDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
 		F783AAFE21791E5B0010F034 /* helpr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = helpr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F783AB0121791E5B0010F034 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F783AB0321791E5B0010F034 /* PostAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAdViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +132,9 @@
 				4576E8B32188CA0000471AB4 /* SignInViewController.swift */,
 				4576E8B72188D84100471AB4 /* SignUpViewController.swift */,
 				F783AB0721791E5B0010F034 /* Main.storyboard */,
+				CA12A384218962C50063ED97 /* JobDetailsViewController.swift */,
+				CA12A38221893AFB0063ED97 /* HomeTableViewCell.swift */,
+				CA12A380218935E50063ED97 /* Job.swift */,
 				4576E8BF2188F22200471AB4 /* MyTabBarViewController.swift */,
 				F783AB0C21791E5C0010F034 /* LaunchScreen.storyboard */,
 				F783AB0F21791E5C0010F034 /* Info.plist */,
@@ -285,11 +294,14 @@
 			files = (
 				4576E8B82188D84100471AB4 /* SignUpViewController.swift in Sources */,
 				4576E8C421890A7C00471AB4 /* Post.swift in Sources */,
+				CA12A38321893AFB0063ED97 /* HomeTableViewCell.swift in Sources */,
+				CA12A385218962C50063ED97 /* JobDetailsViewController.swift in Sources */,
 				4576E8BC2188EEAB00471AB4 /* JobsTableViewController.swift in Sources */,
 				4576E8BE2188EEBD00471AB4 /* MyPostsTableViewController.swift in Sources */,
 				4576E8B62188D57F00471AB4 /* LetUsKnowViewController.swift in Sources */,
 				F783AB0621791E5B0010F034 /* AccountViewController.swift in Sources */,
 				F783AB0221791E5B0010F034 /* AppDelegate.swift in Sources */,
+				CA12A381218935E50063ED97 /* Job.swift in Sources */,
 				4576E8BA2188EE6500471AB4 /* HomeTableViewController.swift in Sources */,
 				F783AB0421791E5B0010F034 /* PostAdViewController.swift in Sources */,
 				4576E8C02188F22200471AB4 /* MyTabBarViewController.swift in Sources */,

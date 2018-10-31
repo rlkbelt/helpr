@@ -17,7 +17,7 @@ class Post {
     var title: String
     var description: String
     var tag: String
-    var pictures: [UIImage]
+    var pictures = [UIImage?]()
     
     //MARK: Initialization
     
