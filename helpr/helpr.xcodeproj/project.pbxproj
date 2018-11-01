@@ -16,6 +16,8 @@
 		4576E8C02188F22200471AB4 /* MyTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576E8BF2188F22200471AB4 /* MyTabBarViewController.swift */; };
 		4576E8C22189003700471AB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4576E8C12189003600471AB4 /* Assets.xcassets */; };
 		4576E8C421890A7C00471AB4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576E8C321890A7C00471AB4 /* Post.swift */; };
+		45AE32B5218A59CC005F2A8B /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE32B4218A59CC005F2A8B /* KeyboardLayoutConstraint.swift */; };
+		45AE32B7218A617B005F2A8B /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE32B6218A617B005F2A8B /* ImageCollectionViewCell.swift */; };
 		CA12A381218935E50063ED97 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA12A380218935E50063ED97 /* Job.swift */; };
 		CA12A38321893AFB0063ED97 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA12A38221893AFB0063ED97 /* HomeTableViewCell.swift */; };
 		CA12A385218962C50063ED97 /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA12A384218962C50063ED97 /* JobDetailsViewController.swift */; };
@@ -55,6 +57,8 @@
 		4576E8BF2188F22200471AB4 /* MyTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarViewController.swift; sourceTree = "<group>"; };
 		4576E8C12189003600471AB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4576E8C321890A7C00471AB4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		45AE32B4218A59CC005F2A8B /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
+		45AE32B6218A617B005F2A8B /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		CA12A380218935E50063ED97 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		CA12A38221893AFB0063ED97 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		CA12A384218962C50063ED97 /* JobDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 		F783AAF521791E5A0010F034 = {
 			isa = PBXGroup;
 			children = (
+				45AE32B4218A59CC005F2A8B /* KeyboardLayoutConstraint.swift */,
+				45AE32B6218A617B005F2A8B /* ImageCollectionViewCell.swift */,
 				F783AB0021791E5B0010F034 /* helpr */,
 				F783AB1721791E5C0010F034 /* helprTests */,
 				F783AB2221791E5C0010F034 /* helprUITests */,
@@ -294,12 +300,14 @@
 			files = (
 				4576E8B82188D84100471AB4 /* SignUpViewController.swift in Sources */,
 				4576E8C421890A7C00471AB4 /* Post.swift in Sources */,
+				45AE32B7218A617B005F2A8B /* ImageCollectionViewCell.swift in Sources */,
 				CA12A38321893AFB0063ED97 /* HomeTableViewCell.swift in Sources */,
 				CA12A385218962C50063ED97 /* JobDetailsViewController.swift in Sources */,
 				4576E8BC2188EEAB00471AB4 /* JobsTableViewController.swift in Sources */,
 				4576E8BE2188EEBD00471AB4 /* MyPostsTableViewController.swift in Sources */,
 				4576E8B62188D57F00471AB4 /* LetUsKnowViewController.swift in Sources */,
 				F783AB0621791E5B0010F034 /* AccountViewController.swift in Sources */,
+				45AE32B5218A59CC005F2A8B /* KeyboardLayoutConstraint.swift in Sources */,
 				F783AB0221791E5B0010F034 /* AppDelegate.swift in Sources */,
 				CA12A381218935E50063ED97 /* Job.swift in Sources */,
 				4576E8BA2188EE6500471AB4 /* HomeTableViewController.swift in Sources */,
