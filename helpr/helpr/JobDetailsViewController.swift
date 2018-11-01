@@ -11,7 +11,7 @@ import UIKit
 class JobDetailsViewController: UIViewController {
     
     var job : Job?
-    var bidAmmount : Int = 0
+    var bidAmmount : Float = 0
     var bidInput : String = ""
 
     @IBOutlet weak var jobTitle: UILabel!
@@ -45,6 +45,7 @@ class JobDetailsViewController: UIViewController {
         
         alert.addTextField(configurationHandler: { textField in
             textField.placeholder = "Enter your bid ammount here"
+            textField.keyboardType = UIKeyboardType.decimalPad
         })
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
@@ -52,7 +53,7 @@ class JobDetailsViewController: UIViewController {
             if let bid = alert.textFields?.first?.text {
                 self.bidInput = bid
             }
-            if let bidAmmount = Int(self.bidInput) {
+            if let bidAmmount = Float(self.bidInput) {
                 let success = UIAlertController(title: "Bid of $" + String(bidAmmount) + " placed\n\n Please wait for the poster to respond", message: nil, preferredStyle: .alert)
                 success.addAction(UIAlertAction(title: "View Bid", style: .default))
                 success.addAction(UIAlertAction(title: "OK", style: .default))

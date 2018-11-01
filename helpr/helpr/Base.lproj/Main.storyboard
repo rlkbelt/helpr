@@ -65,7 +65,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="6b8-yj-olx"/>
+                        <viewLayoutGuide key="safeArea" id="ovN-vd-fyN"/>
                     </view>
                     <connections>
                         <outlet property="bidButton" destination="ggD-A8-anX" id="kea-mO-0wW"/>
@@ -176,7 +176,7 @@
             </objects>
             <point key="canvasLocation" x="-948" y="1439"/>
         </scene>
-        <!--Post Ad View Controller-->
+        <!--Create a New Post-->
         <scene sceneID="vNz-JH-Ofi">
             <objects>
                 <viewController id="yen-Qu-Dfn" customClass="PostAdViewController" customModule="helpr" customModuleProvider="target" sceneMemberID="viewController">
@@ -250,7 +250,7 @@
                                 <color key="textColor" name="RoyalPurple"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="No description entered" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c03-iC-w4H">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c03-iC-w4H">
                                 <rect key="frame" x="31" y="301" width="270" height="133"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -267,7 +267,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="No tags selected" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RZy-qa-7t3">
                                 <rect key="frame" x="31" y="482" width="270" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -282,33 +282,56 @@
                                 <color key="textColor" name="RoyalPurple"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UC8-tQ-KAt">
-                                <rect key="frame" x="11" y="544" width="364" height="165"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mey-ha-Qin">
+                                <rect key="frame" x="16" y="564" width="343" height="162"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TechDefault" translatesAutoresizingMaskIntoConstraints="NO" id="Rqa-E6-MXB">
-                                        <rect key="frame" x="20" y="20" width="125" height="125"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xU9-E9-cFj">
+                                    <size key="itemSize" width="120" height="155"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCollectionViewCell" id="0A7-cU-1vG" customClass="ImageCollectionViewCell" customModule="helpr" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="3.6666666666666665" width="120" height="155"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TutorDefault" translatesAutoresizingMaskIntoConstraints="NO" id="gVb-Qr-fZ1">
-                                        <rect key="frame" x="165" y="20" width="125" height="125"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CleanDefault" translatesAutoresizingMaskIntoConstraints="NO" id="Vi8-hk-0RX">
-                                        <rect key="frame" x="311" y="20" width="125" height="125"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IIe-Xd-c5a">
-                                        <rect key="frame" x="-14" y="-26" width="391" height="216"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    </pickerView>
-                                </subviews>
-                            </scrollView>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="155"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="r6w-b4-Ss5" userLabel="postImg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="155"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <bool key="isElement" value="YES"/>
+                                                    </accessibility>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="LWC-d7-VFI" appends="YES" id="njP-Vu-nB5"/>
+                                                    </connections>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="postImg" destination="r6w-b4-Ss5" id="yWq-U1-jZx"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="yen-Qu-Dfn" id="Bbe-ZN-0tZ"/>
+                                    <outlet property="delegate" destination="yen-Qu-Dfn" id="dsF-3a-Pvo"/>
+                                </connections>
+                            </collectionView>
+                            <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IIe-Xd-c5a">
+                                <rect key="frame" x="0.0" y="510" width="375" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="4wM-bA-AuS"/>
+                        <viewLayoutGuide key="safeArea" id="aQG-vC-VRe"/>
                     </view>
-                    <navigationItem key="navigationItem" id="3d8-vP-HYY">
+                    <navigationItem key="navigationItem" title="Create a New Post" id="3d8-vP-HYY">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6f6-0Y-kEN">
                             <connections>
                                 <action selector="exitPostAd:" destination="yen-Qu-Dfn" id="Bfi-fT-mt3"/>
@@ -321,8 +344,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="photoView" destination="Rqa-E6-MXB" id="05G-rV-RIw"/>
                         <outlet property="pickerView" destination="IIe-Xd-c5a" id="Aad-tO-dkf"/>
+                        <outlet property="saveBtn" destination="4pc-ow-col" id="pet-Qe-CCk"/>
                         <outlet property="tfCategory" destination="MSz-5Y-cbX" id="9ed-5q-bWc"/>
                         <outlet property="tfTags" destination="RZy-qa-7t3" id="LzC-Ku-lYk"/>
                         <outlet property="tfTitle" destination="Qhk-A5-Rm5" id="QTX-vM-UPk"/>
@@ -330,8 +353,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfp-Dl-cWh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="LWC-d7-VFI">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="yen-Qu-Dfn" id="TwH-ah-SGw"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-191" y="1439"/>
+            <point key="canvasLocation" x="-191.19999999999999" y="1437.9310344827586"/>
         </scene>
         <!--My Posts-->
         <scene sceneID="RSY-1B-I24">
@@ -391,10 +419,10 @@
                         <constraints>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
+                            <constraint firstItem="3CN-N8-EvU" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
+                        <viewLayoutGuide key="safeArea" id="3CN-N8-EvU"/>
                     </view>
                     <navigationItem key="navigationItem" id="1aI-Kh-Tn0"/>
                 </viewController>
@@ -462,7 +490,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="qLh-Eg-Caf"/>
+                        <viewLayoutGuide key="safeArea" id="Ahi-bk-oET"/>
                     </view>
                     <connections>
                         <outlet property="bStart" destination="ieM-Wc-N2n" id="eRa-je-qOI"/>
@@ -561,7 +589,7 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="6UD-uR-vzl"/>
+                        <viewLayoutGuide key="safeArea" id="Q5i-N6-oWq"/>
                     </view>
                     <connections>
                         <outlet property="bLogIn" destination="nwv-3L-WdM" id="v3r-mh-D8h"/>
@@ -689,7 +717,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="ShN-08-Hbv"/>
+                        <viewLayoutGuide key="safeArea" id="QTo-F9-sGp"/>
                     </view>
                     <connections>
                         <outlet property="bCreateAccount" destination="AMe-zS-4sg" id="pD9-WF-lek"/>
@@ -775,6 +803,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LCD-76-Tc9">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="RoyalPurple"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -806,11 +837,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CleanDefault" width="33" height="33"/>
         <image name="SplashScreen" width="107" height="71"/>
-        <image name="TechDefault" width="33" height="33"/>
-        <image name="TutorDefault" width="33" height="33"/>
         <image name="account" width="33" height="33"/>
+        <image name="defaultPhoto" width="360" height="360"/>
         <image name="homeENBL" width="33" height="33"/>
         <image name="jobs" width="33" height="33"/>
         <image name="myposts" width="33" height="33"/>
@@ -821,9 +850,12 @@
         <namedColor name="RoyalPurple">
             <color red="0.40000000596046448" green="0.10199999809265137" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="RoyalPurple">
+            <color red="0.40000000596046448" green="0.10199999809265137" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FbF-xl-oY1"/>
+        <segue reference="HaN-QN-iNf"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="RoyalPurple"/>
 </document>

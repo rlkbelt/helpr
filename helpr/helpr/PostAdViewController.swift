@@ -9,7 +9,8 @@
 import UIKit
 import os.log
 
-class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
 
     @IBOutlet weak var tvDescription: UITextView!
     @IBOutlet weak var tfCategory: UITextField!
@@ -17,12 +18,11 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var tfTags: UITextField!
     @IBOutlet weak var photoView: UIImageView!
-    @IBOutlet weak var saveBtn: UIBarButtonItem!
-    
+    @IBOutlet weak var saveBtn: UIBarButtonItem!    
     
     var job: Job?
-    var post: Post?
-    let categories = ["Unselected","Cleaning","Technology","Tutoring"]
+    let categories = ["Cleaning","Technology","Tutoring"]
+    var postPhotos = [UIImage(named: "defaultPhoto"), UIImage(named: "CleanDefault"), UIImage(named: "TechDefault"), UIImage(named: "TutorDefault"), UIImage(named: "defaultPhoto"), UIImage(named: "defaultPhoto")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,12 +30,9 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         pickerView.delegate = self
         pickerView.dataSource = self
         
-        //tfCategory.inputView = pickerView
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        tfCategory.inputView = pickerView
+        tvDescription.layer.borderColor = UIColor.lightGray.cgColor
+        tvDescription.layer.borderWidth = 1
     }
     
     @IBAction func categoryClick(_ sender: UITextField) {
@@ -66,7 +63,6 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
             
-            //post = Post(category: category!, title: title, description: description, tags: tags, picture: picture)
             tabBarController?.selectedIndex = 0
         }
         else {
@@ -79,7 +75,66 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBAction func fieldDoneEditing(_ sender: Any) {
         (sender as AnyObject).resignFirstResponder()
     }
-    //MARK: Delegate Methods
+    
+    //MARK: CollectionView methods
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return postPhotos.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
+        
+        cell.postImg.image = postPhotos[indexPath.row]
+        
+        return cell
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        // Dismiss the picker if the user canceled.
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        print("Entered imagePickerController")
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        print(selectedImage)
+        // Set photoImageView to display the selected image.
+        //postImg.image = selectedImage
+        
+        // Dismiss the picker.
+        dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: Actions
+    @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
+        
+        // Hide the keyboard.
+        print("Registered tap")
+        tfCategory.resignFirstResponder()
+        
+        
+        // UIImagePickerController is a view controller that lets a user pick media from their photo library.
+        let imagePickerController = UIImagePickerController()
+        
+        // Only allow photos to be picked, not taken.
+        imagePickerController.sourceType = .photoLibrary
+        
+        // Make sure ViewController is notified when the user picks an image.
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    //MARK: UIPickerView Delegate Methods
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -95,24 +150,21 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        if (categories[row] != "Unselected") {
         tfCategory.text = categories[row]
-        }
         tfCategory.resignFirstResponder()
         pickerView.isHidden = true;
         return
     }
     
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         var pickerLabel = view as! UILabel!
         if view == nil {  //if no label there yet
             pickerLabel = UILabel()
             //color the label's background
-            let hue = CGFloat(row)/CGFloat(categories.count)
-            pickerLabel!.backgroundColor = UIColor(hue: hue, saturation: 1.0, brightness: 1.0, alpha: 1.0)
+            pickerLabel!.backgroundColor = UIColor.lightGray
         }
         let titleData = categories[row]
-        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 26.0)!,NSAttributedString.Key.foregroundColor:UIColor(named: "RoyalPurple")])
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 26),NSAttributedString.Key.foregroundColor:UIColor(named: "RoyalPurple")!])
         pickerLabel!.attributedText = myTitle
         pickerLabel!.textAlignment = .center
         
