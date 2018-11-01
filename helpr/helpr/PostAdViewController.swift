@@ -19,10 +19,11 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var tfTags: UITextField!
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var saveBtn: UIBarButtonItem!    
+    @IBOutlet weak var cvPhotos: UICollectionView!
     
     var job: Job?
     let categories = ["Cleaning","Technology","Tutoring"]
-    var postPhotos = [UIImage(named: "defaultPhoto"), UIImage(named: "CleanDefault"), UIImage(named: "TechDefault"), UIImage(named: "TutorDefault"), UIImage(named: "defaultPhoto"), UIImage(named: "defaultPhoto")]
+    var postPhotos = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,8 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         tfCategory.inputView = pickerView
         tvDescription.layer.borderColor = UIColor.lightGray.cgColor
         tvDescription.layer.borderWidth = 1
+        
+        postPhotos.insert(UIImage(named: "defaultPhoto")!, at: 0)
     }
     
     @IBAction func categoryClick(_ sender: UITextField) {
@@ -54,11 +57,11 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         let title = tfTitle.text ?? "Untitled Post"
         let description = tvDescription.text ?? "No description provided"
         let tags = tfTags.text ?? ""
-        let picture = photoView.image
+        let pictures = postPhotos
         
         // Set the job to be passed to HomeTableViewController after the unwind segue.
         if (category?.trimmingCharacters(in: .whitespaces) != "") && (title.trimmingCharacters(in: .whitespaces) != "") {
-            job = Job(title: title, category: category!, description: description, pictures: [picture], tags: [], distance: 10, postalCode: "WH0CR5")
+            job = Job(title: title, category: category!, description: description, pictures: pictures, tags: [], distance: 10, postalCode: "WH0CR5")
             HomeTableViewController.jobs.append(job!)
             
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
@@ -107,10 +110,27 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         guard let selectedImage = info[.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
-        print(selectedImage)
-        // Set photoImageView to display the selected image.
-        //postImg.image = selectedImage
         
+        // Set photoImageView to display the selected image.
+        let itemCount = postPhotos.count
+        var photoUpdated = false
+        for i in 0...itemCount-1 {
+            if postPhotos[i] == UIImage(named: "defaultPhoto") ||
+                postPhotos[i] == UIImage(named: "CleanDefault") ||
+                postPhotos[i] == UIImage(named: "TechDefault") ||
+                postPhotos[i] == UIImage(named: "TutorDefault") {
+                
+                postPhotos[i] = selectedImage
+                photoUpdated = true
+                break;
+            }
+        }
+        if !photoUpdated {
+            print("Inserted at index 0")
+            postPhotos.insert(selectedImage, at: itemCount)
+        }
+        postPhotos.insert(UIImage(named: "defaultPhoto")!, at: itemCount)
+        self.cvPhotos.reloadData()
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
     }
@@ -148,11 +168,29 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         return categories[row]
     }
     
+    //Function changes category textField text to whatever was selected by picker
+    //If the only picture in collectionView is defaultPhoto, change to default for that category
+    //Add new defaultPhoto to allow addition of more photos (tapRecognizer not working)
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         tfCategory.text = categories[row]
         tfCategory.resignFirstResponder()
         pickerView.isHidden = true;
+        if postPhotos.count == 1 {
+            print("One item in postPhotos")
+            switch tfCategory.text {
+            case "Cleaning":
+                postPhotos[0] = UIImage(named: "CleanDefault")!
+            case "Technology":
+                postPhotos[0] = UIImage(named: "TechDefault")!
+            case "Tutoring":
+                postPhotos[0] = UIImage(named: "TutorDefault")!
+            default:
+                print("Unhandled Case")
+            }
+            postPhotos.insert(UIImage(named: "defaultPhoto")!, at: 1)
+            self.cvPhotos.reloadData()
+        }
         return
     }
     

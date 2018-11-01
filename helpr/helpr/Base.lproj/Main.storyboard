@@ -344,6 +344,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cvPhotos" destination="Mey-ha-Qin" id="Qnw-cB-0xY"/>
                         <outlet property="pickerView" destination="IIe-Xd-c5a" id="Aad-tO-dkf"/>
                         <outlet property="saveBtn" destination="4pc-ow-col" id="pet-Qe-CCk"/>
                         <outlet property="tfCategory" destination="MSz-5Y-cbX" id="9ed-5q-bWc"/>
