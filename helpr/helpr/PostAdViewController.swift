@@ -17,13 +17,14 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var tfTitle: UITextField!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var tfTags: UITextField!
-    @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var saveBtn: UIBarButtonItem!    
     @IBOutlet weak var cvPhotos: UICollectionView!
+    @IBOutlet var tgrPhotos: UITapGestureRecognizer!
     
     var job: Job?
     let categories = ["Cleaning","Technology","Tutoring"]
-    var postPhotos = [UIImage]()
+    var postPhotos = [UIImage]() //allow update of UICollectionViewCells
+    var indexPathForCell : IndexPath = [] //variable to allow updating of phots
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,13 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
 
     @IBAction func exitPostAd(_ sender: UIBarButtonItem) {
+        tfCategory.text = ""
+        tfTitle.text = ""
+        tvDescription.text = ""
+        tfTags.text = ""
+        postPhotos.removeAll()
+        postPhotos.insert(UIImage(named: "defaultPhoto")!, at: 0)
+        self.cvPhotos.reloadData()
         tabBarController?.selectedIndex = 0
     }
     @IBAction func finishAddingPost(_ sender: UIBarButtonItem) {
@@ -66,6 +74,7 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
             
+            exitPostAd(saveBtn)
             tabBarController?.selectedIndex = 0
         }
         else {
@@ -97,7 +106,19 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        indexPathForCell = indexPath
+        let imagePickerController = UIImagePickerController()
+        // Only allow photos to be picked, not taken.
+        imagePickerController.sourceType = .photoLibrary
+        
+        // Make sure ViewController is notified when the user picks an image.
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+        
+    }
+        
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // Dismiss the picker if the user canceled.
         dismiss(animated: true, completion: nil)
@@ -106,54 +127,37 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     func imagePickerController(_ picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        print("Entered imagePickerController")
         guard let selectedImage = info[.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
-        
+
         // Set photoImageView to display the selected image.
         let itemCount = postPhotos.count
-        var photoUpdated = false
+        
+        postPhotos[indexPathForCell.row] = selectedImage
+        
+        var addPhotoExists = false
         for i in 0...itemCount-1 {
             if postPhotos[i] == UIImage(named: "defaultPhoto") ||
                 postPhotos[i] == UIImage(named: "CleanDefault") ||
                 postPhotos[i] == UIImage(named: "TechDefault") ||
                 postPhotos[i] == UIImage(named: "TutorDefault") {
                 
-                postPhotos[i] = selectedImage
-                photoUpdated = true
+                addPhotoExists = true
                 break;
             }
         }
-        if !photoUpdated {
-            print("Inserted at index 0")
-            postPhotos.insert(selectedImage, at: itemCount)
+        
+        if !addPhotoExists && itemCount < 5 {
+            postPhotos.insert(UIImage(named: "defaultPhoto")!, at: itemCount)
         }
-        postPhotos.insert(UIImage(named: "defaultPhoto")!, at: itemCount)
         self.cvPhotos.reloadData()
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
     }
     
-    //MARK: Actions
-    @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
-        
-        // Hide the keyboard.
-        print("Registered tap")
-        tfCategory.resignFirstResponder()
-        
-        
-        // UIImagePickerController is a view controller that lets a user pick media from their photo library.
-        let imagePickerController = UIImagePickerController()
-        
-        // Only allow photos to be picked, not taken.
-        imagePickerController.sourceType = .photoLibrary
-        
-        // Make sure ViewController is notified when the user picks an image.
-        imagePickerController.delegate = self
-        present(imagePickerController, animated: true, completion: nil)
-    }
     
+    //MARK: Actions
     //MARK: UIPickerView Delegate Methods
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -209,4 +213,3 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         return pickerLabel!
     }
 }
-
