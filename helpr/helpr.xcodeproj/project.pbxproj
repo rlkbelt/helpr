@@ -18,6 +18,8 @@
 		4576E8C421890A7C00471AB4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576E8C321890A7C00471AB4 /* Post.swift */; };
 		45AE32B5218A59CC005F2A8B /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE32B4218A59CC005F2A8B /* KeyboardLayoutConstraint.swift */; };
 		45AE32B7218A617B005F2A8B /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE32B6218A617B005F2A8B /* ImageCollectionViewCell.swift */; };
+		ACF49B37218FA68A0021A63C /* MyPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF49B36218FA68A0021A63C /* MyPostsTableViewCell.swift */; };
+		ACF49B39218FB8A00021A63C /* JobsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF49B38218FB8A00021A63C /* JobsTableViewCell.swift */; };
 		CA12A381218935E50063ED97 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA12A380218935E50063ED97 /* Job.swift */; };
 		CA12A38321893AFB0063ED97 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA12A38221893AFB0063ED97 /* HomeTableViewCell.swift */; };
 		CA12A385218962C50063ED97 /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA12A384218962C50063ED97 /* JobDetailsViewController.swift */; };
@@ -59,6 +61,8 @@
 		4576E8C321890A7C00471AB4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		45AE32B4218A59CC005F2A8B /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
 		45AE32B6218A617B005F2A8B /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		ACF49B36218FA68A0021A63C /* MyPostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsTableViewCell.swift; sourceTree = "<group>"; };
+		ACF49B38218FB8A00021A63C /* JobsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewCell.swift; sourceTree = "<group>"; };
 		CA12A380218935E50063ED97 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		CA12A38221893AFB0063ED97 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		CA12A384218962C50063ED97 /* JobDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +136,9 @@
 				4576E8B92188EE6500471AB4 /* HomeTableViewController.swift */,
 				CA12A38221893AFB0063ED97 /* HomeTableViewCell.swift */,
 				4576E8BB2188EEAB00471AB4 /* JobsTableViewController.swift */,
+				ACF49B38218FB8A00021A63C /* JobsTableViewCell.swift */,
 				4576E8BD2188EEBD00471AB4 /* MyPostsTableViewController.swift */,
+				ACF49B36218FA68A0021A63C /* MyPostsTableViewCell.swift */,
 				F783AB0321791E5B0010F034 /* PostAdViewController.swift */,
 				F783AB0521791E5B0010F034 /* AccountViewController.swift */,
 				4576E8B52188D57F00471AB4 /* LetUsKnowViewController.swift */,
@@ -312,6 +318,8 @@
 				CA12A381218935E50063ED97 /* Job.swift in Sources */,
 				4576E8BA2188EE6500471AB4 /* HomeTableViewController.swift in Sources */,
 				F783AB0421791E5B0010F034 /* PostAdViewController.swift in Sources */,
+				ACF49B37218FA68A0021A63C /* MyPostsTableViewCell.swift in Sources */,
+				ACF49B39218FB8A00021A63C /* JobsTableViewCell.swift in Sources */,
 				4576E8C02188F22200471AB4 /* MyTabBarViewController.swift in Sources */,
 				4576E8B42188CA0000471AB4 /* SignInViewController.swift in Sources */,
 			);
@@ -488,7 +496,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JZ3M3A2VKE;
 				INFOPLIST_FILE = helpr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -496,6 +506,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ca.helpr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -505,7 +516,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JZ3M3A2VKE;
 				INFOPLIST_FILE = helpr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -513,6 +526,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ca.helpr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yKZ-tV-7zm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yKZ-tV-7zm">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -147,20 +147,51 @@
         <!--Job-->
         <scene sceneID="xP5-qA-gug">
             <objects>
-                <tableViewController id="Yes-Bf-das" userLabel="Job" customClass="BidsTableViewController" customModule="helpr" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YgU-ca-sfI">
+                <tableViewController id="Yes-Bf-das" userLabel="Job" customClass="JobsTableViewController" customModule="helpr" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YgU-ca-sfI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yto-r3-NnM">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="JobsTableViewCell" id="yto-r3-NnM" customClass="JobsTableViewCell" customModule="helpr" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yto-r3-NnM" id="eAP-06-lM0">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pTn-ku-AFE" userLabel="Job Pic">
+                                            <rect key="frame" x="16" y="12" width="75" height="75"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OG1-XQ-RpJ" userLabel="Job Category">
+                                            <rect key="frame" x="122" y="0.0" width="237" height="38"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzB-Ne-YQo" userLabel="Job Distance">
+                                            <rect key="frame" x="122" y="68" width="237" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAj-rC-meO" userLabel="Job Title">
+                                            <rect key="frame" x="122" y="28" width="237" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="jobCategory" destination="OG1-XQ-RpJ" id="lc7-PI-HQa"/>
+                                    <outlet property="jobDistance" destination="FzB-Ne-YQo" id="08k-TP-bR3"/>
+                                    <outlet property="jobPic" destination="pTn-ku-AFE" id="H9t-aF-o6o"/>
+                                    <outlet property="jobTitle" destination="rAj-rC-meO" id="VWs-OC-Avu"/>
                                     <segue destination="sBI-Rt-p2d" kind="show" identifier="showMyJobDetails" trigger="accessoryAction" id="bQh-2k-UTU"/>
                                 </connections>
                             </tableViewCell>
@@ -170,7 +201,7 @@
                             <outlet property="delegate" destination="Yes-Bf-das" id="PwS-yp-yoW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="vak-Xb-zpA"/>
+                    <navigationItem key="navigationItem" title="Jobs" id="vak-Xb-zpA"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z7W-hj-MPt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -362,20 +393,51 @@
         <!--My Posts-->
         <scene sceneID="RSY-1B-I24">
             <objects>
-                <tableViewController id="eTq-SA-Pnq" userLabel="My Posts" customClass="ChatTableViewController" customModule="helpr" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="j8e-B7-P38">
+                <tableViewController id="eTq-SA-Pnq" userLabel="My Posts" customClass="MyPostsTableViewController" customModule="helpr" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="j8e-B7-P38">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Kda-bh-eq3">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyPostsTableViewCell" id="Kda-bh-eq3" customClass="MyPostsTableViewCell" customModule="helpr" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kda-bh-eq3" id="Qvw-PQ-imv">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPK-VA-6Qf" userLabel="Job Category">
+                                            <rect key="frame" x="122" y="0.0" width="237" height="38"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvp-Fa-AYQ" userLabel="Job Title">
+                                            <rect key="frame" x="122" y="28" width="237" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pcy-bz-teL" userLabel="Job Pic">
+                                            <rect key="frame" x="12" y="12" width="75" height="75"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaj-Lg-d8M" userLabel="Job Distance">
+                                            <rect key="frame" x="122" y="68" width="237" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="jobCategory" destination="xPK-VA-6Qf" id="SAr-PW-UYm"/>
+                                    <outlet property="jobDistance" destination="iaj-Lg-d8M" id="I8P-MW-b16"/>
+                                    <outlet property="jobPic" destination="Pcy-bz-teL" id="uxJ-zJ-SSG"/>
+                                    <outlet property="jobTitle" destination="lvp-Fa-AYQ" id="EdK-Uu-p6P"/>
                                     <segue destination="sBI-Rt-p2d" kind="show" identifier="ShowMyPostDetails" id="FbF-xl-oY1"/>
                                 </connections>
                             </tableViewCell>
@@ -385,7 +447,7 @@
                             <outlet property="delegate" destination="eTq-SA-Pnq" id="iP7-l5-tWh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="pJd-UP-lj0"/>
+                    <navigationItem key="navigationItem" title="My Posts" id="pJd-UP-lj0"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bw4-dI-Ecz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -835,9 +897,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="SplashScreen" width="107" height="71"/>
-        <image name="account" width="33" height="33"/>
-        <image name="homeENBL" width="33" height="33"/>
+        <image name="SplashScreen" width="321" height="214"/>
+        <image name="account" width="75" height="75"/>
+        <image name="homeENBL" width="75" height="75"/>
         <image name="imageView:r6w-b4-Ss5:image" width="360" height="360">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGVVZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEgcI
@@ -9611,12 +9673,9 @@ NAAIBTsACAVAAAgFTQAIBVAACAVdAAgFYgAIBWoACAVtAAgFcgAIBXoACAV9AAgFjwAIBZIACAWXAAAA
 AAAABAEAAAAAAAAAWQAAAAAAAAAAAAAAAAAIBZk
 </mutableData>
         </image>
-        <image name="jobs" width="33" height="33"/>
-        <image name="myposts" width="33" height="33"/>
-        <image name="post" width="33" height="33"/>
-        <namedColor name="RoyalPurple">
-            <color red="0.40000000596046448" green="0.10199999809265137" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="jobs" width="75" height="75"/>
+        <image name="myposts" width="75" height="75"/>
+        <image name="post" width="75" height="75"/>
         <namedColor name="RoyalPurple">
             <color red="0.40000000596046448" green="0.10199999809265137" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -9625,7 +9684,7 @@ AAAABAEAAAAAAAAAWQAAAAAAAAAAAAAAAAAIBZk
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HaN-QN-iNf"/>
+        <segue reference="bQh-2k-UTU"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="RoyalPurple"/>
 </document>
