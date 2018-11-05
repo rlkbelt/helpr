@@ -410,11 +410,16 @@
                                             <action selector="changePassword:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="Yg3-au-WTp"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="account" translatesAutoresizingMaskIntoConstraints="NO" id="bhC-Ko-5Dy">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="steveJobs" translatesAutoresizingMaskIntoConstraints="NO" id="bhC-Ko-5Dy">
                                         <rect key="frame" x="17" y="8" width="105" height="105.33333333333333"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="105" id="8Xt-q8-aqk"/>
+                                            <constraint firstAttribute="width" secondItem="bhC-Ko-5Dy" secondAttribute="height" multiplier="1:1" id="Dju-zv-0QO"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="7LX-cg-h5F" appends="YES" id="oLZ-l5-T6e"/>
+                                        </connections>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credentials:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCN-eP-bmu">
                                         <rect key="frame" x="144" y="21" width="115" height="21"/>
@@ -434,7 +439,7 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FDefault" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcS-ea-4wz">
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FDefault" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcS-ea-4wz">
                                         <rect key="frame" x="17" y="181.33333333333331" width="350" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="23" id="SMb-bG-cKP"/>
@@ -797,6 +802,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="7LX-cg-h5F">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="8rJ-Kc-sve" id="4VO-DC-ivg"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1368.8" y="1576.4778325123154"/>
         </scene>
@@ -9987,6 +9997,7 @@ AAAABAEAAAAAAAAAWQAAAAAAAAAAAAAAAAAIBZk
         <image name="jobs" width="33" height="33"/>
         <image name="myposts" width="33" height="33"/>
         <image name="post" width="33" height="33"/>
+        <image name="steveJobs" width="300" height="199"/>
         <namedColor name="RoyalPurple">
             <color red="0.40000000596046448" green="0.10199999809265137" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
