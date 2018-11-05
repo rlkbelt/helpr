@@ -11,7 +11,7 @@ import UIKit
 class JobDetailsViewController: UIViewController {
     
     var job : Job?
-    var bidAmmount : Float = 0
+    var bidAmmount : Double = 0
     var bidInput : String = ""
 
     @IBOutlet weak var jobTitle: UILabel!

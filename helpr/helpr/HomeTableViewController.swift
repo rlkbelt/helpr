@@ -94,7 +94,6 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
         cell.jobTitle.text = job.title
         cell.jobPic.image = job.pictures[0]
         cell.jobDistance.text = String(job.distance) + " km"
-        
         if (indexPath.row % 2 == 0) {
             if (!isPurple){
                 cell.backgroundColor = UIColor(red: 0.819, green: 0.698, blue: 1, alpha: 1)
