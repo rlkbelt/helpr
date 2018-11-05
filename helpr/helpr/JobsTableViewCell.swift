@@ -7,13 +7,11 @@
 //
 
 import UIKit
-
 class JobsTableViewCell: UITableViewCell {
     @IBOutlet weak var jobPic: UIImageView!
     @IBOutlet weak var jobCategory: UILabel!
     @IBOutlet weak var jobTitle: UILabel!
     @IBOutlet weak var jobDistance: UILabel!
-
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,8 +20,7 @@ class JobsTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
+    
 }
 

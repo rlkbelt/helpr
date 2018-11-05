@@ -6,11 +6,8 @@
 //  Copyright © 2018 ryan.konynenbelt. All rights reserved.
 //
 
-
 import UIKit
-
 class MyPostsTableViewCell: UITableViewCell {
-    
     @IBOutlet weak var jobPic: UIImageView!
     @IBOutlet weak var jobCategory: UILabel!
     @IBOutlet weak var jobTitle: UILabel!
@@ -20,7 +17,7 @@ class MyPostsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         

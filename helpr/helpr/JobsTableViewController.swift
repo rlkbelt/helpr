@@ -147,7 +147,7 @@ class JobsTableViewController: UITableViewController {
             }
             
             guard let selectedJobsCell = sender as? JobsTableViewCell else {
-                fatalError("Unexpected job sender: \(sender ?? "No sender")")
+                fatalError("Unexpected job sender: \(sender)")
             }
             
             guard let indexPath = tableView.indexPath(for: selectedJobsCell) else {
@@ -155,17 +155,17 @@ class JobsTableViewController: UITableViewController {
             }
             
             let selectedJob: Job
-            // fetches the appropriate job
+            // fetches the appropriate meal
             selectedJob = jobs[indexPath.row]
             
             
             jobViewController.job = selectedJob
             
-        case "test":
-            os_log("Showing user post", log: OSLog.default, type: .debug)
+        case "ShowMyPostDetails":
+            os_log("Adding a new meal", log: OSLog.default, type: .debug)
             
         default:
-            fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "No identifier")")
+            fatalError("Unexpected Segue Identifier; \(segue.identifier)")
         }
     }
     
