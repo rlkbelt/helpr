@@ -134,20 +134,20 @@ class MyPostsTableViewController: UITableViewController, UISearchResultsUpdating
     */
 
     private func loadSampleJobs() {
-        guard let job1 = Job(title: "Need my internet set up", category: "Technology", description: "I have recently aquired a new router and do not know how to set up my internet again.\nI am with Shaw, plz hlp.", pictures: [], tags: [], distance: 5, postalCode: "") else {
+        guard let job1 = Job(title: "Need help putting together PC", category: "Technology", description: "I bought a bunch of computer parts from Memory Express and I can't figure out how to put them all together. Willing to pay someone to put it together for me. ", pictures: [], tags: [], distance: 5, postalCode: "") else {
             fatalError("Unable to instantiate job1")
         }
-        guard let job2 = Job(title: "Living room cleaning after party", category: "Cleaning", description: "Horrible, horrible people were at my house last night for a 'small' get-together.\nHouse is trashed, need living room spotless before parents get home.\nWill kill me 100%.", pictures: [], tags: [], distance: 7, postalCode: "") else {
+        guard let job2 = Job(title: "Bedbugs need exterminating", category: "Cleaning", description: "I can't afford a professional but I need someone to get rid of bed bugs. They are making me sleep poorly. ", pictures: [], tags: [], distance: 7, postalCode: "") else {
             fatalError("Unable to instantiate job2")
         }
-        guard let job3 = Job(title: "Need help with iProgramming course", category: "Tutoring", description: "I am a student at U of C currently in iProgramming, the course is more difficult than I thought.\nSasha is a great man, but I do not want to bother him with my questions.\nNeed tutoring assistance, must know Swift and XCode.", pictures: [], tags: [], distance: 15, postalCode: "") else {
+        guard let job3 = Job(title: "Calculus help", category: "Tutoring", description: "I am a student at U of C. I can't do math to save my life but I need to become an astronaut. I have a calulus midterm tomorrow. I need to figure out how to derive everything. Thanks, Your future astronaut", pictures: [], tags: [], distance: 15, postalCode: "") else {
             fatalError("Unable to instantiate job3")
         }
-        guard let job4 = Job(title: "Help me sabotage the guy above", category: "Technology", description: "I saw the guy above this post wanted help in iProgramming, I'm also in that class and only one group should emerge victorious.\nHelp me install malware on his computer that destroys his project when it's done.", pictures: [], tags: [], distance: 3, postalCode: "") else {
+        guard let job4 = Job(title: "Linear Algebra help", category: "Tutoring", description: "I am a student at U of C. I can't do math to save my life. Like legit. I have my linear algebra midterm on friday and I need to figure out what elementary operations are and eigen vectors.", pictures: [], tags: [], distance: 3, postalCode: "") else {
             fatalError("Unable to instantiate job4")
         }
         
-        jobs += [job1,job2,job3,job4,job1,job2,job3,job4,job1]
+        jobs += [job1,job2,job3,job4]
     }
     
     
@@ -176,7 +176,7 @@ class MyPostsTableViewController: UITableViewController, UISearchResultsUpdating
             }
             
             let selectedJob: Job
-            // fetches the appropriate meal
+            // fetches the appropriate post
             if isFiltering() {
                 selectedJob = filteredJobs[indexPath.row]
             } else {

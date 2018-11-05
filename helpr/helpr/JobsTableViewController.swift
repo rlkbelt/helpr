@@ -9,19 +9,29 @@
 import UIKit
 import os.log
 
-class JobsTableViewController: UITableViewController {
+class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
 
     //MARK: Properties
     var jobs = [Job]()
+    var filteredJobs = [Job]()
     var isPurple = Bool()
     
+    let searchController = UISearchController(searchResultsController: nil)
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
         loadSampleJobs()
+        filteredJobs = jobs
+
         isPurple = false
         
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.backgroundColor = UIColor(named: "RoyalPurple")
+        tableView.tableHeaderView = searchController.searchBar
         
         definesPresentationContext = true
     }
@@ -33,7 +43,9 @@ class JobsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        if isFiltering() {
+            return filteredJobs.count
+        }
         return jobs.count
     }
 
@@ -47,9 +59,11 @@ class JobsTableViewController: UITableViewController {
         
         // fetches the appropriate job for the data source layout
         let job : Job
-       
-        job = jobs[indexPath.row]
-        
+        if isFiltering() {
+            job = filteredJobs[indexPath.row]
+        } else {
+            job = jobs[indexPath.row]
+        }
         cell.layer.cornerRadius = 15
         cell.layer.masksToBounds = true
         cell.layer.borderWidth = 5.0
@@ -116,20 +130,18 @@ class JobsTableViewController: UITableViewController {
 
     
     private func loadSampleJobs() {
-        guard let job1 = Job(title: "Need my internet set up", category: "Technology", description: "I have recently aquired a new router and do not know how to set up my internet again.\nI am with Shaw, plz hlp.", pictures: [], tags: [], distance: 5, postalCode: "") else {
+        guard let job1 = Job(title: "Virus!", category: "Technology", description: "My computer is super broken! I need help! I can't connect to the internet.\nI downloaded Brittney Spear's latest album and now I can't turn it off.", pictures: [], tags: [], distance: 2, postalCode: "") else {
             fatalError("Unable to instantiate job1")
         }
-        guard let job2 = Job(title: "Living room cleaning after party", category: "Cleaning", description: "Horrible, horrible people were at my house last night for a 'small' get-together.\nHouse is trashed, need living room spotless before parents get home.\nWill kill me 100%.", pictures: [], tags: [], distance: 7, postalCode: "") else {
+        guard let job2 = Job(title: "New Apple iPhone doesn't download cat pictures", category: "Technology", description: "My internet isn't working on my Apple iPhone 5. I bought it brand new yesterday on Kijiji and now I cannot download my cat pictures.\n My mom is going to be so upset when she doesn't get her daily picture!", pictures: [], tags: [], distance: 6, postalCode: "") else {
             fatalError("Unable to instantiate job2")
         }
-        guard let job3 = Job(title: "Need help with iProgramming course", category: "Tutoring", description: "I am a student at U of C currently in iProgramming, the course is more difficult than I thought.\nSasha is a great man, but I do not want to bother him with my questions.\nNeed tutoring assistance, must know Swift and XCode.", pictures: [], tags: [], distance: 15, postalCode: "") else {
+        guard let job3 = Job(title: "Macbook Pro won't turn on", category: "Technology", description: "Hi I am trying to get my grandsons laptop to work. He gifted it to me and I can't turn it on. Usually I just open the scree and it magically works. Now it doesn't do anything.", pictures: [], tags: [], distance: 4, postalCode: "") else {
             fatalError("Unable to instantiate job3")
         }
-        guard let job4 = Job(title: "Help me sabotage the guy above", category: "Technology", description: "I saw the guy above this post wanted help in iProgramming, I'm also in that class and only one group should emerge victorious.\nHelp me install malware on his computer that destroys his project when it's done.", pictures: [], tags: [], distance: 3, postalCode: "") else {
-            fatalError("Unable to instantiate job4")
-        }
+       
         
-        jobs += [job1,job2,job3,job4,job1,job2,job3,job4,job1]
+        jobs += [job1,job2,job3]
     }
     
     
@@ -155,8 +167,12 @@ class JobsTableViewController: UITableViewController {
             }
             
             let selectedJob: Job
-            // fetches the appropriate meal
-            selectedJob = jobs[indexPath.row]
+            // fetches the appropriate job
+            if isFiltering() {
+                selectedJob = filteredJobs[indexPath.row]
+            } else {
+                selectedJob = jobs[indexPath.row]
+            }
             
             
             jobViewController.job = selectedJob
@@ -167,6 +183,28 @@ class JobsTableViewController: UITableViewController {
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")
         }
+    }
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+            filteredJobs = jobs.filter { job in
+                return job.category.lowercased().contains(searchText.lowercased())
+            }
+            
+        } else {
+            filteredJobs = HomeTableViewController.jobs
+        }
+        tableView.reloadData()
+    }
+    
+    //MARK: - Search-related methods
+    private func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    private func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
     }
     
 
