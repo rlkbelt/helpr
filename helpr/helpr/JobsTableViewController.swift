@@ -9,19 +9,29 @@
 import UIKit
 import os.log
 
-class JobsTableViewController: UITableViewController {
+class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
 
     //MARK: Properties
     var jobs = [Job]()
+    var filteredJobs = [Job]()
     var isPurple = Bool()
     
+    let searchController = UISearchController(searchResultsController: nil)
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
         loadSampleJobs()
+        filteredJobs = jobs
+
         isPurple = false
         
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.backgroundColor = UIColor(named: "RoyalPurple")
+        tableView.tableHeaderView = searchController.searchBar
         
         definesPresentationContext = true
     }
@@ -33,7 +43,9 @@ class JobsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        if isFiltering() {
+            return filteredJobs.count
+        }
         return jobs.count
     }
 
@@ -47,9 +59,11 @@ class JobsTableViewController: UITableViewController {
         
         // fetches the appropriate job for the data source layout
         let job : Job
-       
-        job = jobs[indexPath.row]
-        
+        if isFiltering() {
+            job = filteredJobs[indexPath.row]
+        } else {
+            job = jobs[indexPath.row]
+        }
         cell.layer.cornerRadius = 15
         cell.layer.masksToBounds = true
         cell.layer.borderWidth = 5.0
@@ -155,8 +169,12 @@ class JobsTableViewController: UITableViewController {
             }
             
             let selectedJob: Job
-            // fetches the appropriate meal
-            selectedJob = jobs[indexPath.row]
+            // fetches the appropriate job
+            if isFiltering() {
+                selectedJob = filteredJobs[indexPath.row]
+            } else {
+                selectedJob = jobs[indexPath.row]
+            }
             
             
             jobViewController.job = selectedJob
@@ -167,6 +185,28 @@ class JobsTableViewController: UITableViewController {
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")
         }
+    }
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+            filteredJobs = jobs.filter { job in
+                return job.category.lowercased().contains(searchText.lowercased())
+            }
+            
+        } else {
+            filteredJobs = HomeTableViewController.jobs
+        }
+        tableView.reloadData()
+    }
+    
+    //MARK: - Search-related methods
+    private func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    private func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
     }
     
 

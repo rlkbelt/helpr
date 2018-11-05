@@ -176,7 +176,7 @@ class MyPostsTableViewController: UITableViewController, UISearchResultsUpdating
             }
             
             let selectedJob: Job
-            // fetches the appropriate meal
+            // fetches the appropriate post
             if isFiltering() {
                 selectedJob = filteredJobs[indexPath.row]
             } else {
