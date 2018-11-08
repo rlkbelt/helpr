@@ -25,10 +25,7 @@ class JobDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         bidButton.layer.cornerRadius = 5
-        bidButton.layer.borderWidth = 2
-        bidButton.layer.borderColor = UIColor(named: "RoyalPurple")?.cgColor
-        jobDescription.layer.borderColor = UIColor.gray.cgColor
-        jobDescription.layer.borderWidth = 1.2
+        
         jobDescription.layer.cornerRadius = 8;
         if let job = job {
             navigationItem.title = job.category

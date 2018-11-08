@@ -16,6 +16,8 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
     static var jobs = [Job]()
     var filteredJobs = [Job]()
     var isPurple = Bool()
+    let cellSpacingHeight: CGFloat = 5
+
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -26,7 +28,8 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
         loadSampleJobs()
         filteredJobs = HomeTableViewController.jobs
         isPurple = false
-        
+        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
@@ -86,33 +89,22 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
             job = HomeTableViewController.jobs[indexPath.row]
         }
         
-        cell.layer.cornerRadius = 15
-        cell.layer.masksToBounds = true
-        cell.layer.borderWidth = 5.0
-        cell.layer.borderColor = tableView.backgroundColor?.cgColor
+
         cell.jobCategory.text = job.category
         cell.jobTitle.text = job.title
         cell.jobPic.image = job.pictures[0]
         cell.jobDistance.text = String(job.distance) + " km"
-        if (indexPath.row % 2 == 0) {
-            if (!isPurple){
-                cell.backgroundColor = UIColor(red: 0.819, green: 0.698, blue: 1, alpha: 1)
-                cell.jobCategory.textColor = UIColor.white
-                cell.jobTitle.textColor = UIColor.white
-                cell.jobDistance.textColor = UIColor.white
-                isPurple = true
-            }
-        } else {
-            cell.backgroundColor = UIColor.white
-            cell.jobCategory.textColor = UIColor(named: "RoyalPurple")
-            cell.jobTitle.textColor = UIColor(named: "RoyalPurple")
-            cell.jobDistance.textColor = UIColor(named: "RoyalPurple")
-            isPurple = false
-        }
-        
+        cell.layer.borderWidth = 2.5
+        cell.layer.borderColor = tableView.backgroundColor?.cgColor
+
         return cell
     }
     
+
+    // Set the spacing between sections
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return cellSpacingHeight
+    }
 
     /*
     // Override to support conditional editing of the table view.

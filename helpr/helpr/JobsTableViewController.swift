@@ -158,22 +158,21 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
-            guard let selectedJobsCell = sender as? JobsTableViewCell else {
+            guard let selectedHomeCell = sender as? JobsTableViewCell else {
                 fatalError("Unexpected job sender: \(sender)")
             }
             
-            guard let indexPath = tableView.indexPath(for: selectedJobsCell) else {
+            guard let indexPath = tableView.indexPath(for: selectedHomeCell) else {
                 fatalError("The selected meal cell is not being displayed by the table")
             }
             
             let selectedJob: Job
-            // fetches the appropriate job
+            // fetches the appropriate meal
             if isFiltering() {
                 selectedJob = filteredJobs[indexPath.row]
             } else {
-                selectedJob = jobs[indexPath.row]
+                selectedJob = HomeTableViewController.jobs[indexPath.row]
             }
-            
             
             jobViewController.job = selectedJob
             
