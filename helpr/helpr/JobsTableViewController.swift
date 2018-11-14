@@ -2,7 +2,7 @@
 //  JobsTableViewController.swift
 //  helpr
 //
-//  Created by walter.alvarez on 2018-10-30.
+//  Created by adrian.parcioaga on 2018-10-30.
 //  Copyright © 2018 ryan.konynenbelt. All rights reserved.
 //
 
@@ -12,7 +12,7 @@ import os.log
 class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
 
     //MARK: Properties
-    var jobs = [Job]()
+    //var jobs = HomeTableViewController.jobs
     var filteredJobs = [Job]()
     var isPurple = Bool()
     
@@ -21,9 +21,7 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        loadSampleJobs()
-        filteredJobs = jobs
+        filteredJobs = HomeTableViewController.jobs
 
         isPurple = false
         
@@ -46,7 +44,7 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
         if isFiltering() {
             return filteredJobs.count
         }
-        return jobs.count
+        return HomeTableViewController.jobs.count
     }
 
     
@@ -62,32 +60,18 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
         if isFiltering() {
             job = filteredJobs[indexPath.row]
         } else {
-            job = jobs[indexPath.row]
+            job = HomeTableViewController.jobs[indexPath.row]
         }
-        cell.layer.cornerRadius = 15
+        
+        cell.layer.cornerRadius = 10.0
         cell.layer.masksToBounds = true
-        cell.layer.borderWidth = 5.0
+        cell.layer.borderWidth = 3.0
         cell.layer.borderColor = tableView.backgroundColor?.cgColor
         cell.jobCategory.text = job.category
         cell.jobTitle.text = job.title
         cell.jobPic.image = job.pictures[0]
         cell.jobDistance.text = String(job.distance) + " km"
-        
-        if (indexPath.row % 2 == 0) {
-            if (!isPurple){
-                cell.backgroundColor = UIColor(red: 0.819, green: 0.698, blue: 1, alpha: 1)
-                cell.jobCategory.textColor = UIColor.white
-                cell.jobTitle.textColor = UIColor.white
-                cell.jobDistance.textColor = UIColor.white
-                isPurple = true
-            }
-        } else {
-            cell.backgroundColor = UIColor.white
-            cell.jobCategory.textColor = UIColor(named: "RoyalPurple")
-            cell.jobTitle.textColor = UIColor(named: "RoyalPurple")
-            cell.jobDistance.textColor = UIColor(named: "RoyalPurple")
-            isPurple = false
-        }
+        cell.jobPostedTime.text = Utilities.timeAgoSinceDate(job.postedTime, currentDate: Date(), numericDates: true)
         
         return cell
     }
@@ -127,24 +111,6 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
         return true
     }
     */
-
-    
-    private func loadSampleJobs() {
-        guard let job1 = Job(title: "Need my internet set up. I really don't know how to live my life, please help. Run away text text text text", category: "Technology", description: "I have recently aquired a new router and do not know how to set up my internet again.\nI am with Shaw, plz hlp.", pictures: [], tags: [], distance: 5, postalCode: "", postedTime: Date()) else {
-            fatalError("Unable to instantiate job1")
-        }
-        guard let job2 = Job(title: "Living room cleaning after party", category: "Cleaning", description: "Horrible, horrible people were at my house last night for a 'small' get-together.\nHouse is trashed, need living room spotless before parents get home.\nWill kill me 100%.", pictures: [], tags: [], distance: 7, postalCode: "", postedTime: Date()) else {
-            fatalError("Unable to instantiate job2")
-        }
-        guard let job3 = Job(title: "Need help with iProgramming course", category: "Tutoring", description: "I am a student at U of C currently in iProgramming, the course is more difficult than I thought.\nSasha is a great man, but I do not want to bother him with my questions.\nNeed tutoring assistance, must know Swift and XCode.", pictures: [], tags: [], distance: 15, postalCode: "", postedTime: Date()) else {
-            fatalError("Unable to instantiate job3")
-        }
-        guard let job4 = Job(title: "Help me sabotage the guy above", category: "Technology", description: "I saw the guy above this post wanted help in iProgramming, I'm also in that class and only one group should emerge victorious.\nHelp me install malware on his computer that destroys his project when it's done.", pictures: [], tags: [], distance: 3, postalCode: "", postedTime: Date()) else {
-            fatalError("Unable to instantiate job4")
-        }
-        
-        jobs += [job1,job2,job3,job4,job1,job2,job3,job4,job1]
-    }
     
     // MARK: - Navigation
 
@@ -187,7 +153,7 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
     // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-            filteredJobs = jobs.filter { job in
+            filteredJobs = HomeTableViewController.jobs.filter { job in
                 return job.category.lowercased().contains(searchText.lowercased())
             }
             
@@ -206,6 +172,4 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
     private func isFiltering() -> Bool {
         return searchController.isActive && !searchBarIsEmpty()
     }
-    
-
 }
