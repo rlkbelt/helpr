@@ -14,6 +14,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var jobCategory: UILabel!
     @IBOutlet weak var jobTitle: UILabel!
     @IBOutlet weak var jobDistance: UILabel!
+    @IBOutlet weak var jobPostedTime: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

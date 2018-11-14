@@ -21,10 +21,11 @@ class Job {
     var map: MKMapView? = nil
     var distance: Int
     var postalCode: String
-    
+    var postedTime: Date
+    var favourite: Bool
     //MARK: Initialization
     
-    init?(title: String, category: String, description: String, pictures: [UIImage?], tags: [String], distance: Int, postalCode: String) {
+    init?(title: String, category: String, description: String, pictures: [UIImage?], tags: [String], distance: Int, postalCode: String, postedTime: Date) {
         self.title = title
         self.category = category
         self.description = description
@@ -35,7 +36,7 @@ class Job {
         else {
             switch (category) {
             case "Technology":
-                let photo = UIImage(named: "TechDefault")
+                let photo = UIImage(named: "comphelp")
                 self.pictures.append(photo)
                 break
             case "Tutoring":
@@ -43,12 +44,13 @@ class Job {
                 self.pictures.append(photo)
                 break
             case "Cleaning":
-                let photo = UIImage(named: "CleanDefault")
+                let photo = UIImage(named: "cleaning")
                 self.pictures.append(photo)
                 break
             default:
                 break
             }
+
         }
         
         if (!tags.isEmpty){
@@ -56,7 +58,10 @@ class Job {
         }
         
         self.distance = distance
-        
+        self.favourite = false
         self.postalCode = postalCode
+        self.postedTime = postedTime
     }
+    
+    
 }
