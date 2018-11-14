@@ -21,10 +21,11 @@ class Job {
     var map: MKMapView? = nil
     var distance: Int
     var postalCode: String
-    
+    var postedTime: Date
+    var favourite: Bool
     //MARK: Initialization
     
-    init?(title: String, category: String, description: String, pictures: [UIImage?], tags: [String], distance: Int, postalCode: String) {
+    init?(title: String, category: String, description: String, pictures: [UIImage?], tags: [String], distance: Int, postalCode: String, postedTime: Date) {
         self.title = title
         self.category = category
         self.description = description
@@ -49,6 +50,7 @@ class Job {
             default:
                 break
             }
+
         }
         
         if (!tags.isEmpty){
@@ -56,8 +58,9 @@ class Job {
         }
         
         self.distance = distance
-        
+        self.favourite = false
         self.postalCode = postalCode
+        self.postedTime = postedTime
     }
     
     

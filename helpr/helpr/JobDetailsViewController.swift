@@ -18,6 +18,8 @@ class JobDetailsViewController: UIViewController {
     @IBOutlet weak var jobDescription: UITextView!
     @IBOutlet weak var jobPic: UIImageView!
     @IBOutlet weak var bidButton: UIButton!
+    @IBOutlet weak var jobCategory: UILabel!
+    @IBOutlet weak var jobPostedTime: UILabel!
     
 
     
@@ -32,6 +34,8 @@ class JobDetailsViewController: UIViewController {
             jobTitle.text = job.title
             jobDescription.text = job.description
             jobPic.image = job.pictures[0]
+            jobCategory.text = job.category
+            jobPostedTime.text = Utilities.timeAgoSinceDate(job.postedTime, currentDate: Date(), numericDates: true)
         }
         // Do any additional setup after loading the view.
     }
