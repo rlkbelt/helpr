@@ -18,6 +18,7 @@
 		4576E8C421890A7C00471AB4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576E8C321890A7C00471AB4 /* Post.swift */; };
 		45AE32B5218A59CC005F2A8B /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE32B4218A59CC005F2A8B /* KeyboardLayoutConstraint.swift */; };
 		45AE32B7218A617B005F2A8B /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE32B6218A617B005F2A8B /* ImageCollectionViewCell.swift */; };
+		AC23225A219BC88A003EFB62 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC232259219BC88A003EFB62 /* Utilities.swift */; };
 		ACF49B37218FA68A0021A63C /* MyPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF49B36218FA68A0021A63C /* MyPostsTableViewCell.swift */; };
 		ACF49B39218FB8A00021A63C /* JobsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF49B38218FB8A00021A63C /* JobsTableViewCell.swift */; };
 		CA12A381218935E50063ED97 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA12A380218935E50063ED97 /* Job.swift */; };
@@ -61,6 +62,7 @@
 		4576E8C321890A7C00471AB4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		45AE32B4218A59CC005F2A8B /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
 		45AE32B6218A617B005F2A8B /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		AC232259219BC88A003EFB62 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		ACF49B36218FA68A0021A63C /* MyPostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsTableViewCell.swift; sourceTree = "<group>"; };
 		ACF49B38218FB8A00021A63C /* JobsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewCell.swift; sourceTree = "<group>"; };
 		CA12A380218935E50063ED97 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				F783AB0C21791E5C0010F034 /* LaunchScreen.storyboard */,
 				F783AB0F21791E5C0010F034 /* Info.plist */,
 				4576E8C321890A7C00471AB4 /* Post.swift */,
+				AC232259219BC88A003EFB62 /* Utilities.swift */,
 			);
 			path = helpr;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				F783AB0221791E5B0010F034 /* AppDelegate.swift in Sources */,
 				CA12A381218935E50063ED97 /* Job.swift in Sources */,
 				4576E8BA2188EE6500471AB4 /* HomeTableViewController.swift in Sources */,
+				AC23225A219BC88A003EFB62 /* Utilities.swift in Sources */,
 				F783AB0421791E5B0010F034 /* PostAdViewController.swift in Sources */,
 				ACF49B37218FA68A0021A63C /* MyPostsTableViewCell.swift in Sources */,
 				ACF49B39218FB8A00021A63C /* JobsTableViewCell.swift in Sources */,

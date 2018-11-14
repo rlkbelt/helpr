@@ -35,7 +35,7 @@ class Job {
         else {
             switch (category) {
             case "Technology":
-                let photo = UIImage(named: "TechDefault")
+                let photo = UIImage(named: "comphelp")
                 self.pictures.append(photo)
                 break
             case "Tutoring":
@@ -43,7 +43,7 @@ class Job {
                 self.pictures.append(photo)
                 break
             case "Cleaning":
-                let photo = UIImage(named: "CleanDefault")
+                let photo = UIImage(named: "cleaning")
                 self.pictures.append(photo)
                 break
             default:
@@ -59,4 +59,6 @@ class Job {
         
         self.postalCode = postalCode
     }
+    
+    
 }

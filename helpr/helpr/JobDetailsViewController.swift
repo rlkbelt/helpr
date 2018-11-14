@@ -68,6 +68,10 @@ class JobDetailsViewController: UIViewController {
         // Try to convert to an Int.
         
     }
+    
+    
+    // MARK: - Private Methods
+
     /*
     // MARK: - Navigation
 
