@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PostAdViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
     @IBOutlet weak var tvDescription: UITextView!
@@ -18,13 +18,14 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var tfTags: UITextField!
     @IBOutlet weak var saveBtn: UIBarButtonItem!
+    @IBOutlet weak var doneBtn: UIBarButtonItem!
     @IBOutlet weak var cvPhotos: UICollectionView!
     @IBOutlet var tgrPhotos: UITapGestureRecognizer!
     
     var job: Job?
     let categories = ["Cleaning","Technology","Tutoring"]
     var postPhotos = [UIImage]() //allow update of UICollectionViewCells
-    var indexPathForCell : IndexPath = [] //variable to allow updating of phots
+    var indexPathForCell : IndexPath = [] //variable to allow updating of photos
     var customPhotoAdded = false;
     var addPhotoExists = true;
     
@@ -37,6 +38,7 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         tfCategory.inputView = pickerView
         tvDescription.layer.borderColor = UIColor.lightGray.cgColor
         tvDescription.layer.borderWidth = 1
+        tvDescription.delegate = self
         
         postPhotos.insert(UIImage(named: "defaultPhoto")!, at: 0)
     }
@@ -78,8 +80,10 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     //when category textfield is tapped show pickerView with category options
     @IBAction func categoryClick(_ sender: UITextField) {
+        print("Opening Categories pickerView")
         pickerView.isHidden = false
         tfCategory.resignFirstResponder()
+        pickerView.becomeFirstResponder()
         return
     }
     
@@ -94,37 +98,45 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBAction func exitPostAd(_ sender: UIBarButtonItem) {
         tfCategory.text = ""
         tfTitle.text = ""
-        tvDescription.text = ""
+        tvDescription.textColor = UIColor.lightGray
+        tvDescription.text = "No description provided"
         tfTags.text = ""
         postPhotos.removeAll()
         postPhotos.insert(UIImage(named: "defaultPhoto")!, at: 0)
         self.cvPhotos.reloadData()
         tabBarController?.selectedIndex = 0
+        customPhotoAdded = false
     }
     
     //when saving we must add the Job object consisting of all the UIView values and call the 'exitPostAd' function to reset fields for next time this view is loaded
     @IBAction func finishAddingPost(_ sender: UIBarButtonItem) {
-        let category = tfCategory.text
-        let title = tfTitle.text ?? "Untitled Post"
-        let description = tvDescription.text ?? "No description provided"
-        let tags = tfTags.text ?? ""
-        let pictures = postPhotos
-        
-        // Set the job to be passed to HomeTableViewController after the unwind segue.
-        if (category?.trimmingCharacters(in: .whitespaces) != "") && (title.trimmingCharacters(in: .whitespaces) != "") {
-            job = Job(title: title, category: category!, description: description, pictures: pictures, tags: [], distance: 10, postalCode: "WH0CR5", postedTime: Date())
-            HomeTableViewController.jobs.append(job!)
-            
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
-            
-            exitPostAd(saveBtn)
-            tabBarController?.selectedIndex = 0
+        if (sender.title == "Done") {
+            tvDescription.resignFirstResponder()
+            saveBtn.title = "Save"
         }
-            //title or category were not provided
         else {
-            let alert = UIAlertController(title: "Insufficient Info Provided", message: "Please provide at minimum a category and title for your post to help find suitable Helprs for your needs.", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            let category = tfCategory.text
+            let title = tfTitle.text ?? "Untitled Post"
+            let description = tvDescription.text ?? "No description provided"
+            let tags = tfTags.text ?? ""
+            let pictures = postPhotos
+            
+            // Set the job to be passed to HomeTableViewController after the unwind segue.
+            if (category?.trimmingCharacters(in: .whitespaces) != "") && (title.trimmingCharacters(in: .whitespaces) != "") {
+                job = Job(title: title, category: category!, description: description, pictures: pictures, tags: [], distance: 10, postalCode: "WH0CR5", postedTime: Date())
+                HomeTableViewController.jobs.append(job!)
+                
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
+                
+                exitPostAd(saveBtn)
+                tabBarController?.selectedIndex = 0
+            }
+                //title or category were not provided
+            else {
+                let alert = UIAlertController(title: "Insufficient Info Provided", message: "Please provide at minimum a category and title for your post to help find suitable Helprs for your needs.", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
@@ -135,6 +147,10 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         textFieldDidBeginEditing(tfTags)
     }
     
+    @IBAction func tagExit(_ sender: UITextField) {
+        //dummy function to prevent tagFinish from being double-called when tag field is dismissed using return key, while still retaining the EditingDidEnd subcall. Necessary to prevent over-correcting view offset
+    }
+    
     //called when tag textField is dismissed by either selecting Done on keyboard or anywhere outside field/keyboard is tapped
     @IBAction func tagFinish(_ sender: UITextField) {
         print("Exit tag Edit")
@@ -142,12 +158,53 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         textFieldDidEndEditing(tfTags)
     }
     
-    //called when title textField is dismissed. Originally used for more textFields but class has since evolved. Consider refactoring
-    @IBAction func fieldDoneEditing(_ sender: Any) {
-        print("Ending field edit")
-        (sender as AnyObject).resignFirstResponder()
+    @IBAction func fieldExit(_ sender: Any) {
+        //dummy function to prevent fieldDoneEditing from being double-called when  sender field is dismissed using return key, while still retaining the EditingDidEnd subcall.
     }
     
+    //called when title textField is dismissed. Originally used for more textFields but class has since evolved. Consider refactoring
+    @IBAction func fieldDoneEditing(_ sender: Any) {
+        (sender as AnyObject).resignFirstResponder()
+        print("Ending field edit")
+        //self.view.endEditing(true)
+    }
+
+    //clear 'placeholder' text and change Save button behaviour
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        print("Description field selected for editing")
+        if (tvDescription.text == "No description provided") {
+            tvDescription.text = ""
+        }
+        tvDescription.textColor = UIColor.black
+        saveBtn.title = "Done"
+        
+    }
+ 
+    //limit character count in Description field
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        let numberOfChars = newText.count
+        return numberOfChars < 250   // 250 Limit Value
+    }
+    
+    //if nothing typed, restore 'placeholder' text in light gray color and restore Save button to original functionality
+    func textViewDidEndEditing(_ textView: UITextView) {
+        print("Description field done editing")
+        if (tvDescription.text == "") {
+            tvDescription.textColor = UIColor.lightGray
+            tvDescription.text = "No description provided"
+        }
+        saveBtn.title = "Save"
+    }
+    
+    //ensures that when a photo is added or changed there is another photo that explicitly shows the add photo
+    func checkAddPhoto() {
+        let lastIndex = postPhotos.count - 1
+        if postPhotos[lastIndex] == UIImage(named: "defaultPhoto") {}
+        else {
+            postPhotos.insert(UIImage(named: "defaultPhoto")!, at: lastIndex+1)
+        }
+    }
     //MARK: CollectionView methods
     
     override func didReceiveMemoryWarning() {
@@ -175,7 +232,7 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         indexPathForCell = indexPath
         let imagePickerController = UIImagePickerController()
         // Only allow photos to be picked, not taken.
-        //imagePickerController.sourceType = .photoLibrary
+        imagePickerController.sourceType = .photoLibrary
         
         // Make sure ViewController is notified when the user picks an image.
         imagePickerController.delegate = self
@@ -203,9 +260,7 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         postPhotos[indexPathForCell.row] = selectedImage
         customPhotoAdded = true
         
-        if !addPhotoExists && itemCount < 5 {
-            postPhotos.insert(UIImage(named: "defaultPhoto")!, at: itemCount)
-        }
+        checkAddPhoto()
         self.cvPhotos.reloadData()
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
@@ -249,9 +304,9 @@ class PostAdViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             default:
                 print("Unhandled Case")
             }
-            postPhotos.insert(UIImage(named: "defaultPhoto")!, at: 1)
-            self.cvPhotos.reloadData()
         }
+        checkAddPhoto()
+        self.cvPhotos.reloadData()
         return
     }
     
