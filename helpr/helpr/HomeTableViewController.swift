@@ -2,7 +2,7 @@
 //  HomeTableViewController.swift
 //  helpr
 //
-//  Created by walter.alvarez on 2018-10-30.
+//  Created by Adrian.Parcioaga on 2018-10-30.
 //  Copyright © 2018 ryan.konynenbelt. All rights reserved.
 //
 
@@ -18,7 +18,6 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
     var isPurple = Bool()
     let cellSpacingHeight: CGFloat = 5
 
-    
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
@@ -89,14 +88,15 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
             job = HomeTableViewController.jobs[indexPath.row]
         }
         
-
+        cell.layer.cornerRadius = 10.0
+        cell.layer.masksToBounds = true
+        cell.layer.borderWidth = 3.0
+        cell.layer.borderColor = tableView.backgroundColor?.cgColor
         cell.jobCategory.text = job.category
         cell.jobTitle.text = job.title
         cell.jobPic.image = job.pictures[0]
         cell.jobDistance.text = String(job.distance) + " km"
         cell.jobPostedTime.text = Utilities.timeAgoSinceDate(job.postedTime, currentDate: Date(), numericDates: true)
-        //cell.layer.borderWidth = 2.5
-        //cell.layer.borderColor = tableView.backgroundColor?.cgColor
 
         return cell
     }
@@ -145,7 +145,7 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
     //MARK: Private Methods
     
     private func loadSampleJobs() {
-        guard let job1 = Job(title: "Need my internet set up. I really don't know how to live my life, please help. Run away text text text text", category: "Technology", description: "I have recently aquired a new router and do not know how to set up my internet again.\nI am with Shaw, plz hlp.", pictures: [], tags: [], distance: 5, postalCode: "", postedTime: Date()) else {
+        guard let job1 = Job(title: "Need my internet set up", category: "Technology", description: "I have recently aquired a new router and do not know how to set up my internet again.\nI am with Shaw, plz hlp.", pictures: [], tags: [], distance: 5, postalCode: "", postedTime: Date()) else {
                 fatalError("Unable to instantiate job1")
         }
         guard let job2 = Job(title: "Living room cleaning after party", category: "Cleaning", description: "Horrible, horrible people were at my house last night for a 'small' get-together.\nHouse is trashed, need living room spotless before parents get home.\nWill kill me 100%.", pictures: [], tags: [], distance: 7, postalCode: "", postedTime: Date()) else {
