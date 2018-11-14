@@ -18,6 +18,8 @@ class JobDetailsViewController: UIViewController {
     @IBOutlet weak var jobDescription: UITextView!
     @IBOutlet weak var jobPic: UIImageView!
     @IBOutlet weak var bidButton: UIButton!
+    @IBOutlet weak var jobCategory: UILabel!
+    @IBOutlet weak var jobPostedTime: UILabel!
     
 
     
@@ -25,16 +27,15 @@ class JobDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         bidButton.layer.cornerRadius = 5
-        bidButton.layer.borderWidth = 2
-        bidButton.layer.borderColor = UIColor(named: "RoyalPurple")?.cgColor
-        jobDescription.layer.borderColor = UIColor.gray.cgColor
-        jobDescription.layer.borderWidth = 1.2
+        
         jobDescription.layer.cornerRadius = 8;
         if let job = job {
             navigationItem.title = job.category
             jobTitle.text = job.title
             jobDescription.text = job.description
             jobPic.image = job.pictures[0]
+            jobCategory.text = job.category
+            jobPostedTime.text = Utilities.timeAgoSinceDate(job.postedTime, currentDate: Date(), numericDates: true)
         }
         // Do any additional setup after loading the view.
     }
@@ -71,6 +72,10 @@ class JobDetailsViewController: UIViewController {
         // Try to convert to an Int.
         
     }
+    
+    
+    // MARK: - Private Methods
+
     /*
     // MARK: - Navigation
 

@@ -130,20 +130,21 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
 
     
     private func loadSampleJobs() {
-        guard let job1 = Job(title: "Virus!", category: "Technology", description: "My computer is super broken! I need help! I can't connect to the internet.\nI downloaded Brittney Spear's latest album and now I can't turn it off.", pictures: [], tags: [], distance: 2, postalCode: "") else {
+        guard let job1 = Job(title: "Need my internet set up. I really don't know how to live my life, please help. Run away text text text text", category: "Technology", description: "I have recently aquired a new router and do not know how to set up my internet again.\nI am with Shaw, plz hlp.", pictures: [], tags: [], distance: 5, postalCode: "", postedTime: Date()) else {
             fatalError("Unable to instantiate job1")
         }
-        guard let job2 = Job(title: "New Apple iPhone doesn't download cat pictures", category: "Technology", description: "My internet isn't working on my Apple iPhone 5. I bought it brand new yesterday on Kijiji and now I cannot download my cat pictures.\n My mom is going to be so upset when she doesn't get her daily picture!", pictures: [], tags: [], distance: 6, postalCode: "") else {
+        guard let job2 = Job(title: "Living room cleaning after party", category: "Cleaning", description: "Horrible, horrible people were at my house last night for a 'small' get-together.\nHouse is trashed, need living room spotless before parents get home.\nWill kill me 100%.", pictures: [], tags: [], distance: 7, postalCode: "", postedTime: Date()) else {
             fatalError("Unable to instantiate job2")
         }
-        guard let job3 = Job(title: "Macbook Pro won't turn on", category: "Technology", description: "Hi I am trying to get my grandsons laptop to work. He gifted it to me and I can't turn it on. Usually I just open the scree and it magically works. Now it doesn't do anything.", pictures: [], tags: [], distance: 4, postalCode: "") else {
+        guard let job3 = Job(title: "Need help with iProgramming course", category: "Tutoring", description: "I am a student at U of C currently in iProgramming, the course is more difficult than I thought.\nSasha is a great man, but I do not want to bother him with my questions.\nNeed tutoring assistance, must know Swift and XCode.", pictures: [], tags: [], distance: 15, postalCode: "", postedTime: Date()) else {
             fatalError("Unable to instantiate job3")
         }
-       
+        guard let job4 = Job(title: "Help me sabotage the guy above", category: "Technology", description: "I saw the guy above this post wanted help in iProgramming, I'm also in that class and only one group should emerge victorious.\nHelp me install malware on his computer that destroys his project when it's done.", pictures: [], tags: [], distance: 3, postalCode: "", postedTime: Date()) else {
+            fatalError("Unable to instantiate job4")
+        }
         
-        jobs += [job1,job2,job3]
+        jobs += [job1,job2,job3,job4,job1,job2,job3,job4,job1]
     }
-    
     
     // MARK: - Navigation
 
@@ -158,22 +159,21 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
-            guard let selectedJobsCell = sender as? JobsTableViewCell else {
+            guard let selectedHomeCell = sender as? JobsTableViewCell else {
                 fatalError("Unexpected job sender: \(sender)")
             }
             
-            guard let indexPath = tableView.indexPath(for: selectedJobsCell) else {
+            guard let indexPath = tableView.indexPath(for: selectedHomeCell) else {
                 fatalError("The selected meal cell is not being displayed by the table")
             }
             
             let selectedJob: Job
-            // fetches the appropriate job
+            // fetches the appropriate meal
             if isFiltering() {
                 selectedJob = filteredJobs[indexPath.row]
             } else {
-                selectedJob = jobs[indexPath.row]
+                selectedJob = HomeTableViewController.jobs[indexPath.row]
             }
-            
             
             jobViewController.job = selectedJob
             
