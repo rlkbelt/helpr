@@ -16,6 +16,8 @@
 		4576E8C02188F22200471AB4 /* MyTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576E8BF2188F22200471AB4 /* MyTabBarViewController.swift */; };
 		4576E8C22189003700471AB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4576E8C12189003600471AB4 /* Assets.xcassets */; };
 		4576E8C421890A7C00471AB4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576E8C321890A7C00471AB4 /* Post.swift */; };
+		459F129F219D032D0032CC5E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F129E219D032D0032CC5E /* ProfileViewController.swift */; };
+		459F12A1219D037F0032CC5E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F12A0219D037F0032CC5E /* SettingsTableViewController.swift */; };
 		45AE32B5218A59CC005F2A8B /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE32B4218A59CC005F2A8B /* KeyboardLayoutConstraint.swift */; };
 		45AE32B7218A617B005F2A8B /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE32B6218A617B005F2A8B /* ImageCollectionViewCell.swift */; };
 		AC23225C219BD61F003EFB62 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC23225B219BD61F003EFB62 /* Utilities.swift */; };
@@ -60,6 +62,8 @@
 		4576E8BF2188F22200471AB4 /* MyTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarViewController.swift; sourceTree = "<group>"; };
 		4576E8C12189003600471AB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4576E8C321890A7C00471AB4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		459F129E219D032D0032CC5E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		459F12A0219D037F0032CC5E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		45AE32B4218A59CC005F2A8B /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
 		45AE32B6218A617B005F2A8B /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC23225B219BD61F003EFB62 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 		F783AAF521791E5A0010F034 = {
 			isa = PBXGroup;
 			children = (
+				459F129E219D032D0032CC5E /* ProfileViewController.swift */,
 				45AE32B4218A59CC005F2A8B /* KeyboardLayoutConstraint.swift */,
 				45AE32B6218A617B005F2A8B /* ImageCollectionViewCell.swift */,
 				F783AB0021791E5B0010F034 /* helpr */,
@@ -147,6 +152,7 @@
 				4576E8B32188CA0000471AB4 /* SignInViewController.swift */,
 				4576E8B72188D84100471AB4 /* SignUpViewController.swift */,
 				F783AB0721791E5B0010F034 /* Main.storyboard */,
+				459F12A0219D037F0032CC5E /* SettingsTableViewController.swift */,
 				CA12A384218962C50063ED97 /* JobDetailsViewController.swift */,
 				CA12A380218935E50063ED97 /* Job.swift */,
 				4576E8BF2188F22200471AB4 /* MyTabBarViewController.swift */,
@@ -309,6 +315,7 @@
 			files = (
 				4576E8B82188D84100471AB4 /* SignUpViewController.swift in Sources */,
 				4576E8C421890A7C00471AB4 /* Post.swift in Sources */,
+				459F129F219D032D0032CC5E /* ProfileViewController.swift in Sources */,
 				45AE32B7218A617B005F2A8B /* ImageCollectionViewCell.swift in Sources */,
 				CA12A38321893AFB0063ED97 /* HomeTableViewCell.swift in Sources */,
 				CA12A385218962C50063ED97 /* JobDetailsViewController.swift in Sources */,
@@ -326,6 +333,7 @@
 				ACF49B39218FB8A00021A63C /* JobsTableViewCell.swift in Sources */,
 				4576E8C02188F22200471AB4 /* MyTabBarViewController.swift in Sources */,
 				4576E8B42188CA0000471AB4 /* SignInViewController.swift in Sources */,
+				459F12A1219D037F0032CC5E /* SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
