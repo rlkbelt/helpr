@@ -18,7 +18,6 @@
 		4576E8C421890A7C00471AB4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576E8C321890A7C00471AB4 /* Post.swift */; };
 		459F129F219D032D0032CC5E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F129E219D032D0032CC5E /* ProfileViewController.swift */; };
 		459F12A1219D037F0032CC5E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F12A0219D037F0032CC5E /* SettingsTableViewController.swift */; };
-		45AE32B5218A59CC005F2A8B /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE32B4218A59CC005F2A8B /* KeyboardLayoutConstraint.swift */; };
 		45AE32B7218A617B005F2A8B /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE32B6218A617B005F2A8B /* ImageCollectionViewCell.swift */; };
 		AC23225C219BD61F003EFB62 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC23225B219BD61F003EFB62 /* Utilities.swift */; };
 		ACF49B37218FA68A0021A63C /* MyPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF49B36218FA68A0021A63C /* MyPostsTableViewCell.swift */; };
@@ -26,9 +25,18 @@
 		CA12A381218935E50063ED97 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA12A380218935E50063ED97 /* Job.swift */; };
 		CA12A38321893AFB0063ED97 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA12A38221893AFB0063ED97 /* HomeTableViewCell.swift */; };
 		CA12A385218962C50063ED97 /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA12A384218962C50063ED97 /* JobDetailsViewController.swift */; };
+		CA2F723F21A35E4A00AAF19F /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F723E21A35E4A00AAF19F /* UserProfile.swift */; };
+		CA2F724321A3667100AAF19F /* UpdateNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F724221A3667100AAF19F /* UpdateNameViewController.swift */; };
+		CA2F724721A366C400AAF19F /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F724621A366C400AAF19F /* ChangeEmailViewController.swift */; };
+		CA2F724921A3671100AAF19F /* AddPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F724821A3671100AAF19F /* AddPhoneViewController.swift */; };
+		CA2F724B21A3673B00AAF19F /* SkillsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F724A21A3673B00AAF19F /* SkillsTableViewController.swift */; };
+		CA2F724D21A3676000AAF19F /* FavoriteLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F724C21A3676000AAF19F /* FavoriteLocationsViewController.swift */; };
+		CA2F724F21A3676F00AAF19F /* PaymentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F724E21A3676F00AAF19F /* PaymentInfoViewController.swift */; };
+		CA2F725121A3678500AAF19F /* ReviewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F725021A3678500AAF19F /* ReviewsTableViewController.swift */; };
+		CA2F725321A3679E00AAF19F /* PrivacyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F725221A3679E00AAF19F /* PrivacyTableViewController.swift */; };
+		CA2F725521A368C900AAF19F /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F725421A368C900AAF19F /* ChangePasswordViewController.swift */; };
 		F783AB0221791E5B0010F034 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783AB0121791E5B0010F034 /* AppDelegate.swift */; };
 		F783AB0421791E5B0010F034 /* PostAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783AB0321791E5B0010F034 /* PostAdViewController.swift */; };
-		F783AB0621791E5B0010F034 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783AB0521791E5B0010F034 /* AccountViewController.swift */; };
 		F783AB0921791E5B0010F034 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F783AB0721791E5B0010F034 /* Main.storyboard */; };
 		F783AB0E21791E5C0010F034 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F783AB0C21791E5C0010F034 /* LaunchScreen.storyboard */; };
 		F783AB1921791E5C0010F034 /* helprTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783AB1821791E5C0010F034 /* helprTests.swift */; };
@@ -64,7 +72,6 @@
 		4576E8C321890A7C00471AB4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		459F129E219D032D0032CC5E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		459F12A0219D037F0032CC5E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		45AE32B4218A59CC005F2A8B /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
 		45AE32B6218A617B005F2A8B /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC23225B219BD61F003EFB62 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		ACF49B36218FA68A0021A63C /* MyPostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsTableViewCell.swift; sourceTree = "<group>"; };
@@ -72,10 +79,19 @@
 		CA12A380218935E50063ED97 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		CA12A38221893AFB0063ED97 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		CA12A384218962C50063ED97 /* JobDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
+		CA2F723E21A35E4A00AAF19F /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		CA2F724221A3667100AAF19F /* UpdateNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNameViewController.swift; sourceTree = "<group>"; };
+		CA2F724621A366C400AAF19F /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
+		CA2F724821A3671100AAF19F /* AddPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhoneViewController.swift; sourceTree = "<group>"; };
+		CA2F724A21A3673B00AAF19F /* SkillsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewController.swift; sourceTree = "<group>"; };
+		CA2F724C21A3676000AAF19F /* FavoriteLocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLocationsViewController.swift; sourceTree = "<group>"; };
+		CA2F724E21A3676F00AAF19F /* PaymentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentInfoViewController.swift; sourceTree = "<group>"; };
+		CA2F725021A3678500AAF19F /* ReviewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsTableViewController.swift; sourceTree = "<group>"; };
+		CA2F725221A3679E00AAF19F /* PrivacyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyTableViewController.swift; sourceTree = "<group>"; };
+		CA2F725421A368C900AAF19F /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		F783AAFE21791E5B0010F034 /* helpr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = helpr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F783AB0121791E5B0010F034 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F783AB0321791E5B0010F034 /* PostAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAdViewController.swift; sourceTree = "<group>"; };
-		F783AB0521791E5B0010F034 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		F783AB0821791E5B0010F034 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F783AB0D21791E5C0010F034 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F783AB0F21791E5C0010F034 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -115,9 +131,7 @@
 		F783AAF521791E5A0010F034 = {
 			isa = PBXGroup;
 			children = (
-				459F129E219D032D0032CC5E /* ProfileViewController.swift */,
-				45AE32B4218A59CC005F2A8B /* KeyboardLayoutConstraint.swift */,
-				45AE32B6218A617B005F2A8B /* ImageCollectionViewCell.swift */,
+				CA2F725421A368C900AAF19F /* ChangePasswordViewController.swift */,
 				F783AB0021791E5B0010F034 /* helpr */,
 				F783AB1721791E5C0010F034 /* helprTests */,
 				F783AB2221791E5C0010F034 /* helprUITests */,
@@ -138,28 +152,38 @@
 		F783AB0021791E5B0010F034 /* helpr */ = {
 			isa = PBXGroup;
 			children = (
-				4576E8C12189003600471AB4 /* Assets.xcassets */,
+				F783AB0F21791E5C0010F034 /* Info.plist */,
+				CA2F724821A3671100AAF19F /* AddPhoneViewController.swift */,
 				F783AB0121791E5B0010F034 /* AppDelegate.swift */,
-				4576E8B92188EE6500471AB4 /* HomeTableViewController.swift */,
+				CA2F724621A366C400AAF19F /* ChangeEmailViewController.swift */,
+				CA2F724C21A3676000AAF19F /* FavoriteLocationsViewController.swift */,
 				CA12A38221893AFB0063ED97 /* HomeTableViewCell.swift */,
-				4576E8BB2188EEAB00471AB4 /* JobsTableViewController.swift */,
+				4576E8B92188EE6500471AB4 /* HomeTableViewController.swift */,
+				45AE32B6218A617B005F2A8B /* ImageCollectionViewCell.swift */,
+				CA12A380218935E50063ED97 /* Job.swift */,
+				CA12A384218962C50063ED97 /* JobDetailsViewController.swift */,
 				ACF49B38218FB8A00021A63C /* JobsTableViewCell.swift */,
-				4576E8BD2188EEBD00471AB4 /* MyPostsTableViewController.swift */,
-				ACF49B36218FA68A0021A63C /* MyPostsTableViewCell.swift */,
-				F783AB0321791E5B0010F034 /* PostAdViewController.swift */,
-				F783AB0521791E5B0010F034 /* AccountViewController.swift */,
+				4576E8BB2188EEAB00471AB4 /* JobsTableViewController.swift */,
 				4576E8B52188D57F00471AB4 /* LetUsKnowViewController.swift */,
+				ACF49B36218FA68A0021A63C /* MyPostsTableViewCell.swift */,
+				4576E8BD2188EEBD00471AB4 /* MyPostsTableViewController.swift */,
+				4576E8BF2188F22200471AB4 /* MyTabBarViewController.swift */,
+				CA2F724E21A3676F00AAF19F /* PaymentInfoViewController.swift */,
+				4576E8C321890A7C00471AB4 /* Post.swift */,
+				F783AB0321791E5B0010F034 /* PostAdViewController.swift */,
+				CA2F725221A3679E00AAF19F /* PrivacyTableViewController.swift */,
+				459F129E219D032D0032CC5E /* ProfileViewController.swift */,
+				CA2F725021A3678500AAF19F /* ReviewsTableViewController.swift */,
+				459F12A0219D037F0032CC5E /* SettingsTableViewController.swift */,
 				4576E8B32188CA0000471AB4 /* SignInViewController.swift */,
 				4576E8B72188D84100471AB4 /* SignUpViewController.swift */,
-				F783AB0721791E5B0010F034 /* Main.storyboard */,
-				459F12A0219D037F0032CC5E /* SettingsTableViewController.swift */,
-				CA12A384218962C50063ED97 /* JobDetailsViewController.swift */,
-				CA12A380218935E50063ED97 /* Job.swift */,
-				4576E8BF2188F22200471AB4 /* MyTabBarViewController.swift */,
-				F783AB0C21791E5C0010F034 /* LaunchScreen.storyboard */,
-				F783AB0F21791E5C0010F034 /* Info.plist */,
-				4576E8C321890A7C00471AB4 /* Post.swift */,
+				CA2F724A21A3673B00AAF19F /* SkillsTableViewController.swift */,
+				CA2F724221A3667100AAF19F /* UpdateNameViewController.swift */,
+				CA2F723E21A35E4A00AAF19F /* UserProfile.swift */,
 				AC23225B219BD61F003EFB62 /* Utilities.swift */,
+				4576E8C12189003600471AB4 /* Assets.xcassets */,
+				F783AB0C21791E5C0010F034 /* LaunchScreen.storyboard */,
+				F783AB0721791E5B0010F034 /* Main.storyboard */,
 			);
 			path = helpr;
 			sourceTree = "<group>";
@@ -313,8 +337,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA2F725321A3679E00AAF19F /* PrivacyTableViewController.swift in Sources */,
 				4576E8B82188D84100471AB4 /* SignUpViewController.swift in Sources */,
 				4576E8C421890A7C00471AB4 /* Post.swift in Sources */,
+				CA2F725121A3678500AAF19F /* ReviewsTableViewController.swift in Sources */,
+				CA2F723F21A35E4A00AAF19F /* UserProfile.swift in Sources */,
 				459F129F219D032D0032CC5E /* ProfileViewController.swift in Sources */,
 				45AE32B7218A617B005F2A8B /* ImageCollectionViewCell.swift in Sources */,
 				CA12A38321893AFB0063ED97 /* HomeTableViewCell.swift in Sources */,
@@ -322,16 +349,21 @@
 				4576E8BC2188EEAB00471AB4 /* JobsTableViewController.swift in Sources */,
 				4576E8BE2188EEBD00471AB4 /* MyPostsTableViewController.swift in Sources */,
 				4576E8B62188D57F00471AB4 /* LetUsKnowViewController.swift in Sources */,
-				F783AB0621791E5B0010F034 /* AccountViewController.swift in Sources */,
-				45AE32B5218A59CC005F2A8B /* KeyboardLayoutConstraint.swift in Sources */,
+				CA2F725521A368C900AAF19F /* ChangePasswordViewController.swift in Sources */,
 				F783AB0221791E5B0010F034 /* AppDelegate.swift in Sources */,
+				CA2F724D21A3676000AAF19F /* FavoriteLocationsViewController.swift in Sources */,
 				CA12A381218935E50063ED97 /* Job.swift in Sources */,
 				4576E8BA2188EE6500471AB4 /* HomeTableViewController.swift in Sources */,
+				CA2F724F21A3676F00AAF19F /* PaymentInfoViewController.swift in Sources */,
+				CA2F724B21A3673B00AAF19F /* SkillsTableViewController.swift in Sources */,
 				AC23225C219BD61F003EFB62 /* Utilities.swift in Sources */,
 				F783AB0421791E5B0010F034 /* PostAdViewController.swift in Sources */,
 				ACF49B37218FA68A0021A63C /* MyPostsTableViewCell.swift in Sources */,
 				ACF49B39218FB8A00021A63C /* JobsTableViewCell.swift in Sources */,
+				CA2F724921A3671100AAF19F /* AddPhoneViewController.swift in Sources */,
+				CA2F724321A3667100AAF19F /* UpdateNameViewController.swift in Sources */,
 				4576E8C02188F22200471AB4 /* MyTabBarViewController.swift in Sources */,
+				CA2F724721A366C400AAF19F /* ChangeEmailViewController.swift in Sources */,
 				4576E8B42188CA0000471AB4 /* SignInViewController.swift in Sources */,
 				459F12A1219D037F0032CC5E /* SettingsTableViewController.swift in Sources */,
 			);
