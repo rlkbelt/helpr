@@ -2,7 +2,7 @@
 //  UpdateNameViewController.swift
 //  helpr
 //
-//  Created by adrian.parcioaga on 2018-11-19.
+//  Created by adrian.parcioaga and walter.alvarez on 2018-11-19.
 //  Copyright © 2018 ryan.konynenbelt. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import UIKit
 class UpdateNameViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var tfCurName: UITextField!
-    @IBOutlet weak var tvNewName: UITextField!
+    @IBOutlet weak var tfNewName: UITextField!
     @IBOutlet weak var tvReasoning: UITextView!
     @IBOutlet weak var btnSubmit: UIButton!
     
@@ -59,6 +59,14 @@ class UpdateNameViewController: UIViewController, UITextViewDelegate {
         if (tvReasoning.text == "") {
             tvReasoning.textColor = UIColor.lightGray
             tvReasoning.text = "Briefly explain why you are requesting a name change (such as marriage, divorce, or legally updated, etc..)"
+        }
+    }
+    
+    @IBAction func nextField(_ sender: UITextField) {
+        if sender.accessibilityIdentifier == "newName" {
+            print("Hit return on current password field")
+            tfNewName.resignFirstResponder()
+            tvReasoning.becomeFirstResponder()
         }
     }
 }

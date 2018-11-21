@@ -160,6 +160,8 @@ class PostAdViewController: UIViewController, UITextViewDelegate, UIPickerViewDe
     
     @IBAction func fieldExit(_ sender: Any) {
         //dummy function to prevent fieldDoneEditing from being double-called when  sender field is dismissed using return key, while still retaining the EditingDidEnd subcall.
+        tfTitle.resignFirstResponder()
+        tvDescription.becomeFirstResponder()
     }
     
     //called when title textField is dismissed. Originally used for more textFields but class has since evolved. Consider refactoring
