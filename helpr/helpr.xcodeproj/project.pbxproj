@@ -149,14 +149,11 @@
 		F783AAF521791E5A0010F034 = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				ACD4F20621A51D2700519FB6 /* GoogleService-Info.plist */,
 				459F129E219D032D0032CC5E /* ProfileViewController.swift */,
 				45AE32B4218A59CC005F2A8B /* KeyboardLayoutConstraint.swift */,
 				45AE32B6218A617B005F2A8B /* ImageCollectionViewCell.swift */,
-=======
 				CA2F725421A368C900AAF19F /* ChangePasswordViewController.swift */,
->>>>>>> 7c6ce6b7357b239b1e6cc3f571928314a200f123
 				F783AB0021791E5B0010F034 /* helpr */,
 				F783AB1721791E5C0010F034 /* helprTests */,
 				F783AB2221791E5C0010F034 /* helprUITests */,
@@ -179,13 +176,10 @@
 		F783AB0021791E5B0010F034 /* helpr */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				ACD4F20821A51D2D00519FB6 /* GoogleService-Info.plist */,
 				4576E8C12189003600471AB4 /* Assets.xcassets */,
-=======
 				F783AB0F21791E5C0010F034 /* Info.plist */,
 				CA2F724821A3671100AAF19F /* AddPhoneViewController.swift */,
->>>>>>> 7c6ce6b7357b239b1e6cc3f571928314a200f123
 				F783AB0121791E5B0010F034 /* AppDelegate.swift */,
 				CA2F724621A366C400AAF19F /* ChangeEmailViewController.swift */,
 				CA2F724C21A3676000AAF19F /* FavoriteLocationsViewController.swift */,
