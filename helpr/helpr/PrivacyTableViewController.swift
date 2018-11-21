@@ -1,15 +1,36 @@
 //
-//  SettingsTableViewController.swift
+//  PrivacyTableViewController.swift
 //  helpr
 //
-//  Created by walter.alvarez on 2018-11-14.
+//  Created by adrian.parcioaga on 2018-11-19.
 //  Copyright © 2018 ryan.konynenbelt. All rights reserved.
 //
 
 import UIKit
 
-class SettingsTableViewController: UITableViewController {
-
+class PrivacyTableViewController: UITableViewController {
+    
+    //MARK: Toggles
+    
+    // Notifications
+    @IBOutlet weak var emailSwitch: UISwitch!
+    @IBOutlet weak var pushSwitch: UISwitch!
+    @IBOutlet weak var smsSwitch: UISwitch!
+    //Notify Me When...
+    @IBOutlet weak var newReviewSwitch: UISwitch!
+    @IBOutlet weak var bidAcceptedSwitch: UISwitch!
+    @IBOutlet weak var bidDeclinedSwitch: UISwitch!
+    @IBOutlet weak var postUploadSwitch: UISwitch!
+    @IBOutlet weak var newMessageSwitch: UISwitch!
+    @IBOutlet weak var newRatingSwitch: UISwitch!
+    @IBOutlet weak var newBidSwitch: UISwitch!
+    //Data Sharing
+    @IBOutlet weak var featuredReviewsSwitch: UISwitch!
+    @IBOutlet weak var locationSwitch: UISwitch!
+    @IBOutlet weak var profilePicSwitch: UISwitch!
+    @IBOutlet weak var skillsSwitch: UISwitch!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,32 +44,30 @@ class SettingsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 4
-        case 1:
             return 3
+        case 1:
+            return 7
         case 2:
-            return 2
-        case 3:
-            return 2
+            return 4
         default:
             print("But why?")
             return 0
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerView = view as? UITableViewHeaderFooterView {
             //headerView.contentView.backgroundColor = .white
             headerView.textLabel?.textColor = UIColor.init(named: "RoyalPurple")
         }
     }
-
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
