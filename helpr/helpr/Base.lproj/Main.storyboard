@@ -560,6 +560,14 @@
                                 <color key="textColor" name="RoyalPurple"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhH-dm-j8c">
+                                <rect key="frame" x="159" y="696" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign up"/>
+                                <connections>
+                                    <segue destination="1VL-es-E8o" kind="show" id="NeG-BS-o4D"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Ahi-bk-oET"/>
@@ -740,7 +748,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
                                         <color key="value" name="RoyalPurple"/>
@@ -752,7 +760,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
                                         <color key="value" name="RoyalPurple"/>
@@ -787,6 +795,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <segue destination="49e-Tb-3d3" kind="show" id="1Op-1D-3Qw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -804,11 +815,11 @@
             </objects>
             <point key="canvasLocation" x="-3182" y="18"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Jobs-->
         <scene sceneID="p24-O9-sZ5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4kE-bR-hig" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="home" id="Zse-rb-g9p"/>
+                    <tabBarItem key="tabBarItem" title="Jobs" image="home" id="Zse-rb-g9p"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aYj-4h-3N1">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -826,11 +837,11 @@
             </objects>
             <point key="canvasLocation" x="-1660" y="743"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--My Posts-->
         <scene sceneID="Pxi-n8-Ila">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gdk-W1-dsT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="myposts" id="iCC-si-jx6"/>
+                    <tabBarItem key="tabBarItem" title="My Posts" image="myposts" id="iCC-si-jx6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hr4-3t-Cf2">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -848,11 +859,11 @@
             </objects>
             <point key="canvasLocation" x="598" y="743"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--My Jobs-->
         <scene sceneID="gMk-Hq-XAf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YhJ-bv-Bxo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="jobs" id="Kmo-AO-cPy"/>
+                    <tabBarItem key="tabBarItem" title="My Jobs" image="jobs" id="Kmo-AO-cPy"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Mus-e8-70Q">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -870,11 +881,11 @@
             </objects>
             <point key="canvasLocation" x="-948" y="742.61083743842369"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Post-->
         <scene sceneID="84S-us-F7h">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TIA-Xy-J1y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="post" id="0Eu-Xs-sIJ"/>
+                    <tabBarItem key="tabBarItem" title="Post" image="post" id="0Eu-Xs-sIJ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LCD-76-Tc9">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -892,11 +903,11 @@
             </objects>
             <point key="canvasLocation" x="-191" y="743"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Profile-->
         <scene sceneID="pTw-vq-RR7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eLF-pk-CA7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="account" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="account" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7vb-nR-fw7">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -2061,8 +2072,8 @@
     <resources>
         <image name="Chevron" width="75" height="75"/>
         <image name="SplashScreen" width="2047" height="2047"/>
-        <image name="account" width="75" height="75"/>
-        <image name="home" width="75" height="75"/>
+        <image name="account" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="home" width="51.200000762939453" height="51.200000762939453"/>
         <image name="imageView:r6w-b4-Ss5:image" width="360" height="360">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGVVZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEgcI
@@ -10837,9 +10848,9 @@ AAAABAEAAAAAAAAAWQAAAAAAAAAAAAAAAAAIBZk
 </mutableData>
         </image>
         <image name="job" width="75" height="75"/>
-        <image name="jobs" width="75" height="75"/>
-        <image name="myposts" width="75" height="75"/>
-        <image name="post" width="75" height="75"/>
+        <image name="jobs" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="myposts" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="post" width="51.200000762939453" height="51.200000762939453"/>
         <image name="star" width="75" height="75"/>
         <image name="steve" width="1200" height="800"/>
         <namedColor name="RoyalPurple">
@@ -10850,6 +10861,7 @@ AAAABAEAAAAAAAAAWQAAAAAAAAAAAAAAAAAIBZk
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="1Op-1D-3Qw"/>
         <segue reference="FbF-xl-oY1"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="RoyalPurple"/>
