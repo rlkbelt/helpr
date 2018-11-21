@@ -16,15 +16,15 @@ class MyTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        if let count = self.tabBar.items?.count {
-            for i in 0...(count-1) {
-                let selectedImgName   = selectedIcons[i]
-                let unselectedImgName = unselectedIcons[i]
-                
-                self.tabBar.items?[i].selectedImage = UIImage(named: selectedImgName)?.withRenderingMode(.alwaysOriginal)
-                self.tabBar.items?[i].image = UIImage(named: unselectedImgName)?.withRenderingMode(.alwaysOriginal)
-            }
-        }
+//        if let count = self.tabBar.items?.count {
+//            for i in 0...(count-1) {
+//                let selectedImgName   = selectedIcons[i]
+//                let unselectedImgName = unselectedIcons[i]
+//                
+//                self.tabBar.items?[i].selectedImage = UIImage(named: selectedImgName)?.withRenderingMode(.alwaysOriginal)
+//                self.tabBar.items?[i].image = UIImage(named: unselectedImgName)?.withRenderingMode(.alwaysOriginal)
+//            }
+//        }
         
         //let selectedColor   = UIColor.white
         //let unselectedColor = UIColor.white

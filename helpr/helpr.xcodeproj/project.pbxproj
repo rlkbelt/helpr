@@ -128,10 +128,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F783AAF521791E5A0010F034 = {
+		AC9682AC21A5FFE800A161D6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				CA2F725421A368C900AAF19F /* ChangePasswordViewController.swift */,
+				CA2F724821A3671100AAF19F /* AddPhoneViewController.swift */,
+				CA2F724621A366C400AAF19F /* ChangeEmailViewController.swift */,
+				CA2F724C21A3676000AAF19F /* FavoriteLocationsViewController.swift */,
+				4576E8B92188EE6500471AB4 /* HomeTableViewController.swift */,
+				CA12A384218962C50063ED97 /* JobDetailsViewController.swift */,
+				4576E8BB2188EEAB00471AB4 /* JobsTableViewController.swift */,
+				4576E8B52188D57F00471AB4 /* LetUsKnowViewController.swift */,
+				4576E8BD2188EEBD00471AB4 /* MyPostsTableViewController.swift */,
+				4576E8BF2188F22200471AB4 /* MyTabBarViewController.swift */,
+				CA2F724E21A3676F00AAF19F /* PaymentInfoViewController.swift */,
+				F783AB0321791E5B0010F034 /* PostAdViewController.swift */,
+				CA2F725221A3679E00AAF19F /* PrivacyTableViewController.swift */,
+				459F129E219D032D0032CC5E /* ProfileViewController.swift */,
+				CA2F725021A3678500AAF19F /* ReviewsTableViewController.swift */,
+				459F12A0219D037F0032CC5E /* SettingsTableViewController.swift */,
+				4576E8B32188CA0000471AB4 /* SignInViewController.swift */,
+				4576E8B72188D84100471AB4 /* SignUpViewController.swift */,
+				CA2F724A21A3673B00AAF19F /* SkillsTableViewController.swift */,
+				CA2F724221A3667100AAF19F /* UpdateNameViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AC9682AD21A5FFF200A161D6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CA12A38221893AFB0063ED97 /* HomeTableViewCell.swift */,
+				45AE32B6218A617B005F2A8B /* ImageCollectionViewCell.swift */,
+				ACF49B38218FB8A00021A63C /* JobsTableViewCell.swift */,
+				ACF49B36218FA68A0021A63C /* MyPostsTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC9682AE21A6000400A161D6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4576E8C321890A7C00471AB4 /* Post.swift */,
+				CA12A380218935E50063ED97 /* Job.swift */,
+				CA2F723E21A35E4A00AAF19F /* UserProfile.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F783AAF521791E5A0010F034 = {
+			isa = PBXGroup;
+			children = (
 				F783AB0021791E5B0010F034 /* helpr */,
 				F783AB1721791E5C0010F034 /* helprTests */,
 				F783AB2221791E5C0010F034 /* helprUITests */,
@@ -152,34 +199,11 @@
 		F783AB0021791E5B0010F034 /* helpr */ = {
 			isa = PBXGroup;
 			children = (
+				AC9682AE21A6000400A161D6 /* Model */,
+				AC9682AD21A5FFF200A161D6 /* View */,
+				AC9682AC21A5FFE800A161D6 /* Controllers */,
 				F783AB0F21791E5C0010F034 /* Info.plist */,
-				CA2F724821A3671100AAF19F /* AddPhoneViewController.swift */,
 				F783AB0121791E5B0010F034 /* AppDelegate.swift */,
-				CA2F724621A366C400AAF19F /* ChangeEmailViewController.swift */,
-				CA2F724C21A3676000AAF19F /* FavoriteLocationsViewController.swift */,
-				CA12A38221893AFB0063ED97 /* HomeTableViewCell.swift */,
-				4576E8B92188EE6500471AB4 /* HomeTableViewController.swift */,
-				45AE32B6218A617B005F2A8B /* ImageCollectionViewCell.swift */,
-				CA12A380218935E50063ED97 /* Job.swift */,
-				CA12A384218962C50063ED97 /* JobDetailsViewController.swift */,
-				ACF49B38218FB8A00021A63C /* JobsTableViewCell.swift */,
-				4576E8BB2188EEAB00471AB4 /* JobsTableViewController.swift */,
-				4576E8B52188D57F00471AB4 /* LetUsKnowViewController.swift */,
-				ACF49B36218FA68A0021A63C /* MyPostsTableViewCell.swift */,
-				4576E8BD2188EEBD00471AB4 /* MyPostsTableViewController.swift */,
-				4576E8BF2188F22200471AB4 /* MyTabBarViewController.swift */,
-				CA2F724E21A3676F00AAF19F /* PaymentInfoViewController.swift */,
-				4576E8C321890A7C00471AB4 /* Post.swift */,
-				F783AB0321791E5B0010F034 /* PostAdViewController.swift */,
-				CA2F725221A3679E00AAF19F /* PrivacyTableViewController.swift */,
-				459F129E219D032D0032CC5E /* ProfileViewController.swift */,
-				CA2F725021A3678500AAF19F /* ReviewsTableViewController.swift */,
-				459F12A0219D037F0032CC5E /* SettingsTableViewController.swift */,
-				4576E8B32188CA0000471AB4 /* SignInViewController.swift */,
-				4576E8B72188D84100471AB4 /* SignUpViewController.swift */,
-				CA2F724A21A3673B00AAF19F /* SkillsTableViewController.swift */,
-				CA2F724221A3667100AAF19F /* UpdateNameViewController.swift */,
-				CA2F723E21A35E4A00AAF19F /* UserProfile.swift */,
 				AC23225B219BD61F003EFB62 /* Utilities.swift */,
 				4576E8C12189003600471AB4 /* Assets.xcassets */,
 				F783AB0C21791E5C0010F034 /* LaunchScreen.storyboard */,
