@@ -565,7 +565,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign up"/>
                                 <connections>
-                                    <segue destination="1VL-es-E8o" kind="show" id="NeG-BS-o4D"/>
+                                    <segue destination="1VL-es-E8o" kind="show" id="PlX-f4-iS5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -578,13 +578,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xH1-He-Ox5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1031.2" y="3.6945812807881775"/>
+            <point key="canvasLocation" x="-1660" y="-795"/>
         </scene>
-        <!--Sign In-->
+        <!--SignInViewController-->
         <scene sceneID="dqM-hN-HDP">
             <objects>
-                <viewController id="JOp-J7-Mop" userLabel="Sign In" customClass="SignInViewController" customModule="helpr" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="center" id="Xbf-Yj-QGJ" userLabel="LoginView" customClass="Signing">
+                <viewController storyboardIdentifier="SignInViewController" id="JOp-J7-Mop" userLabel="SignInViewController" customClass="SignInViewController" customModule="helpr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="center" id="Xbf-Yj-QGJ" userLabel="SignInViewController">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -600,7 +600,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Helpr" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqu-WI-50w">
                                 <rect key="frame" x="145" y="200" width="84" height="43"/>
@@ -623,13 +623,16 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="signInDidPress:" destination="JOp-J7-Mop" eventType="touchUpInside" id="tEU-bG-67l"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KNz-Qf-wfg">
                                 <rect key="frame" x="112" y="680" width="150" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="Sign Up!">
+                                        <fragment content="Sign In!">
                                             <attributes>
                                                 <color key="NSColor" name="RoyalPurple"/>
                                                 <font key="NSFont" size="17" name=".AppleSystemUIFont"/>
@@ -674,11 +677,14 @@
                     <connections>
                         <outlet property="bLogIn" destination="nwv-3L-WdM" id="v3r-mh-D8h"/>
                         <outlet property="bSignUp" destination="KNz-Qf-wfg" id="T8q-E6-qzb"/>
+                        <outlet property="emailField" destination="O82-ql-gE4" id="Mte-EK-6LG"/>
+                        <outlet property="passwordField" destination="38O-1b-kzg" id="Ap1-Wm-aMk"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="successfulSignIn" id="Oum-yd-8WK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vLd-Zc-WCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3886" y="18"/>
+            <point key="canvasLocation" x="-1660" y="-10"/>
         </scene>
         <!--My Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -702,7 +708,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-191" y="4"/>
+            <point key="canvasLocation" x="-191" y="-10"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="Ds1-vU-TRw">
@@ -796,7 +802,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="49e-Tb-3d3" kind="show" id="1Op-1D-3Qw"/>
+                                    <action selector="signUpDidTouch:" destination="1VL-es-E8o" eventType="touchUpInside" id="vBN-HF-6cn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -809,11 +815,12 @@
                         <outlet property="lEmail" destination="lI5-om-KgC" id="uB6-nm-cb1"/>
                         <outlet property="lFullName" destination="55h-5O-VmT" id="ax4-42-PpA"/>
                         <outlet property="lPassword" destination="7HX-fJ-eD2" id="emh-bv-VpL"/>
+                        <segue destination="JOp-J7-Mop" kind="show" identifier="goSignIn" id="eRE-oC-rcd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v6L-n4-S3l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3182" y="18"/>
+            <point key="canvasLocation" x="-3145" y="-10"/>
         </scene>
         <!--Jobs-->
         <scene sceneID="p24-O9-sZ5">
@@ -10859,10 +10866,13 @@ AAAABAEAAAAAAAAAWQAAAAAAAAAAAAAAAAAIBZk
         <namedColor name="RoyalPurple">
             <color red="0.63529411764705879" green="0.44705882352941179" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="RoyalPurple">
+            <color red="0.63529411764705879" green="0.44705882352941179" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1Op-1D-3Qw"/>
-        <segue reference="FbF-xl-oY1"/>
+        <segue reference="Oum-yd-8WK"/>
+        <segue reference="HaN-QN-iNf"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="RoyalPurple"/>
 </document>

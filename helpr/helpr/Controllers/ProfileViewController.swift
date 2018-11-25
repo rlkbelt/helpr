@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var ivProfilePic: UIImageView!
@@ -20,7 +20,15 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let user = Auth.auth().currentUser
+        if Auth.auth().currentUser != nil {
+            // User is signed in.
+            print("User signed in: " + (user?.email!)!)
+        } else {
+            // No user is signed in.
+            print("No user signed-in")
+        }
+        
         ivProfilePic.layer.cornerRadius = ivProfilePic.frame.width / 2
         ivProfilePic.layer.borderWidth = 1
         ivProfilePic.layer.borderColor = UIColor.lightGray.cgColor

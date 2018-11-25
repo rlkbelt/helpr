@@ -8,7 +8,7 @@
 
 import UIKit
 import os.log
-
+import Firebase
 class PostAdViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
@@ -137,6 +137,8 @@ class PostAdViewController: UIViewController, UITextViewDelegate, UIPickerViewDe
                 alert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
+            savePostToDatabase()
+            
         }
     }
     
@@ -326,5 +328,10 @@ class PostAdViewController: UIViewController, UITextViewDelegate, UIPickerViewDe
         pickerLabel!.textAlignment = .center
         
         return pickerLabel!
+    }
+    
+    //MARK : Private Functions
+    private func savePostToDatabase(){        	
+
     }
 }

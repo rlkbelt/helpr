@@ -8,7 +8,7 @@
 
 import UIKit
 import os.log
-
+import Firebase
 class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
     
     //MARK: Properties
@@ -25,6 +25,7 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
         NotificationCenter.default.addObserver(self, selector: #selector(loadList(notification:)), name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
         
         loadSampleJobs()
+        loadJobs()
         filteredJobs = HomeTableViewController.jobs
         isPurple = false
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
@@ -143,6 +144,11 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
     */
     
     //MARK: Private Methods
+    
+    //Will eventually load jobs from database
+    private func loadJobs(){
+
+    }
     
     private func loadSampleJobs() {
         guard let job1 = Job(title: "Need my internet set up", category: "Technology", description: "I have recently aquired a new router and do not know how to set up my internet again.\nI am with Shaw, plz hlp.", pictures: [], tags: [], distance: 5, postalCode: "", postedTime: Date()) else {
