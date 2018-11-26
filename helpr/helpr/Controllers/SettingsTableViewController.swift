@@ -37,7 +37,7 @@ class SettingsTableViewController: UITableViewController {
         case 3:
             return 2
         default:
-            print("But why?")
+            print("But why? LOL Good question")
             return 0
         }
     }
@@ -104,4 +104,7 @@ class SettingsTableViewController: UITableViewController {
     }
     */
 
+    //MARK: Actions
+    
+    
 }

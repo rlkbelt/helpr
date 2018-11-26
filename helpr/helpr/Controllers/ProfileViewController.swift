@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import os.log
 class ProfileViewController: UIViewController {
 
@@ -17,26 +16,49 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var lblJobCount: UILabel!
     @IBOutlet weak var btnSkills: UIButton!
     @IBOutlet weak var tvReviews: UITableView!
-    var ref: DatabaseReference!
 
+    private var storage: StorageHelper = StorageHelper()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadProfilePicture()
         ivProfilePic.layer.cornerRadius = ivProfilePic.frame.width / 2
         ivProfilePic.layer.borderWidth = 1
         ivProfilePic.layer.borderColor = UIColor.lightGray.cgColor
     }
     
-    private func testAddProfile(user: User){
-        
-//        ref = Database.database().reference()
-//
-//        ref.child("users").child(user.uid).setValue(["email": user.email])
-
+    //MARK: Action
+    @IBAction func imageClicked(_ sender: Any) {
+        //Part of the ViewController Extensions
+        presentPictureOptions()
     }
     
-
+    //This is magic. Where does this get called?
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        
+        //Post Photo
+        storage.updateProfile(picture: selectedImage) { path in
+            print(path)
+        }
+        self.ivProfilePic.image = selectedImage
+        
+        // Dismiss the picker.
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func loadProfilePicture(){
+        storage.loadProfilePicture(){image in
+            self.ivProfilePic.image = image
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

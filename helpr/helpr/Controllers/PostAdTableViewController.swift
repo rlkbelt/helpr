@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class PostAdTableViewController: UITableViewController, UITextViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PostAdTableViewController: UITableViewController, UITextViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
     
     @IBOutlet weak var lCategory: UILabel!

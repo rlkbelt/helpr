@@ -24,6 +24,10 @@
 		45AE32B7218A617B005F2A8B /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AE32B6218A617B005F2A8B /* ImageCollectionViewCell.swift */; };
 		8F561CD961B35717369C999C /* Pods_helpr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6AAB266A66145E7375E48D /* Pods_helpr.framework */; };
 		976D8B9762A5125ED93DE9A9 /* Pods_helprTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1BDBFF60099441AC59B033C /* Pods_helprTests.framework */; };
+		AC01C7EF21ABB684000EEB37 /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC01C7EE21ABB684000EEB37 /* StorageHelper.swift */; };
+		AC01C7F321ABC0D5000EEB37 /* DSCameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC01C7F221ABC0D5000EEB37 /* DSCameraHandler.swift */; };
+		AC01C7F521ABC13D000EEB37 /* ViewController+CameraHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC01C7F421ABC13D000EEB37 /* ViewController+CameraHandling.swift */; };
+		AC01C7F721ABD199000EEB37 /* FileHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC01C7F621ABD199000EEB37 /* FileHelpers.swift */; };
 		AC23225C219BD61F003EFB62 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC23225B219BD61F003EFB62 /* Utilities.swift */; };
 		AC3604CD21AB46FB0004B219 /* UIViewController+AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3604CC21AB46FB0004B219 /* UIViewController+AuthError.swift */; };
 		AC3604CF21AB47570004B219 /* AuthErrorCode+errorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3604CE21AB47570004B219 /* AuthErrorCode+errorMessage.swift */; };
@@ -90,6 +94,10 @@
 		989A02AABD7F3E9A3BF332BC /* Pods-helprUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-helprUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-helprUITests/Pods-helprUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9AB31D2B7FF65B6CFEA65B90 /* Pods-helprUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-helprUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-helprUITests/Pods-helprUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A8EE5AF38649B14AE9F4E60D /* Pods_helprUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_helprUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC01C7EE21ABB684000EEB37 /* StorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
+		AC01C7F221ABC0D5000EEB37 /* DSCameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSCameraHandler.swift; sourceTree = "<group>"; };
+		AC01C7F421ABC13D000EEB37 /* ViewController+CameraHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+CameraHandling.swift"; sourceTree = "<group>"; };
+		AC01C7F621ABD199000EEB37 /* FileHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelpers.swift; sourceTree = "<group>"; };
 		AC23225B219BD61F003EFB62 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		AC3604CC21AB46FB0004B219 /* UIViewController+AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AuthError.swift"; sourceTree = "<group>"; };
 		AC3604CE21AB47570004B219 /* AuthErrorCode+errorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthErrorCode+errorMessage.swift"; sourceTree = "<group>"; };
@@ -169,11 +177,31 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AC01C7F021ABB93A000EEB37 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AC3604CE21AB47570004B219 /* AuthErrorCode+errorMessage.swift */,
+				AC3604CC21AB46FB0004B219 /* UIViewController+AuthError.swift */,
+				AC01C7F421ABC13D000EEB37 /* ViewController+CameraHandling.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AC01C7F121ABB950000EEB37 /* Firebase Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ACFD809A21A77694009D0182 /* DatabaseHelper.swift */,
+				AC01C7EE21ABB684000EEB37 /* StorageHelper.swift */,
+			);
+			path = "Firebase Helpers";
+			sourceTree = "<group>";
+		};
 		AC9682AC21A5FFE800A161D6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AC01C7F121ABB950000EEB37 /* Firebase Helpers */,
+				AC01C7F021ABB93A000EEB37 /* Extensions */,
 				ACFD809921A7766B009D0182 /* Backend */,
-				CA2F725421A368C900AAF19F /* ChangePasswordViewController.swift */,
 				CA2F724821A3671100AAF19F /* AddPhoneViewController.swift */,
 				4598BC9321A8B3640058096B /* CategoriesTableViewController.swift */,
 				CA2F724621A366C400AAF19F /* ChangeEmailViewController.swift */,
@@ -187,7 +215,6 @@
 				4576E8BF2188F22200471AB4 /* MyTabBarViewController.swift */,
 				CA2F724E21A3676F00AAF19F /* PaymentInfoViewController.swift */,
 				F783AB0321791E5B0010F034 /* PostAdTableViewController.swift */,
-				450B03E721A895B80071D581 /* PostAdViewController.swift */,
 				CA2F725221A3679E00AAF19F /* PrivacyTableViewController.swift */,
 				459F129E219D032D0032CC5E /* ProfileViewController.swift */,
 				CA2F725021A3678500AAF19F /* ReviewsTableViewController.swift */,
@@ -226,9 +253,8 @@
 			isa = PBXGroup;
 			children = (
 				AC23225B219BD61F003EFB62 /* Utilities.swift */,
-				ACFD809A21A77694009D0182 /* DatabaseHelper.swift */,
-				AC3604CE21AB47570004B219 /* AuthErrorCode+errorMessage.swift */,
-				AC3604CC21AB46FB0004B219 /* UIViewController+AuthError.swift */,
+				AC01C7F221ABC0D5000EEB37 /* DSCameraHandler.swift */,
+				AC01C7F621ABD199000EEB37 /* FileHelpers.swift */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -542,9 +568,12 @@
 			files = (
 				CA2F725321A3679E00AAF19F /* PrivacyTableViewController.swift in Sources */,
 				4598BC9821A8B8BF0058096B /* CategoriesTableViewCell.swift in Sources */,
+				AC01C7F521ABC13D000EEB37 /* ViewController+CameraHandling.swift in Sources */,
+				AC01C7F321ABC0D5000EEB37 /* DSCameraHandler.swift in Sources */,
 				4576E8B82188D84100471AB4 /* SignUpViewController.swift in Sources */,
 				4576E8C421890A7C00471AB4 /* Post.swift in Sources */,
 				CA2F725121A3678500AAF19F /* ReviewsTableViewController.swift in Sources */,
+				AC01C7F721ABD199000EEB37 /* FileHelpers.swift in Sources */,
 				CA2F723F21A35E4A00AAF19F /* UserProfile.swift in Sources */,
 				459F129F219D032D0032CC5E /* ProfileViewController.swift in Sources */,
 				45AE32B7218A617B005F2A8B /* ImageCollectionViewCell.swift in Sources */,
@@ -564,13 +593,13 @@
 				ACFD809B21A77694009D0182 /* DatabaseHelper.swift in Sources */,
 				CA2F724B21A3673B00AAF19F /* SkillsTableViewController.swift in Sources */,
 				AC23225C219BD61F003EFB62 /* Utilities.swift in Sources */,
+				AC01C7EF21ABB684000EEB37 /* StorageHelper.swift in Sources */,
 				F783AB0421791E5B0010F034 /* PostAdTableViewController.swift in Sources */,
 				ACF49B37218FA68A0021A63C /* MyPostsTableViewCell.swift in Sources */,
 				AC3604CF21AB47570004B219 /* AuthErrorCode+errorMessage.swift in Sources */,
 				ACF49B39218FB8A00021A63C /* JobsTableViewCell.swift in Sources */,
 				CA2F724921A3671100AAF19F /* AddPhoneViewController.swift in Sources */,
 				CA2F724321A3667100AAF19F /* UpdateNameViewController.swift in Sources */,
-				450B03E821A895B80071D581 /* PostAdViewController.swift in Sources */,
 				4576E8C02188F22200471AB4 /* MyTabBarViewController.swift in Sources */,
 				CA2F724721A366C400AAF19F /* ChangeEmailViewController.swift in Sources */,
 				4576E8B42188CA0000471AB4 /* SignInViewController.swift in Sources */,
