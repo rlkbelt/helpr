@@ -7,11 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD
 		07CC40299CA7CB3E13D65F13 /* Pods_helprUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8EE5AF38649B14AE9F4E60D /* Pods_helprUITests.framework */; };
-=======
-		450B03E821A895B80071D581 /* PostAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450B03E721A895B80071D581 /* PostAdViewController.swift */; };
->>>>>>> master
 		4576E8B42188CA0000471AB4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576E8B32188CA0000471AB4 /* SignInViewController.swift */; };
 		4576E8B62188D57F00471AB4 /* LetUsKnowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576E8B52188D57F00471AB4 /* LetUsKnowViewController.swift */; };
 		4576E8B82188D84100471AB4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576E8B72188D84100471AB4 /* SignUpViewController.swift */; };
@@ -74,12 +70,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-<<<<<<< HEAD
 		211C60FF439485F603E623F7 /* Pods-helpr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-helpr.release.xcconfig"; path = "Pods/Target Support Files/Pods-helpr/Pods-helpr.release.xcconfig"; sourceTree = "<group>"; };
 		25E29A2DDF90AD012E7AF544 /* Pods-helprTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-helprTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-helprTests/Pods-helprTests.release.xcconfig"; sourceTree = "<group>"; };
-=======
-		450B03E721A895B80071D581 /* PostAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAdViewController.swift; sourceTree = "<group>"; };
->>>>>>> master
 		4576E8B32188CA0000471AB4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		4576E8B52188D57F00471AB4 /* LetUsKnowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetUsKnowViewController.swift; sourceTree = "<group>"; };
 		4576E8B72188D84100471AB4 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -180,11 +172,8 @@
 		AC9682AC21A5FFE800A161D6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				ACFD809921A7766B009D0182 /* Backend */,
 				CA2F725421A368C900AAF19F /* ChangePasswordViewController.swift */,
-=======
->>>>>>> master
 				CA2F724821A3671100AAF19F /* AddPhoneViewController.swift */,
 				4598BC9321A8B3640058096B /* CategoriesTableViewController.swift */,
 				CA2F724621A366C400AAF19F /* ChangeEmailViewController.swift */,
