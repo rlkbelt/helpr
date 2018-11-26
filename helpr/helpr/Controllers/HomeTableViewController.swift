@@ -98,7 +98,7 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
         cell.jobTitle.text = job.title
         cell.jobPic.image = job.getPictures()[0]
         cell.jobDistance.text = String(job.distance) + " km"
-        cell.jobPostedTime.text = Utilities.timeAgoSinceDate(job.postedTime, currentDate: Date(), numericDates: true)
+        cell.jobPostedTime.text = job.postedTime.timeAgoSinceDate(currentDate: Date(), numericDates: true)
 
         return cell
     }

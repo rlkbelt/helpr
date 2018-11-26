@@ -5,11 +5,10 @@
 //  Created by Hilmi Abou-Saleh on 2018-11-13.
 //  Copyright © 2018 ryan.konynenbelt. All rights reserved.
 //
-
-import UIKit
-
-class Utilities {
-    static func timeAgoSinceDate(_ date:Date,currentDate:Date, numericDates:Bool) -> String {
+import Foundation
+extension Date {
+    func timeAgoSinceDate(currentDate:Date, numericDates:Bool) -> String {
+        let date = self
         let calendar = Calendar.current
         let now = currentDate
         let earliest = (now as NSDate).earlierDate(date)

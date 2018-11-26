@@ -28,7 +28,7 @@
 		AC01C7F321ABC0D5000EEB37 /* DSCameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC01C7F221ABC0D5000EEB37 /* DSCameraHandler.swift */; };
 		AC01C7F521ABC13D000EEB37 /* ViewController+CameraHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC01C7F421ABC13D000EEB37 /* ViewController+CameraHandling.swift */; };
 		AC01C7F721ABD199000EEB37 /* FileHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC01C7F621ABD199000EEB37 /* FileHelpers.swift */; };
-		AC23225C219BD61F003EFB62 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC23225B219BD61F003EFB62 /* Utilities.swift */; };
+		AC23225C219BD61F003EFB62 /* Date+timeAgoSinceDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC23225B219BD61F003EFB62 /* Date+timeAgoSinceDate.swift */; };
 		AC3604CD21AB46FB0004B219 /* UIViewController+AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3604CC21AB46FB0004B219 /* UIViewController+AuthError.swift */; };
 		AC3604CF21AB47570004B219 /* AuthErrorCode+errorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3604CE21AB47570004B219 /* AuthErrorCode+errorMessage.swift */; };
 		ACF49B37218FA68A0021A63C /* MyPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF49B36218FA68A0021A63C /* MyPostsTableViewCell.swift */; };
@@ -98,7 +98,7 @@
 		AC01C7F221ABC0D5000EEB37 /* DSCameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSCameraHandler.swift; sourceTree = "<group>"; };
 		AC01C7F421ABC13D000EEB37 /* ViewController+CameraHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+CameraHandling.swift"; sourceTree = "<group>"; };
 		AC01C7F621ABD199000EEB37 /* FileHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelpers.swift; sourceTree = "<group>"; };
-		AC23225B219BD61F003EFB62 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		AC23225B219BD61F003EFB62 /* Date+timeAgoSinceDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+timeAgoSinceDate.swift"; sourceTree = "<group>"; };
 		AC3604CC21AB46FB0004B219 /* UIViewController+AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AuthError.swift"; sourceTree = "<group>"; };
 		AC3604CE21AB47570004B219 /* AuthErrorCode+errorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthErrorCode+errorMessage.swift"; sourceTree = "<group>"; };
 		ACF49B36218FA68A0021A63C /* MyPostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsTableViewCell.swift; sourceTree = "<group>"; };
@@ -180,6 +180,7 @@
 		AC01C7F021ABB93A000EEB37 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				AC23225B219BD61F003EFB62 /* Date+timeAgoSinceDate.swift */,
 				AC3604CE21AB47570004B219 /* AuthErrorCode+errorMessage.swift */,
 				AC3604CC21AB46FB0004B219 /* UIViewController+AuthError.swift */,
 				AC01C7F421ABC13D000EEB37 /* ViewController+CameraHandling.swift */,
@@ -252,7 +253,6 @@
 		ACFD809921A7766B009D0182 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
-				AC23225B219BD61F003EFB62 /* Utilities.swift */,
 				AC01C7F221ABC0D5000EEB37 /* DSCameraHandler.swift */,
 				AC01C7F621ABD199000EEB37 /* FileHelpers.swift */,
 			);
@@ -592,7 +592,7 @@
 				CA2F724F21A3676F00AAF19F /* PaymentInfoViewController.swift in Sources */,
 				ACFD809B21A77694009D0182 /* DatabaseHelper.swift in Sources */,
 				CA2F724B21A3673B00AAF19F /* SkillsTableViewController.swift in Sources */,
-				AC23225C219BD61F003EFB62 /* Utilities.swift in Sources */,
+				AC23225C219BD61F003EFB62 /* Date+timeAgoSinceDate.swift in Sources */,
 				AC01C7EF21ABB684000EEB37 /* StorageHelper.swift in Sources */,
 				F783AB0421791E5B0010F034 /* PostAdTableViewController.swift in Sources */,
 				ACF49B37218FA68A0021A63C /* MyPostsTableViewCell.swift in Sources */,

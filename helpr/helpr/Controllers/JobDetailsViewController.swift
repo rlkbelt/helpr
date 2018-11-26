@@ -35,7 +35,7 @@ class JobDetailsViewController: UIViewController {
             jobDescription.text = job.postDescription
             jobPic.image = job.getPictures()[0]
             jobCategory.text = job.category
-            jobPostedTime.text = Utilities.timeAgoSinceDate(job.postedTime, currentDate: Date(), numericDates: true)
+            jobPostedTime.text = job.postedTime.timeAgoSinceDate(currentDate: Date(), numericDates: true)
         }
         // Do any additional setup after loading the view.
     }
