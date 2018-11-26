@@ -8,6 +8,7 @@
 
 import UIKit
 import os.log
+import Firebase
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var ivProfilePic: UIImageView!
@@ -22,11 +23,19 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if Auth.auth().currentUser == nil {
+            // User is not signed in.
+            if let storyboard = self.storyboard {
+                let vc = storyboard.instantiateViewController(withIdentifier: "StartScreen") as! LetUsKnowViewController
+                self.present(vc, animated: false, completion: nil)
+            }
+        }else{
+            loadProfilePicture()
+            ivProfilePic.layer.cornerRadius = ivProfilePic.frame.width / 2
+            ivProfilePic.layer.borderWidth = 1
+            ivProfilePic.layer.borderColor = UIColor.lightGray.cgColor
+        }
         
-        loadProfilePicture()
-        ivProfilePic.layer.cornerRadius = ivProfilePic.frame.width / 2
-        ivProfilePic.layer.borderWidth = 1
-        ivProfilePic.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     //MARK: Action

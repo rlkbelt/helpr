@@ -58,7 +58,7 @@ class StorageHelper{
                     // Uh-oh, an error occurred!
                     print(error.localizedDescription)
                 } else {
-                    let path = FileHelpers.save(image: UIImage(data: data!)!, path: reference.fullPath)
+                    //let path = FileHelpers.save(image: UIImage(data: data!)!, path: reference.fullPath)
                     completion(UIImage(data: data!)!)
                 }
             }

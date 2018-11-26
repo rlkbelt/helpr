@@ -28,6 +28,12 @@ class SignUpViewController: UIViewController {
         bCreateAccount.layer.borderWidth = 2
         
     }
+    @IBAction func goToSignIn(_ sender: Any) {
+        if let storyboard = self.storyboard {
+            let vc = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+            self.present(vc, animated: false, completion: nil)
+        }
+    }
     
     @IBAction func signUpDidTouch(_ sender: Any) {
         // 1

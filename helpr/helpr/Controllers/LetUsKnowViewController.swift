@@ -16,19 +16,14 @@ class LetUsKnowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let profile = UserProfile.loadProfile() ?? nil
-        if profile != nil{
-            welcomeLabel.text = "Welcome back, " + profile!.name.components(separatedBy: " ")[0]
-            print(profile!.name + " signed in.")
-        } else {
-            // No user is signed in.
+        let user = Auth.auth().currentUser
+        if user != nil {
+            welcomeLabel.text = "Welcome back, " + user!.displayName!.components(separatedBy: " ")[0]
+            print(user!.displayName! + " signed in.")
+        }else{
             print("No user signed-in")
             
-            //Show Modified login screen
         }
-        
-        
-        
         
         bStart.layer.cornerRadius = 5
         bStart.layer.borderWidth = 2
