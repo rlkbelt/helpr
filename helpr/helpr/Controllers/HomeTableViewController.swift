@@ -9,22 +9,23 @@
 import UIKit
 import os.log
 import Firebase
+import CodableFirebase
 class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
     
     //MARK: Properties
-    
+    var database = DatabaseHelper()
     static var jobs = [Job]()
     var filteredJobs = [Job]()
     var isPurple = Bool()
     let cellSpacingHeight: CGFloat = 5
-
+    
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(loadList(notification:)), name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
         
-        loadSampleJobs()
+        //loadSampleJobs()
         loadJobs()
         filteredJobs = HomeTableViewController.jobs
         isPurple = false
@@ -95,7 +96,7 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
         cell.layer.borderColor = tableView.backgroundColor?.cgColor
         cell.jobCategory.text = job.category
         cell.jobTitle.text = job.title
-        cell.jobPic.image = job.pictures[0]
+        cell.jobPic.image = job.getPictures()[0]
         cell.jobDistance.text = String(job.distance) + " km"
         cell.jobPostedTime.text = Utilities.timeAgoSinceDate(job.postedTime, currentDate: Date(), numericDates: true)
 
@@ -145,26 +146,33 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
     
     //MARK: Private Methods
     
+
+    
     //Will eventually load jobs from database
     private func loadJobs(){
+        database.readJobs(){ jobs in
+            HomeTableViewController.jobs = jobs
+            self.tableView.reloadData()
 
+        }
     }
-    
     private func loadSampleJobs() {
-        guard let job1 = Job(title: "Need my internet set up", category: "Technology", description: "I have recently aquired a new router and do not know how to set up my internet again.\nI am with Shaw, plz hlp.", pictures: [], tags: [], distance: 5, postalCode: "", postedTime: Date()) else {
+        guard let job1 = Job(title: "Internet Help", category: "Technology", description: "New Post", pictures: [], tags: [], distance: 5, postalCode: "T2Y 4K7", postedTime: Date(), email: "hilmi@madebyhilmi.com") else {
                 fatalError("Unable to instantiate job1")
         }
-        guard let job2 = Job(title: "Living room cleaning after party", category: "Cleaning", description: "Horrible, horrible people were at my house last night for a 'small' get-together.\nHouse is trashed, need living room spotless before parents get home.\nWill kill me 100%.", pictures: [], tags: [], distance: 7, postalCode: "", postedTime: Date()) else {
+        guard let job2 = Job(title: "Desperate Cleaning", category: "Cleaning", description: "Trashed place needs super cleaning! Will pay well", pictures: [], tags: [], distance: 7, postalCode: "2Y 4K7", postedTime: Date(), email: "hilmi@madebyhilmi.com") else {
             fatalError("Unable to instantiate job2")
         }
-        guard let job3 = Job(title: "Need help with iProgramming course", category: "Tutoring", description: "I am a student at U of C currently in iProgramming, the course is more difficult than I thought.\nSasha is a great man, but I do not want to bother him with my questions.\nNeed tutoring assistance, must know Swift and XCode.", pictures: [], tags: [], distance: 15, postalCode: "", postedTime: Date()) else {
+        guard let job3 = Job(title: "Long Story Short Internet Need Help", category: "Technology", description: "My router and modem need a new mesh network for the big data protocol that Google installed in my house last week. I need help.", pictures: [], tags: [], distance: 3, postalCode: "T2Y 4K7", postedTime: Date(), email: "hilmi@madebyhilmi.com") else {
             fatalError("Unable to instantiate job3")
         }
-        guard let job4 = Job(title: "Help me sabotage the guy above", category: "Technology", description: "I saw the guy above this post wanted help in iProgramming, I'm also in that class and only one group should emerge victorious.\nHelp me install malware on his computer that destroys his project when it's done.", pictures: [], tags: [], distance: 3, postalCode: "", postedTime: Date()) else {
-            fatalError("Unable to instantiate job4")
-        }
         
-        HomeTableViewController.jobs += [job1,job2,job3,job4,job1,job2,job3,job4,job1]
+        HomeTableViewController.jobs += [job1,job2,job3,job1,job2,job3,job1]
+        
+
+        database.writeJob(job: job1)
+        database.writeJob(job: job2)
+        database.writeJob(job: job3)
     }
 
     

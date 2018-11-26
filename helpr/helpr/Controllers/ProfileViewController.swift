@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import os.log
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var ivProfilePic: UIImageView!
@@ -16,22 +17,23 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var lblJobCount: UILabel!
     @IBOutlet weak var btnSkills: UIButton!
     @IBOutlet weak var tvReviews: UITableView!
-    
+    var ref: DatabaseReference!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let user = Auth.auth().currentUser
-        if Auth.auth().currentUser != nil {
-            // User is signed in.
-            print("User signed in: " + (user?.email!)!)
-        } else {
-            // No user is signed in.
-            print("No user signed-in")
-        }
         
         ivProfilePic.layer.cornerRadius = ivProfilePic.frame.width / 2
         ivProfilePic.layer.borderWidth = 1
         ivProfilePic.layer.borderColor = UIColor.lightGray.cgColor
+    }
+    
+    private func testAddProfile(user: User){
+        
+//        ref = Database.database().reference()
+//
+//        ref.child("users").child(user.uid).setValue(["email": user.email])
+
     }
     
 

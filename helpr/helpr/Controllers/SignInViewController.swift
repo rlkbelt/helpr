@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import os.log
+
 class SignInViewController: UIViewController {
     
     @IBOutlet weak var bLogIn: UIButton!
@@ -32,12 +34,14 @@ class SignInViewController: UIViewController {
         let password = passwordField.text!
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
             
-            guard let user = authResult?.user else { return }
+            guard (authResult?.user) != nil else { return }
             if error == nil {
+                self.saveUser()
                 let alert = UIAlertController(title: "Sign-in successful", message: "You have successfully signed in!", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ action in self.performSegue(withIdentifier: "successfulSignIn", sender: self) }))
                 self.present(alert, animated: true, completion: nil)
                 //successfulSignIn
+                
 
             }else{
                 if let errCode = AuthErrorCode(rawValue: error!._code) {
@@ -56,6 +60,19 @@ class SignInViewController: UIViewController {
                 }            }
         }
 
+    }
+    
+    private func saveUser(){
+        let user:User = Auth.auth().currentUser!
+        let userProfile = UserProfile(name: user.displayName ?? "invalid display name" , email: user.email ?? "invalid email address")
+        
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(userProfile, toFile: UserProfile.ArchiveURL.path)
+        
+        if isSuccessfulSave {
+            os_log("User profile successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save user profile...", log: OSLog.default, type: .error)
+        }
     }
     
     

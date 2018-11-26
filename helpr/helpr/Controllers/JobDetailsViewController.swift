@@ -32,8 +32,8 @@ class JobDetailsViewController: UIViewController {
         if let job = job {
             navigationItem.title = job.category
             jobTitle.text = job.title
-            jobDescription.text = job.description
-            jobPic.image = job.pictures[0]
+            jobDescription.text = job.postDescription
+            jobPic.image = job.getPictures()[0]
             jobCategory.text = job.category
             jobPostedTime.text = Utilities.timeAgoSinceDate(job.postedTime, currentDate: Date(), numericDates: true)
         }

@@ -16,6 +16,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var lConfirmPass: UITextField!
     @IBOutlet weak var bCreateAccount: UIButton!
     
+    var database = DatabaseHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,37 +34,60 @@ class SignUpViewController: UIViewController {
         let email = lEmail.text!
         let password = lPassword.text!
         
-    
         
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            if user != nil {
-                print("Creating user: " + (user?.user.email)!)
+        
+        //Authenticate and add user
+        database.createUser(email: email, password: password){(error) -> () in
+            if error != nil {
+                print(error!._code)
+                self.handleError(error!)
+                return
             }else{
-                print("User empty")
+                print("No error occured in account creation")
+                self.validSignupHandle()
             }
-            if error == nil {
+        }
+       
+    
+//        //Pop-ups to show what's going on.
+//        //TODO: Pop-ups should be replaced with pretty designed screens.
+//        if error == nil {
+//            validSignupHandle()
+//        }else{
+//            invalidSignupHandle(error: error!)
+//        }
+    }
+    
+    private func validSignupHandle(){
+        database.addUserInformation(name: lFullName.text!, photoURL: nil){(error) -> () in
+            if error != nil {
+                print(error!._code)
+                self.handleError(error!)
+            }else {
                 let alert = UIAlertController(title: "Sign-up Successful", message: "You have successfully signed up for helpr!", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ action in self.performSegue(withIdentifier: "goSignIn", sender: self) }))
                 self.present(alert, animated: true, completion: nil)
-                
-            }else{
-                if let errCode = AuthErrorCode(rawValue: error!._code) {
-                    var message = ""
-                    switch errCode {
-                    case .invalidEmail:
-                        message = "Email not valid. Please try again with a valid email address."
-                    case .emailAlreadyInUse:
-                        message = "You have already signed-up for helpr!"
-                    default:
-                        message = error?.localizedDescription ?? "An error occurred. Please try again."
-                    }
-                    let alert = UIAlertController(title: "Sign-up Failed", message: message, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default))
-                    self.present(alert, animated: true, completion: nil)
-                }
             }
+            
         }
+    
     }
     
-    
+    private func invalidSignupHandle(error: Error) {
+        let errCode = AuthErrorCode(rawValue: error._code)!
+        var message = ""
+        switch errCode {
+        case .invalidEmail:
+            message = "Email not valid. Please try again with a valid email address."
+        case .emailAlreadyInUse:
+            message = "You have already signed-up for helpr!"
+        default:
+            message = error.localizedDescription
+        }
+        let alert = UIAlertController(title: "Sign-up Failed", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+        
 }

@@ -123,7 +123,8 @@ class PostAdViewController: UIViewController, UITextViewDelegate, UIPickerViewDe
             
             // Set the job to be passed to HomeTableViewController after the unwind segue.
             if (category?.trimmingCharacters(in: .whitespaces) != "") && (title.trimmingCharacters(in: .whitespaces) != "") {
-                job = Job(title: title, category: category!, description: description, pictures: pictures, tags: [], distance: 10, postalCode: "WH0CR5", postedTime: Date())
+                //TODO: Actually keep photos
+                job = Job(title: title, category: category!, description: description, pictures: [], tags: [], distance: 10, postalCode: "WH0CR5", postedTime: Date(), email: "test@helpr.com")
                 HomeTableViewController.jobs.append(job!)
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadJobs"), object: nil)

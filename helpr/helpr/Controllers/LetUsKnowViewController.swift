@@ -7,20 +7,34 @@
 //
 
 import UIKit
-
+import Firebase
 class LetUsKnowViewController: UIViewController {
     
     @IBOutlet weak var bStart: UIButton!
+    @IBOutlet weak var welcomeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let profile = UserProfile.loadProfile() ?? nil
+        if profile != nil{
+            welcomeLabel.text = "Welcome back, " + profile!.name.components(separatedBy: " ")[0]
+            print(profile!.name + " signed in.")
+        } else {
+            // No user is signed in.
+            print("No user signed-in")
+            
+            //Show Modified login screen
+        }
+        
+        
+        
         
         bStart.layer.cornerRadius = 5
         bStart.layer.borderWidth = 2
         bStart.layer.borderColor = UIColor(named: "RoyalPurple")?.cgColor
         
     }
-    
-    
+
+
 }
