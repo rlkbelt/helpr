@@ -1,9 +1,15 @@
 # Uncomment the next line to define a global platform for your project
+<<<<<<< HEAD
 platform :ios, '11.0'
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'CodableFirebase'
+=======
+# platform :ios, '9.0'
+pod 'Firebase/Core'
+pod 'Firebase/Database'
+>>>>>>> ebc8f6d763296a665d376b8c31ee9e7a2808edb2
 
 target 'helpr' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
