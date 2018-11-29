@@ -71,11 +71,11 @@ class MyPostsTableViewController: UITableViewController, UISearchResultsUpdating
         cell.layer.masksToBounds = true
         cell.layer.borderWidth = 3.0
         cell.layer.borderColor = tableView.backgroundColor?.cgColor
-        cell.jobCategory.text = job.category
-        cell.jobTitle.text = job.title
-        cell.jobPic.image = job.pictures[0]
-        cell.jobDistance.text = String(job.distance) + " km"
-        cell.jobPostedTime.text = Utilities.timeAgoSinceDate(job.postedTime, currentDate: Date(), numericDates: true)
+        cell.jobCategory.text = job.information.category
+        cell.jobTitle.text = job.information.title
+        cell.jobPic.image = job.getPictures()[0]
+        cell.jobDistance.text = String(job.information.distance) + " km"
+        cell.jobPostedTime.text = job.information.postedTime.timeAgoSinceDate(currentDate: Date(), numericDates: true)
         
         return cell
     }
@@ -160,7 +160,7 @@ class MyPostsTableViewController: UITableViewController, UISearchResultsUpdating
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
             filteredJobs = HomeTableViewController.jobs.filter { job in
-                return job.category.lowercased().contains(searchText.lowercased())
+                return job.information.category.lowercased().contains(searchText.lowercased())
             }
             
         } else {

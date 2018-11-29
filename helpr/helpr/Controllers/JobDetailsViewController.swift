@@ -30,12 +30,12 @@ class JobDetailsViewController: UIViewController {
         
         jobDescription.layer.cornerRadius = 8;
         if let job = job {
-            navigationItem.title = job.category
-            jobTitle.text = job.title
-            jobDescription.text = job.description
-            jobPic.image = job.pictures[0]
-            jobCategory.text = job.category
-            jobPostedTime.text = Utilities.timeAgoSinceDate(job.postedTime, currentDate: Date(), numericDates: true)
+            navigationItem.title = job.information.category
+            jobTitle.text = job.information.title
+            jobDescription.text = job.information.postDescription
+            jobPic.image = job.pictureData[0]
+            jobCategory.text = job.information.category
+            jobPostedTime.text = job.information.postedTime.timeAgoSinceDate(currentDate: Date(), numericDates: true)
         }
         // Do any additional setup after loading the view.
     }

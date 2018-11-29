@@ -8,60 +8,59 @@
 
 import UIKit
 import MapKit
+import Firebase
+import CodableFirebase
 
-class Job {
+class Job{
     
     //MARK: Properties
+    var information: JobInformation
+    var pictureData: [UIImage]
     
-    var title: String
-    var category: String
-    var description: String
-    var pictures = [UIImage?]()
-    var tags = [String?]()
-    var map: MKMapView? = nil
-    var distance: Int
-    var postalCode: String
-    var postedTime: Date
-    var favourite: Bool
+    
     //MARK: Initialization
-    
-    init?(title: String, category: String, description: String, pictures: [UIImage?], tags: [String], distance: Int, postalCode: String, postedTime: Date) {
-        self.title = title
-        self.category = category
-        self.description = description
+    init?(title: String, category: String, description: String, pictureURLs: [String], tags: [String], distance: Int, postalCode: String, postedTime: Date, email: String) {
         
-        if (!pictures.isEmpty) {
-            self.pictures = pictures
+        information = JobInformation(title: title, category: category, description: description, pictures: pictureURLs, tags: tags, distance: distance, postalCode: postalCode, postedTime: postedTime, email: email)!
+        
+        pictureData = [UIImage(named: "defaultPhoto")!]
+    }
+    
+    init?(jobInformation: JobInformation) {
+        information = jobInformation
+        pictureData = [UIImage(named: "defaultPhoto")!]
+
+    }
+    
+
+    func getPictures() -> [UIImage?]{
+        var UIImagePictures = [UIImage?]()
+        if (!information.pictures.isEmpty) {
+            for picture in information.pictures {
+                UIImagePictures.append(UIImage(named: picture!))
+            }
         }
         else {
-            switch (category) {
+            switch (information.category) {
             case "Technology":
                 let photo = UIImage(named: "comphelp")
-                self.pictures.append(photo)
+                UIImagePictures.append(photo)
                 break
             case "Tutoring":
                 let photo = UIImage(named: "TutorDefault")
-                self.pictures.append(photo)
+                UIImagePictures.append(photo)
                 break
             case "Cleaning":
                 let photo = UIImage(named: "cleaning")
-                self.pictures.append(photo)
+                UIImagePictures.append(photo)
                 break
             default:
                 break
             }
-
+            
         }
-        
-        if (!tags.isEmpty){
-            self.tags = tags
-        }
-        
-        self.distance = distance
-        self.favourite = false
-        self.postalCode = postalCode
-        self.postedTime = postedTime
+        return UIImagePictures
     }
-    
+
     
 }

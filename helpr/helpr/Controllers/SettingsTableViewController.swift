@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SettingsTableViewController: UITableViewController {
 
@@ -37,7 +38,7 @@ class SettingsTableViewController: UITableViewController {
         case 3:
             return 2
         default:
-            print("But why?")
+            print("But why? LOL Good question")
             return 0
         }
     }
@@ -104,4 +105,20 @@ class SettingsTableViewController: UITableViewController {
     }
     */
 
+    //MARK: Actions
+    @IBAction func doLogOut(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            if let storyboard = self.storyboard {
+                let vc = storyboard.instantiateViewController(withIdentifier: "StartScreen") as! LetUsKnowViewController
+                self.present(vc, animated: false, completion: nil)
+            }
+            
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    
+    
 }

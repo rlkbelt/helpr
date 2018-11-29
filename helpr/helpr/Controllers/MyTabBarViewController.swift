@@ -20,7 +20,7 @@ class MyTabBarViewController: UITabBarController {
 //            for i in 0...(count-1) {
 //                let selectedImgName   = selectedIcons[i]
 //                let unselectedImgName = unselectedIcons[i]
-//                
+//
 //                self.tabBar.items?[i].selectedImage = UIImage(named: selectedImgName)?.withRenderingMode(.alwaysOriginal)
 //                self.tabBar.items?[i].image = UIImage(named: unselectedImgName)?.withRenderingMode(.alwaysOriginal)
 //            }
