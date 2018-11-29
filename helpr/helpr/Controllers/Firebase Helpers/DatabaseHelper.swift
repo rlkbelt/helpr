@@ -52,13 +52,8 @@ class DatabaseHelper {
     }
     
     func writeJob(job:Job) {
-        
-        let keyRef = self.ref!
-            .child("jobs")
-            .childByAutoId()
-        job.setID(id: keyRef.key!)
-        let data = try! FirebaseEncoder().encode(job)
-        self.ref.child("jobs").child(job.id).setValue(data)
+        let data = try! FirebaseEncoder().encode(job.information)
+        self.ref.child("jobs").child(job.information.id).setValue(data)
 
     }
     
@@ -69,8 +64,11 @@ class DatabaseHelper {
             for snap in snapshot.children.allObjects as! [DataSnapshot] {
                 if snap.exists() {
                     if let dict = snap.value as? [String: Any] {
-                        let job = try! FirebaseDecoder().decode(Job.self, from: dict)
-                        jobs.append(job)
+                        let jobInformation = try! FirebaseDecoder().decode(JobInformation.self, from: dict)
+                        let job = Job(jobInformation: jobInformation)
+                        let storage = StorageHelper()
+                        storage.loadImages(job: job!)
+                        jobs.append(job!)
                     }
                 }
             }

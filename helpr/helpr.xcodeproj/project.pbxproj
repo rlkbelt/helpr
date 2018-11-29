@@ -31,6 +31,7 @@
 		AC23225C219BD61F003EFB62 /* Date+timeAgoSinceDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC23225B219BD61F003EFB62 /* Date+timeAgoSinceDate.swift */; };
 		AC3604CD21AB46FB0004B219 /* UIViewController+AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3604CC21AB46FB0004B219 /* UIViewController+AuthError.swift */; };
 		AC3604CF21AB47570004B219 /* AuthErrorCode+errorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3604CE21AB47570004B219 /* AuthErrorCode+errorMessage.swift */; };
+		ACB40CC721AF6BBA00477C1F /* JobInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB40CC621AF6BBA00477C1F /* JobInformation.swift */; };
 		ACF49B37218FA68A0021A63C /* MyPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF49B36218FA68A0021A63C /* MyPostsTableViewCell.swift */; };
 		ACF49B39218FB8A00021A63C /* JobsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF49B38218FB8A00021A63C /* JobsTableViewCell.swift */; };
 		ACFD809821A7708D009D0182 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACFD809721A7708D009D0182 /* GoogleService-Info.plist */; };
@@ -101,6 +102,7 @@
 		AC23225B219BD61F003EFB62 /* Date+timeAgoSinceDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+timeAgoSinceDate.swift"; sourceTree = "<group>"; };
 		AC3604CC21AB46FB0004B219 /* UIViewController+AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AuthError.swift"; sourceTree = "<group>"; };
 		AC3604CE21AB47570004B219 /* AuthErrorCode+errorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthErrorCode+errorMessage.swift"; sourceTree = "<group>"; };
+		ACB40CC621AF6BBA00477C1F /* JobInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobInformation.swift; sourceTree = "<group>"; };
 		ACF49B36218FA68A0021A63C /* MyPostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsTableViewCell.swift; sourceTree = "<group>"; };
 		ACF49B38218FB8A00021A63C /* JobsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewCell.swift; sourceTree = "<group>"; };
 		ACFD809721A7708D009D0182 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -244,8 +246,9 @@
 			isa = PBXGroup;
 			children = (
 				4576E8C321890A7C00471AB4 /* Post.swift */,
-				CA12A380218935E50063ED97 /* Job.swift */,
 				CA2F723E21A35E4A00AAF19F /* UserProfile.swift */,
+				CA12A380218935E50063ED97 /* Job.swift */,
+				ACB40CC621AF6BBA00477C1F /* JobInformation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				CA2F724F21A3676F00AAF19F /* PaymentInfoViewController.swift in Sources */,
 				ACFD809B21A77694009D0182 /* DatabaseHelper.swift in Sources */,
 				CA2F724B21A3673B00AAF19F /* SkillsTableViewController.swift in Sources */,
+				ACB40CC721AF6BBA00477C1F /* JobInformation.swift in Sources */,
 				AC23225C219BD61F003EFB62 /* Date+timeAgoSinceDate.swift in Sources */,
 				AC01C7EF21ABB684000EEB37 /* StorageHelper.swift in Sources */,
 				F783AB0421791E5B0010F034 /* PostAdTableViewController.swift in Sources */,

@@ -68,8 +68,13 @@ class PostAdTableViewController: UITableViewController, UITextViewDelegate, UICo
             
             // Set the job to be passed to HomeTableViewController after the unwind segue.
             if (category?.trimmingCharacters(in: .whitespaces) != "") && (title.trimmingCharacters(in: .whitespaces) != "") {
-                job = Job(title: title, category: category!, description: description, pictures: ["blank photos"], tags: [], distance: 10, postalCode: "WH0CR5", postedTime: Date(), email: (UserProfile.loadProfile()?.email)!)
+                job = Job(title: title, category: category!, description: description, pictureURLs: [], tags: [], distance: 10, postalCode: "WH0CR5", postedTime: Date(), email: (UserProfile.loadProfile()?.email)!)
+                
+                let storage = StorageHelper()
+                
+                storage.saveImages(job: job!, imagesArray: pictures, createJob: true)
                 HomeTableViewController.jobs.append(job!)
+                
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
                 
@@ -144,11 +149,11 @@ class PostAdTableViewController: UITableViewController, UITextViewDelegate, UICo
     
     //ensures that when a photo is added or changed there is another photo that explicitly shows the add photo
     func checkAddPhoto() {
-        let lastIndex = postPhotos.count - 1
-        if postPhotos[lastIndex] == UIImage(named: "defaultPhoto") {}
-        else {
-            postPhotos.insert(UIImage(named: "defaultPhoto")!, at: lastIndex+1)
-        }
+//        let lastIndex = postPhotos.count - 1
+//        if postPhotos[lastIndex] == UIImage(named: "defaultPhoto") {}
+//        else {
+//            postPhotos.insert(UIImage(named: "defaultPhoto")!, at: lastIndex+1)
+//        }
     }
     //MARK: CollectionView methods
     
