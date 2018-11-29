@@ -154,8 +154,10 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
             
             jobViewController.job = selectedJob
             
-        case "ShowMyPostDetails":
-            os_log("Adding a new meal", log: OSLog.default, type: .debug)
+        case "jobsCreatePost":
+            guard let createPostViewController = segue.destination as? PostAdTableViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
             
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")
