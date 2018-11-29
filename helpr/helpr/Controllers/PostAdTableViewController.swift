@@ -49,7 +49,6 @@ class PostAdTableViewController: UITableViewController, UITextViewDelegate, UICo
         postPhotos.removeAll()
         postPhotos.insert(UIImage(named: "defaultPhoto")!, at: 0)
         self.cvPhotos.reloadData()
-        tabBarController?.selectedIndex = 0
         customPhotoAdded = false
     }
     
@@ -74,7 +73,7 @@ class PostAdTableViewController: UITableViewController, UITextViewDelegate, UICo
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
                 
                 exitPostAd(postBtn)
-                tabBarController?.selectedIndex = 0
+                navigationController?.popViewController(animated: true)
             }
                 //title or category were not provided
             else {
