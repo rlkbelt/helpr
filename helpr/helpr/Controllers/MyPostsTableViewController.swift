@@ -25,11 +25,11 @@ class MyPostsTableViewController: UITableViewController, UISearchResultsUpdating
         isPurple = false
 
         
-        searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.backgroundColor = UIColor(named: "RoyalPurple")
-        tableView.tableHeaderView = searchController.searchBar
+//        searchController.searchResultsUpdater = self
+//        searchController.hidesNavigationBarDuringPresentation = false
+//        searchController.dimsBackgroundDuringPresentation = false
+//        searchController.searchBar.backgroundColor = UIColor(named: "RoyalPurple")
+//        tableView.tableHeaderView = searchController.searchBar
         
         definesPresentationContext = true
 

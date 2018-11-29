@@ -11,7 +11,7 @@ import UIKit
 class CategoriesTableViewController: UITableViewController {
 
     let categories = ["Assembly", "Cleaning", "General", "Minor Repair", "Technology","Tutoring"]
-    var selectedCellText = ""
+    static var selectedCellText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ class CategoriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         NSLog("You selected cell number: \(indexPath.row)!")
         
-        selectedCellText = categories[indexPath.row]
+        CategoriesTableViewController.selectedCellText = categories[indexPath.row]
         _ = navigationController?.popViewController(animated: true)
     }
 

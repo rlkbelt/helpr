@@ -12,6 +12,8 @@ import os.log
 class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
 
     //MARK: Properties
+    @IBOutlet weak var jobsSegment: UISegmentedControl!
+    
     //var jobs = HomeTableViewController.jobs
     var filteredJobs = [Job]()
     var isPurple = Bool()
@@ -22,14 +24,13 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
         super.viewDidLoad()
 
         filteredJobs = HomeTableViewController.jobs
-
         isPurple = false
         
-        searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.backgroundColor = UIColor(named: "RoyalPurple")
-        tableView.tableHeaderView = searchController.searchBar
+//        searchController.searchResultsUpdater = self
+//        searchController.hidesNavigationBarDuringPresentation = false
+//        searchController.dimsBackgroundDuringPresentation = false
+//        searchController.searchBar.backgroundColor = UIColor(named: "RoyalPurple")
+//        tableView.tableHeaderView = searchController.searchBar
         
         definesPresentationContext = true
     }
@@ -49,6 +50,7 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cellIdentifier = "JobsTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? JobsTableViewCell else {
@@ -57,10 +59,19 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
         
         // fetches the appropriate job for the data source layout
         let job : Job
-        if isFiltering() {
-            job = filteredJobs[indexPath.row]
-        } else {
-            job = HomeTableViewController.jobs[indexPath.row]
+        if (jobsSegment.selectedSegmentIndex == 0) {
+            if isFiltering() {
+                job = filteredJobs[indexPath.row]
+            } else {
+                job = HomeTableViewController.jobs[indexPath.row]
+            }
+        }
+        else {
+            if isFiltering() {
+                job = filteredJobs[indexPath.row]
+            } else {
+                job = HomeTableViewController.jobs[1]
+            }
         }
         
         cell.layer.cornerRadius = 10.0
@@ -143,8 +154,10 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
             
             jobViewController.job = selectedJob
             
-        case "ShowMyPostDetails":
-            os_log("Adding a new meal", log: OSLog.default, type: .debug)
+        case "jobsCreatePost":
+            guard let createPostViewController = segue.destination as? PostAdTableViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
             
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")
@@ -171,5 +184,8 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
     
     private func isFiltering() -> Bool {
         return searchController.isActive && !searchBarIsEmpty()
+    }
+    @IBAction func switchJobsView(_ sender: UISegmentedControl) {
+        self.tableView.reloadData()
     }
 }
