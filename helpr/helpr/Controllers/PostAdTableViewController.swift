@@ -31,6 +31,50 @@ class PostAdTableViewController: UITableViewController, UITextViewDelegate, UICo
         
         tvDescription.delegate = self
         postPhotos.insert(UIImage(named: "defaultPhoto")!, at: 0)
+        addDoneButton()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if CategoriesTableViewController.selectedCellText != "" {
+            lCategory.textColor = UIColor.black
+            lCategory.text = CategoriesTableViewController.selectedCellText
+        }
+    }
+    
+    //keyboard accesory view
+    func addDoneButton() {
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit()
+        let prevButton  = UIBarButtonItem(image: UIImage(named: "backChevron"), style: .plain, target: self, action: #selector(PostAdTableViewController.keyboardPrevButton))
+        let nextButton  = UIBarButtonItem(image: UIImage(named: "Chevron"), style: .plain, target: self, action: #selector(PostAdTableViewController.keyboardNextButton))
+        prevButton.width = 50.0
+        nextButton.width = 50.0
+        let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                            target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done,
+                                            target: view, action: #selector(UIView.endEditing(_:)))
+        keyboardToolbar.items = [prevButton, nextButton, flexBarButton, doneBarButton]
+        tfTitle.inputAccessoryView = keyboardToolbar
+        tvDescription.inputAccessoryView = keyboardToolbar
+        tfTags.inputAccessoryView = keyboardToolbar
+    }
+    
+    @objc func keyboardNextButton(_ sender: Any) {
+        if (tfTitle.isFirstResponder) {
+            tvDescription.becomeFirstResponder()
+        }
+        else if (tvDescription.isFirstResponder) {
+            tfTags.becomeFirstResponder()
+        }
+    }
+    
+    @objc func keyboardPrevButton(_ sender: Any) {
+        if (tvDescription.isFirstResponder) {
+            tfTitle.becomeFirstResponder()
+        }
+        else if 	(tfTags.isFirstResponder) {
+            tvDescription.becomeFirstResponder()
+        }
     }
     
     //this code allows keyboard to resign when user touches outside of field
@@ -54,10 +98,23 @@ class PostAdTableViewController: UITableViewController, UITextViewDelegate, UICo
     
     //when saving we must add the Job object consisting of all the UIView values and call the 'exitPostAd' function to reset fields for next time this view is loaded
     @IBAction func finishAddingPost(_ sender: UIBarButtonItem) {
-        if (sender.title == "Done") {
-            tvDescription.resignFirstResponder()
-            postBtn.title = "Post"
+        let category = lCategory.text
+        let title = tfTitle.text ?? "Untitled Post"
+        let description = tvDescription.text ?? "No description provided"
+        let tags = tfTags.text ?? ""
+        let pictures = postPhotos
+        
+        // Set the job to be passed to HomeTableViewController after the unwind segue.
+        if (category?.trimmingCharacters(in: .whitespaces) != "") && (title.trimmingCharacters(in: .whitespaces) != "") {
+            job = Job(title: title, category: category!, description: description, pictures: pictures, tags: [], distance: 10, postalCode: "WH0CR5", postedTime: Date())
+            HomeTableViewController.jobs.append(job!)
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
+            
+            exitPostAd(postBtn)
+            tabBarController?.selectedIndex = 0
         }
+            //title or category were not provided
         else {
             let category = lCategory.text
             let title = tfTitle.text ?? "Untitled Post"
@@ -120,8 +177,6 @@ class PostAdTableViewController: UITableViewController, UITextViewDelegate, UICo
             tvDescription.text = ""
         }
         tvDescription.textColor = UIColor.black
-        postBtn.title = "Done"
-        
     }
  
     //limit character count in Description field
@@ -165,7 +220,6 @@ class PostAdTableViewController: UITableViewController, UITextViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
         cell.postImg.image = postPhotos[indexPath.row]
-        print("In here")
         return cell
     }
     
