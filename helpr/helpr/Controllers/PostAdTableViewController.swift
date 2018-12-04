@@ -250,18 +250,10 @@ class PostAdTableViewController: UITableViewController, UITextViewDelegate, UICo
     
     //ensures that when a photo is added or changed there is another photo that explicitly shows the add photo
     func checkAddPhoto() {
-<<<<<<< HEAD
-//        let lastIndex = postPhotos.count - 1
-//        if postPhotos[lastIndex] == UIImage(named: "defaultPhoto") {}
-//        else {
-//            postPhotos.insert(UIImage(named: "defaultPhoto")!, at: lastIndex+1)
-//        }
-=======
         let lastIndex = postPhotos.count - 1
         if postPhotos[lastIndex] != UIImage(named: "defaultPhoto") {
             postPhotos.insert(UIImage(named: "defaultPhoto")!, at: lastIndex+1)
         }
->>>>>>> 3d331b0f69dfb2c1bae87a843b310d51228db7b7
     }
     
     
