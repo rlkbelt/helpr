@@ -38,21 +38,38 @@ class PostAdTableViewController: UITableViewController, UITextViewDelegate, UICo
         if CategoriesTableViewController.selectedCellText != "" {
             lCategory.textColor = UIColor.black
             lCategory.text = CategoriesTableViewController.selectedCellText
+            updateCollectionView()
         }
     }
     
-    //keyboard accesory view
+    //change UITableView section header text color to RoyalPurple
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let headerView = view as? UITableViewHeaderFooterView {
+            //headerView.contentView.backgroundColor = .white
+            headerView.textLabel?.textColor = UIColor.init(named: "RoyalPurple")
+        }
+    }
+    
+    //MARK: keyboard accesory view and related methods
     func addDoneButton() {
         let keyboardToolbar = UIToolbar()
         keyboardToolbar.sizeToFit()
+        
+        //define button for previous item and next item as BarButtonItems
+        //to update appearance, UIImages in asset folder need to be provided
         let prevButton  = UIBarButtonItem(image: UIImage(named: "backChevron"), style: .plain, target: self, action: #selector(PostAdTableViewController.keyboardPrevButton))
         let nextButton  = UIBarButtonItem(image: UIImage(named: "Chevron"), style: .plain, target: self, action: #selector(PostAdTableViewController.keyboardNextButton))
         prevButton.width = 50.0
         nextButton.width = 50.0
+        
+        //space between arrow buttons and Done button
         let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
                                             target: nil, action: nil)
+        //done button
         let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done,
                                             target: view, action: #selector(UIView.endEditing(_:)))
+        
+        //define the keyboardToolbar to include all defined buttons from above
         keyboardToolbar.items = [prevButton, nextButton, flexBarButton, doneBarButton]
         tfTitle.inputAccessoryView = keyboardToolbar
         tvDescription.inputAccessoryView = keyboardToolbar
@@ -60,6 +77,7 @@ class PostAdTableViewController: UITableViewController, UITextViewDelegate, UICo
     }
     
     @objc func keyboardNextButton(_ sender: Any) {
+        //define behaviour for what happens when the next button is pressed while each textfield is active
         if (tfTitle.isFirstResponder) {
             tvDescription.becomeFirstResponder()
         }
@@ -69,15 +87,16 @@ class PostAdTableViewController: UITableViewController, UITextViewDelegate, UICo
     }
     
     @objc func keyboardPrevButton(_ sender: Any) {
+        //define behaviour for what happens when the back button is pressed while each textfield is active
         if (tvDescription.isFirstResponder) {
             tfTitle.becomeFirstResponder()
         }
-        else if 	(tfTags.isFirstResponder) {
+        else if (tfTags.isFirstResponder) {
             tvDescription.becomeFirstResponder()
         }
     }
     
-    //this code allows keyboard to resign when user touches outside of field
+    //this code allows keyboard to resign when user touches outside of field, unsure if reachable in this class since redesign
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
 
@@ -86,6 +105,7 @@ class PostAdTableViewController: UITableViewController, UITextViewDelegate, UICo
     //on cancel we must restore every field to startup values since there is no 'Back' button to handle this
     @IBAction func exitPostAd(_ sender: UIBarButtonItem) {
         lCategory.text = "No Category Selected"
+        lCategory.textColor = UIColor.lightGray
         tfTitle.placeholder = "No Title Provided"
         tvDescription.textColor = UIColor.lightGray
         tvDescription.text = "Enter your post description here"
@@ -196,15 +216,36 @@ class PostAdTableViewController: UITableViewController, UITextViewDelegate, UICo
         postBtn.title = "Post"
     }
     
+    //MARK: CollectionView methods
+    
+    //when the Category label gets updated, we check to see if we can/need to add a category default photo
+    func updateCollectionView() {
+        if (!customPhotoAdded) {
+            print("Only default item in postPhotos")
+            switch lCategory.text {
+            case "Cleaning":
+                postPhotos[0] = UIImage(named: "CleanDefault")!
+            case "Technology":
+                postPhotos[0] = UIImage(named: "TechDefault")!
+            case "Tutoring":
+                postPhotos[0] = UIImage(named: "TutorDefault")!
+            default:
+                print("Unhandled Case")
+            }
+        }
+        checkAddPhoto()
+        self.cvPhotos.reloadData()
+        return
+    }
+    
     //ensures that when a photo is added or changed there is another photo that explicitly shows the add photo
     func checkAddPhoto() {
         let lastIndex = postPhotos.count - 1
-        if postPhotos[lastIndex] == UIImage(named: "defaultPhoto") {}
-        else {
+        if postPhotos[lastIndex] != UIImage(named: "defaultPhoto") {
             postPhotos.insert(UIImage(named: "defaultPhoto")!, at: lastIndex+1)
         }
     }
-    //MARK: CollectionView methods
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
