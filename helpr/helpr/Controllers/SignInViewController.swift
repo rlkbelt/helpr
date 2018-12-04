@@ -16,26 +16,38 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var bSignUp: UIButton!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let width   = self.view.frame.width
+        let height  = self.view.frame.height
+        scrollView.contentSize = CGSize(width: width, height: height)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
-        bLogIn.layer.cornerRadius = 5
-        bLogIn.layer.borderWidth = 2
-        bLogIn.layer.borderColor = UIColor(named: "RoyalPurple")?.cgColor
+//        bLogIn.layer.cornerRadius = 5
+//        bLogIn.layer.borderWidth = 2
+//        bLogIn.layer.borderColor = UIColor(named: "RoyalPurple")?.cgColor
+//
+//        bSignUp.layer.cornerRadius = 5
+//        bSignUp.layer.borderWidth = 2
+//        bSignUp.layer.borderColor = UIColor(named: "RoyalPurple")?.cgColor
         
-        bSignUp.layer.cornerRadius = 5
-        bSignUp.layer.borderWidth = 2
-        bSignUp.layer.borderColor = UIColor(named: "RoyalPurple")?.cgColor
+        
+        emailField.setBottomBorder()
+        passwordField.setBottomBorder()
+        
     }
     @IBAction func signInDidPress(_ sender: Any) {
         let email = emailField.text!
         let password = passwordField.text!
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
             
-            guard (authResult?.user) != nil else { return }
             if error == nil {
+                guard (authResult?.user) != nil else { return }
+
                 self.saveUser()
                 let alert = UIAlertController(title: "Sign-in successful", message: "You have successfully signed in!", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ action in self.performSegue(withIdentifier: "successfulSignIn", sender: self) }))
@@ -51,6 +63,9 @@ class SignInViewController: UIViewController {
                         message = "Email not valid. Please try again with a valid email address."
                     case .emailAlreadyInUse:
                         message = "You have already signed-up for helpr!"
+                    case .wrongPassword:
+                        message = "Password incorrect. Please try again."
+
                     default:
                         message = error?.localizedDescription ?? "An error occurred. Please try again."
                     }
@@ -73,6 +88,17 @@ class SignInViewController: UIViewController {
         } else {
             os_log("Failed to save user profile...", log: OSLog.default, type: .error)
         }
+    }
+    //MARK: Methods to manage keybaord
+    @objc func keyboardWillHide(notification: Notification) {
+        let contentInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+    
+    @objc func keyboardWillShow(notification: Notification) {
+        guard let keyboardFrame: CGRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        scrollView.contentInset.bottom = keyboardFrame.height
     }
     
     

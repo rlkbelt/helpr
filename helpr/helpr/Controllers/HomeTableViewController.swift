@@ -25,12 +25,12 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(loadList(notification:)), name: NSNotification.Name(rawValue: "loadJobs"), object: nil)
         
+       
         //loadSampleJobs()
-        loadJobs()
+        //loadJobs()
         filteredJobs = HomeTableViewController.jobs
         isPurple = false
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
@@ -40,6 +40,7 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
         definesPresentationContext = true
     }
     
+  
     @objc func loadList(notification: NSNotification){
         //load data here
         self.tableView.reloadData()
@@ -147,15 +148,7 @@ class HomeTableViewController: UITableViewController, UISearchResultsUpdating{
     //MARK: Private Methods
     
 
-    
-    //Will eventually load jobs from database
-    private func loadJobs(){
-        database.readJobs(){ jobs in
-            HomeTableViewController.jobs = jobs
-            self.tableView.reloadData()
-
-        }
-    }
+        
     private func loadSampleJobs() {
         guard let job1 = Job(title: "Internet Help", category: "Technology", description: "New Post", pictureURLs: [], tags: [], distance: 5, postalCode: "T2Y 4K7", postedTime: Date(), email: "hilmi@madebyhilmi.com") else {
                 fatalError("Unable to instantiate job1")

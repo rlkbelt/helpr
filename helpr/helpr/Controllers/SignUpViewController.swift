@@ -15,17 +15,28 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var lPassword: UITextField!
     @IBOutlet weak var lConfirmPass: UITextField!
     @IBOutlet weak var bCreateAccount: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var database = DatabaseHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        let width   = self.view.frame.width
+        let height  = self.view.frame.height
+        scrollView.contentSize = CGSize(width: width, height: height)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         bCreateAccount.backgroundColor = UIColor(named: "RoyalPurple")
         bCreateAccount.layer.borderColor = UIColor(named: "RoyalPurple")?.cgColor
         bCreateAccount.layer.cornerRadius = 5
         bCreateAccount.layer.borderWidth = 2
+        
+        lFullName.setBottomBorder()
+        lEmail.setBottomBorder()
+        lPassword.setBottomBorder()
+        lConfirmPass.setBottomBorder()
+        
         
     }
     @IBAction func goToSignIn(_ sender: Any) {
@@ -94,6 +105,17 @@ class SignUpViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true, completion: nil)
         
+    }
+    //MARK: Methods to manage keybaord
+    @objc func keyboardWillHide(notification: Notification) {
+        let contentInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+    
+    @objc func keyboardWillShow(notification: Notification) {
+        guard let keyboardFrame: CGRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        scrollView.contentInset.bottom = keyboardFrame.height
     }
         
 }

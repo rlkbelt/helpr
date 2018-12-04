@@ -31,7 +31,10 @@
 		AC23225C219BD61F003EFB62 /* Date+timeAgoSinceDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC23225B219BD61F003EFB62 /* Date+timeAgoSinceDate.swift */; };
 		AC3604CD21AB46FB0004B219 /* UIViewController+AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3604CC21AB46FB0004B219 /* UIViewController+AuthError.swift */; };
 		AC3604CF21AB47570004B219 /* AuthErrorCode+errorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3604CE21AB47570004B219 /* AuthErrorCode+errorMessage.swift */; };
+		AC3E4FD821B74066009AA6FD /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3E4FD721B74066009AA6FD /* LaunchScreenViewController.swift */; };
 		ACB40CC721AF6BBA00477C1F /* JobInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB40CC621AF6BBA00477C1F /* JobInformation.swift */; };
+		ACBC29AE21B5F28E00EE1406 /* UITextField+BottomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBC29AD21B5F28E00EE1406 /* UITextField+BottomBorder.swift */; };
+		ACE3BCA321B0BF1E00D13E9F /* splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = ACE3BCA221B0BF1E00D13E9F /* splash.gif */; };
 		ACF49B37218FA68A0021A63C /* MyPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF49B36218FA68A0021A63C /* MyPostsTableViewCell.swift */; };
 		ACF49B39218FB8A00021A63C /* JobsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF49B38218FB8A00021A63C /* JobsTableViewCell.swift */; };
 		ACFD809821A7708D009D0182 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACFD809721A7708D009D0182 /* GoogleService-Info.plist */; };
@@ -102,7 +105,10 @@
 		AC23225B219BD61F003EFB62 /* Date+timeAgoSinceDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+timeAgoSinceDate.swift"; sourceTree = "<group>"; };
 		AC3604CC21AB46FB0004B219 /* UIViewController+AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AuthError.swift"; sourceTree = "<group>"; };
 		AC3604CE21AB47570004B219 /* AuthErrorCode+errorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthErrorCode+errorMessage.swift"; sourceTree = "<group>"; };
+		AC3E4FD721B74066009AA6FD /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		ACB40CC621AF6BBA00477C1F /* JobInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobInformation.swift; sourceTree = "<group>"; };
+		ACBC29AD21B5F28E00EE1406 /* UITextField+BottomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+BottomBorder.swift"; sourceTree = "<group>"; };
+		ACE3BCA221B0BF1E00D13E9F /* splash.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = splash.gif; sourceTree = "<group>"; };
 		ACF49B36218FA68A0021A63C /* MyPostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsTableViewCell.swift; sourceTree = "<group>"; };
 		ACF49B38218FB8A00021A63C /* JobsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewCell.swift; sourceTree = "<group>"; };
 		ACFD809721A7708D009D0182 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -186,6 +192,7 @@
 				AC3604CE21AB47570004B219 /* AuthErrorCode+errorMessage.swift */,
 				AC3604CC21AB46FB0004B219 /* UIViewController+AuthError.swift */,
 				AC01C7F421ABC13D000EEB37 /* ViewController+CameraHandling.swift */,
+				ACBC29AD21B5F28E00EE1406 /* UITextField+BottomBorder.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -226,6 +233,7 @@
 				4576E8B72188D84100471AB4 /* SignUpViewController.swift */,
 				CA2F724A21A3673B00AAF19F /* SkillsTableViewController.swift */,
 				CA2F724221A3667100AAF19F /* UpdateNameViewController.swift */,
+				AC3E4FD721B74066009AA6FD /* LaunchScreenViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -251,6 +259,14 @@
 				ACB40CC621AF6BBA00477C1F /* JobInformation.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		ACE3BCA121B0BF0F00D13E9F /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				ACE3BCA221B0BF1E00D13E9F /* splash.gif */,
+			);
+			path = Video;
 			sourceTree = "<group>";
 		};
 		ACFD809921A7766B009D0182 /* Backend */ = {
@@ -287,6 +303,7 @@
 		F783AB0021791E5B0010F034 /* helpr */ = {
 			isa = PBXGroup;
 			children = (
+				ACE3BCA121B0BF0F00D13E9F /* Video */,
 				ACFD809C21A77C7C009D0182 /* helpr.entitlements */,
 				ACFD809721A7708D009D0182 /* GoogleService-Info.plist */,
 				AC9682AE21A6000400A161D6 /* Model */,
@@ -446,6 +463,7 @@
 				ACFD809821A7708D009D0182 /* GoogleService-Info.plist in Resources */,
 				4576E8C22189003700471AB4 /* Assets.xcassets in Resources */,
 				F783AB0921791E5B0010F034 /* Main.storyboard in Resources */,
+				ACE3BCA321B0BF1E00D13E9F /* splash.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,10 +613,12 @@
 				CA2F724F21A3676F00AAF19F /* PaymentInfoViewController.swift in Sources */,
 				ACFD809B21A77694009D0182 /* DatabaseHelper.swift in Sources */,
 				CA2F724B21A3673B00AAF19F /* SkillsTableViewController.swift in Sources */,
+				AC3E4FD821B74066009AA6FD /* LaunchScreenViewController.swift in Sources */,
 				ACB40CC721AF6BBA00477C1F /* JobInformation.swift in Sources */,
 				AC23225C219BD61F003EFB62 /* Date+timeAgoSinceDate.swift in Sources */,
 				AC01C7EF21ABB684000EEB37 /* StorageHelper.swift in Sources */,
 				F783AB0421791E5B0010F034 /* PostAdTableViewController.swift in Sources */,
+				ACBC29AE21B5F28E00EE1406 /* UITextField+BottomBorder.swift in Sources */,
 				ACF49B37218FA68A0021A63C /* MyPostsTableViewCell.swift in Sources */,
 				AC3604CF21AB47570004B219 /* AuthErrorCode+errorMessage.swift in Sources */,
 				ACF49B39218FB8A00021A63C /* JobsTableViewCell.swift in Sources */,

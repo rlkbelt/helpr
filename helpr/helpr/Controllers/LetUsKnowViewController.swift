@@ -12,6 +12,8 @@ class LetUsKnowViewController: UIViewController {
     
     @IBOutlet weak var bStart: UIButton!
     @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var bSignIn: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,7 @@ class LetUsKnowViewController: UIViewController {
         let user = Auth.auth().currentUser
         if user != nil {
             welcomeLabel.text = "Welcome back, " + user!.displayName!.components(separatedBy: " ")[0]
+            bSignIn.setTitle("Switch account?" , for: .normal)
             print(user!.displayName! + " signed in.")
         }else{
             print("No user signed-in")
@@ -30,6 +33,7 @@ class LetUsKnowViewController: UIViewController {
         bStart.layer.borderColor = UIColor(named: "RoyalPurple")?.cgColor
         
     }
+
 
 
 }

@@ -21,7 +21,9 @@ class MyPostsTableViewController: UITableViewController, UISearchResultsUpdating
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        filteredJobs = HomeTableViewController.jobs
+        filteredJobs = loadMyPosts()
+        tableView.reloadData()
+
         isPurple = false
 
         
@@ -46,7 +48,7 @@ class MyPostsTableViewController: UITableViewController, UISearchResultsUpdating
         if isFiltering() {
             return filteredJobs.count
         }
-        return HomeTableViewController.jobs.count
+        return filteredJobs.count
         
     }
 
@@ -64,7 +66,7 @@ class MyPostsTableViewController: UITableViewController, UISearchResultsUpdating
         if isFiltering() {
             job = filteredJobs[indexPath.row]
         } else {
-            job = HomeTableViewController.jobs[indexPath.row]
+            job = filteredJobs[indexPath.row]
         }
         
         cell.layer.cornerRadius = 10.0
@@ -142,7 +144,7 @@ class MyPostsTableViewController: UITableViewController, UISearchResultsUpdating
             if isFiltering() {
                 selectedJob = filteredJobs[indexPath.row]
             } else {
-                selectedJob = HomeTableViewController.jobs[indexPath.row]
+                selectedJob = filteredJobs[indexPath.row]
             }
             
             jobViewController.job = selectedJob
@@ -159,12 +161,10 @@ class MyPostsTableViewController: UITableViewController, UISearchResultsUpdating
     // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-            filteredJobs = HomeTableViewController.jobs.filter { job in
+            filteredJobs = filteredJobs.filter { job in
                 return job.information.category.lowercased().contains(searchText.lowercased())
             }
             
-        } else {
-            filteredJobs = HomeTableViewController.jobs
         }
         tableView.reloadData()
     }
@@ -177,5 +177,21 @@ class MyPostsTableViewController: UITableViewController, UISearchResultsUpdating
     
     private func isFiltering() -> Bool {
         return searchController.isActive && !searchBarIsEmpty()
+    }
+    
+    private func loadMyPosts() -> [Job]{
+        var jobs = HomeTableViewController.jobs
+        let user = UserProfile.loadProfile()
+        for (index, job) in jobs.enumerated() {
+            
+            if job.information.email == user?.email {
+                print("I wrote this email!")
+            }else{
+                print("I did not write this email!")
+                jobs = jobs.filter({$0 !== job})
+            }
+        }
+        return jobs
+
     }
 }
