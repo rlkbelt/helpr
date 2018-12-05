@@ -40,6 +40,10 @@ class SignInViewController: UIViewController {
         passwordField.setBottomBorder()
         
     }
+    @IBAction func cancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func signInDidPress(_ sender: Any) {
         let email = emailField.text!
         let password = passwordField.text!

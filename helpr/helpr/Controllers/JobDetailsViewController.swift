@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JobDetailsViewController: UIViewController {
+class JobDetailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var job : Job?
     var bidAmmount : Double = 0
@@ -20,12 +20,18 @@ class JobDetailsViewController: UIViewController {
     @IBOutlet weak var bidButton: UIButton!
     @IBOutlet weak var jobCategory: UILabel!
     @IBOutlet weak var jobPostedTime: UILabel!
+    @IBOutlet weak var jobPhotos: UICollectionView!
+    @IBOutlet weak var jobPicsControl: UIPageControl!
     
-
+    var arrJobPhotos = [UIImage]() //allow update of UICollectionViewCells
+    var indexPathForCell : IndexPath = [] //variable to allow updating of photos
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        jobPhotos.delegate = self
+        jobPhotos.dataSource = self
+        
         bidButton.layer.cornerRadius = 5
         
         jobDescription.layer.cornerRadius = 8;
@@ -33,10 +39,15 @@ class JobDetailsViewController: UIViewController {
             navigationItem.title = job.information.category
             jobTitle.text = job.information.title
             jobDescription.text = job.information.postDescription
-            jobPic.image = job.pictureData[0]
+            //jobPic.image = job.pictureData[0]
+            arrJobPhotos.insert(job.pictureData[0], at: 0)
             jobCategory.text = job.information.category
             jobPostedTime.text = job.information.postedTime.timeAgoSinceDate(currentDate: Date(), numericDates: true)
         }
+        arrJobPhotos.insert(UIImage(named: "TechDefault")!, at: 1)
+        arrJobPhotos.insert(UIImage(named: "defaultPhoto")!, at: 2)
+        self.jobPhotos.reloadData()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -71,6 +82,28 @@ class JobDetailsViewController: UIViewController {
         
         // Try to convert to an Int.
         
+    }
+    
+    //MARK: - CollectionView methods
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as! ImageCollectionViewCell
+        cell.jobPhoto.image = arrJobPhotos[indexPath.row]
+        return cell
+        
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        jobPicsControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let thisWidth = CGFloat(view.frame.width)
+        return CGSize(width: thisWidth, height: view.frame.height)
     }
     
     
