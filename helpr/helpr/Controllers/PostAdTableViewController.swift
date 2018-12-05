@@ -303,9 +303,12 @@ class PostAdTableViewController: UITableViewController, UITextViewDelegate, UICo
         }
         
         // Set photoImageView to display the selected image.
-        let itemCount = postPhotos.count
-        
-        postPhotos[indexPathForCell.row] = selectedImage
+        if (!customPhotoAdded) {
+            postPhotos[0] = selectedImage
+        }
+        else {
+            postPhotos[indexPathForCell.row] = selectedImage
+        }
         customPhotoAdded = true
         
         checkAddPhoto()
