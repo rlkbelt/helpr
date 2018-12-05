@@ -26,6 +26,24 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
         filteredJobs = HomeTableViewController.jobs
         isPurple = false
         
+        //set jobsSegment styling
+        //clear background and tint color attributes
+        //jobsSegment.backgroundColor = .clear
+        //jobsSegment.tintColor = .clear
+        
+        //set the segmentedControl's tintColor (fontColor) for normal and selected circumstances
+        jobsSegment.setTitleTextAttributes([
+            NSAttributedString.Key.font : UIFont(name: "DINCondensed-Bold", size: 20),
+            NSAttributedString.Key.foregroundColor: UIColor.lightGray, NSAttributedString.Key.underlineStyle: 0.0
+            ], for: .normal)
+            
+        jobsSegment.setTitleTextAttributes([
+            NSAttributedString.Key.font : UIFont(name: "DINCondensed-Bold", size: 20),
+            NSAttributedString.Key.foregroundColor: UIColor(named: "RoyalPurple"), NSAttributedString.Key.underlineStyle: 1.0
+            ], for: .selected)
+        
+        
+        
 //        searchController.searchResultsUpdater = self
 //        searchController.hidesNavigationBarDuringPresentation = false
 //        searchController.dimsBackgroundDuringPresentation = false
