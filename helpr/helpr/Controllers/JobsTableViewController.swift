@@ -3,6 +3,7 @@
 //  helpr
 //
 //  Created by adrian.parcioaga on 2018-10-30.
+//  Updated by walter.alvarez on 2018-12-06.
 //  Copyright © 2018 ryan.konynenbelt. All rights reserved.
 //
 
@@ -13,35 +14,43 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
 
     //MARK: Properties
     @IBOutlet weak var jobsSegment: UISegmentedControl!
+    var jobsSegment2 = UISegmentedControl()
+    @IBOutlet weak var JobsTableView: UITableView!
     
     //var jobs = HomeTableViewController.jobs
     var filteredJobs = [Job]()
     var isPurple = Bool()
     
     let searchController = UISearchController(searchResultsController: nil)
-
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setNeedsStatusBarAppearanceUpdate()
         filteredJobs = HomeTableViewController.jobs
         isPurple = false
         
-        //set jobsSegment styling
-        //clear background and tint color attributes
-        //jobsSegment.backgroundColor = .clear
-        //jobsSegment.tintColor = .clear
-        
-        //set the segmentedControl's tintColor (fontColor) for normal and selected circumstances
-        jobsSegment.setTitleTextAttributes([
+        //set jobsSegment text styling and sizing
+
+       /* jobsSegment.setTitleTextAttributes([
             NSAttributedString.Key.font : UIFont(name: "DINCondensed-Bold", size: 20),
             NSAttributedString.Key.foregroundColor: UIColor.lightGray, NSAttributedString.Key.underlineStyle: 0.0
             ], for: .normal)
-            
+        
         jobsSegment.setTitleTextAttributes([
             NSAttributedString.Key.font : UIFont(name: "DINCondensed-Bold", size: 20),
-            NSAttributedString.Key.foregroundColor: UIColor(named: "RoyalPurple"), NSAttributedString.Key.underlineStyle: 1.0
+            NSAttributedString.Key.foregroundColor: UIColor(named: "RoyalPurple"), NSAttributedString.Key.underlineStyle: 0.0
             ], for: .selected)
+      */
+        //scale segmentedControl
+        jobsSegment.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
+    //JobsTableView.estimatedSectionHeaderHeight = jobsSegment.frame.height 
         
+        //JobsTableView.tableHeaderView = jobsSegment
         
         
 //        searchController.searchResultsUpdater = self
@@ -54,7 +63,15 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
     }
 
     // MARK: - Table view data source
-
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let v = UIView()
+        v.backgroundColor = .white
+        
+ 
+        v.addSubview(jobsSegment)
+        return v
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -65,7 +82,6 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
         }
         return HomeTableViewController.jobs.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -74,7 +90,6 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? JobsTableViewCell else {
             fatalError("The dequeued cell is not an instance of JobsTableViewCell")
         }
-        
         // fetches the appropriate job for the data source layout
         let job : Job
         if (jobsSegment.selectedSegmentIndex == 0) {
@@ -204,6 +219,7 @@ class JobsTableViewController: UITableViewController, UISearchResultsUpdating {
         return searchController.isActive && !searchBarIsEmpty()
     }
     @IBAction func switchJobsView(_ sender: UISegmentedControl) {
+        print(sender.selectedSegmentIndex)
         self.tableView.reloadData()
     }
 }

@@ -1,5 +1,5 @@
 //
-//  MyPostsTableViewController.swift
+//  MessagesTableViewController.swift
 //  helpr
 //
 //  Created by adrian.parcioaga on 2018-10-30.
@@ -9,7 +9,7 @@
 
 import UIKit
 import os.log
-class MyPostsTableViewController: UITableViewController, UISearchResultsUpdating {
+class MessagesTableViewController: UITableViewController, UISearchResultsUpdating {
 
     
     //MARK: Properties

@@ -62,8 +62,8 @@
                                             <action selector="bidOnClick:" destination="sBI-Rt-p2d" eventType="touchUpInside" id="dVJ-Em-x1Y"/>
                                         </connections>
                                     </button>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AEM-8L-Oea" userLabel="Job Photos">
-                                        <rect key="frame" x="0.0" y="-8" width="373" height="336"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AEM-8L-Oea" userLabel="Job Photos">
+                                        <rect key="frame" x="0.0" y="-8" width="375" height="336"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cfh-SS-RYi">
@@ -96,9 +96,12 @@
                                             <outlet property="delegate" destination="sBI-Rt-p2d" id="Dgg-QV-rNL"/>
                                         </connections>
                                     </collectionView>
-                                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="84O-JW-nGn">
+                                    <pageControl contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="84O-JW-nGn">
                                         <rect key="frame" x="0.0" y="290" width="375" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="changePhoto:" destination="sBI-Rt-p2d" eventType="valueChanged" id="gWZ-eu-lB9"/>
+                                        </connections>
                                     </pageControl>
                                 </subviews>
                             </scrollView>
@@ -208,19 +211,20 @@
         <!--Job-->
         <scene sceneID="xP5-qA-gug">
             <objects>
-                <tableViewController id="Yes-Bf-das" userLabel="Job" customClass="JobsTableViewController" customModule="helpr" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="280" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YgU-ca-sfI">
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="Yes-Bf-das" userLabel="Job" customClass="JobsTableViewController" customModule="helpr" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="280" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" id="YgU-ca-sfI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <segmentedControl key="tableHeaderView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" id="QGl-vY-KdD">
+                        <segmentedControl key="tableHeaderView" autoresizesSubviews="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" id="QGl-vY-KdD">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <segments>
                                 <segment title="Providing Help"/>
                                 <segment title="Requesting Help"/>
                             </segments>
-                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" name="RoyalPurple"/>
                             <connections>
                                 <action selector="switchJobsView:" destination="Yes-Bf-das" eventType="valueChanged" id="ael-Qc-6FK"/>
                             </connections>
@@ -295,6 +299,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="JobsTableView" destination="YgU-ca-sfI" id="U4q-7U-u7R"/>
                         <outlet property="jobsSegment" destination="QGl-vY-KdD" id="BNo-mz-zdD"/>
                     </connections>
                 </tableViewController>
@@ -302,10 +307,10 @@
             </objects>
             <point key="canvasLocation" x="-948" y="1437.9310344827586"/>
         </scene>
-        <!--My Posts-->
+        <!--Messages-->
         <scene sceneID="RSY-1B-I24">
             <objects>
-                <tableViewController id="eTq-SA-Pnq" userLabel="My Posts" customClass="MyPostsTableViewController" customModule="helpr" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="eTq-SA-Pnq" customClass="MessagesTableViewController" customModule="helpr" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="280" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="j8e-B7-P38">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -11033,7 +11038,7 @@ AAAABAEAAAAAAAAAWQAAAAAAAAAAAAAAAAAIBZk
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Hot-sp-g1e"/>
-        <segue reference="Oum-yd-8WK"/>
+        <segue reference="edr-cc-jQm"/>
         <segue reference="uSO-N3-VNA"/>
         <segue reference="WXI-hz-ulL"/>
     </inferredMetricsTieBreakers>

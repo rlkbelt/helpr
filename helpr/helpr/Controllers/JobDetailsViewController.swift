@@ -26,6 +26,10 @@ class JobDetailsViewController: UIViewController, UICollectionViewDataSource, UI
     var arrJobPhotos = [UIImage]() //allow update of UICollectionViewCells
     var indexPathForCell : IndexPath = [] //variable to allow updating of photos
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -96,9 +100,11 @@ class JobDetailsViewController: UIViewController, UICollectionViewDataSource, UI
         return cell
         
     }
-    
+
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        jobPicsControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+        //round to nearest page, though with paging enabled this should never have a rounding problem
+        let width = scrollView.frame.size.width;
+        jobPicsControl.currentPage = Int((scrollView.contentOffset.x + (0.5 * width)) / width);
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -106,6 +112,12 @@ class JobDetailsViewController: UIViewController, UICollectionViewDataSource, UI
         return CGSize(width: thisWidth, height: view.frame.height)
     }
     
+ 
+    //update photo displayed when pageControl dot is tapped
+    @IBAction func changePhoto(_ sender: UIPageControl) {
+        
+        self.jobPhotos.contentOffset.x = CGFloat(Int(self.jobPhotos.frame.width) * jobPicsControl.currentPage)
+    }
     
     // MARK: - Private Methods
 

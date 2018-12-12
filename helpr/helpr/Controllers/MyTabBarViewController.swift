@@ -13,6 +13,10 @@ class MyTabBarViewController: UITabBarController {
     let selectedIcons: [String] = ["homeENBL", "jobsENBL", "postENBL", "mypostsENBL", "accountENBL"]
     let unselectedIcons: [String] = ["home", "jobs", "post", "myposts", "account"]
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
